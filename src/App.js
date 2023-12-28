@@ -679,7 +679,7 @@ function App() {
 
   /* FOR TOP MENU FOR TABLETS:
 <div style={{zIndex:1,position:"fixed",right:0,top:0,width:"100%"}}>
-  <div style={{borderRadius:"0px 0px 8px 8px",paddingLeft:6,margin:"auto",textAlign:"left",color:"#222222",height:barHeight,right:0,top:0,width:475,backgroundColor:"#DFDFDF"}}>
+  <div style={{borderRadius:"8px 8px 8px 8px",paddingLeft:6,margin:"auto",textAlign:"left",color:"#222222",height:barHeight,right:0,top:0,width:475,backgroundColor:"#DFDFDF"}}>
     <div style={{cursor:"pointer",letterSpacing:-5,fontSize:32, fontFamily: "'Rubik Mono One', sans-serif"}}>
 
       <span style={{margin:5,borderLeft:"1px solid #888888",height:barHeight}} onClick={async ()=>{
@@ -757,7 +757,7 @@ function App() {
           whiteSpace: "nowrap",
           letterSpacing: -1,
           fontSize: 14,
-          margin: 4,
+          margin: "8px 4px",
           borderRadius: "8px 8px 8px 8px",
           padding: 6,
           textAlign: "center",
@@ -776,7 +776,7 @@ function App() {
           let item = global.customNodeItems[global.customNodes[n].name][i];
           //console.log("Add item",item)
           items.push([
-            <div style={{ ...positionStyle, top: 50 + itemspace * i }}>
+            <div>
               <Dragger
                 key={"dragger" + n + "_" + i}
                 name={item.title}
@@ -819,38 +819,8 @@ function App() {
         }
 
         if (global.customNodes[n].name == "Modules") {
-          /*
-          items.push(<div key={"bar4"} style={{padding:4,position:"absolute",bottom:itemspace*4,width:"80%",borderTop:"1px solid #888888"}}></div>)
-
-          let count = 3
-          for(let m in global.modules){
-            items.push(
-              <Dragger key={"draggercustom"+m} name={m}  drop={(name,x,y)=>{
-                  //console.log("DO A DROP AT ",name,x,y)
-                  setMenu("")
-
-                  localStorage.setItem("litegrapheditor_clipboard",JSON.stringify(global.modules[m]))
-                  global.graph.canvas.last_mouse_position[0] = width/2
-                  global.graph.canvas.last_mouse_position[1] = height/2
-                  global.graph.canvas.pasteFromClipboard()
-                  global.graph.canvas.setDirty(true);
-                  global.graph.canvas.graph.change();
-                }}>
-                  <div style={{...style,bottom:itemspace*count++}}>
-                    {m}
-                  </div>
-              </Dragger>
-            )
-          }
-
-          //items.push(<div key ={"bar3"} style={{padding:10,position:"absolute",bottom:itemspace*3,width:"100%",borderTop:"1px solid #999999"}}></div>)
-
-          items.push(<div key={"bar3"} style={{padding:4,position:"absolute",bottom:itemspace*2,width:"80%",borderTop:"1px solid #888888"}}></div>)
-
-          */
-
           items.push(
-            <div style={{ ...positionStyle, bottom: itemspace * 1 }}>
+            <div>
               <div
                 onMouseUp={() => {
                   console.log("copying global to canvas");
@@ -929,8 +899,9 @@ function App() {
                   transform: "rotate(90deg)",
                   transformOrigin: "63% 52%",
                   height: itemspace * items.length + 80,
+                  width: "100%",
                   position: "relative",
-                  borderRadius: "0px 0px 8px 8px",
+                  borderRadius: "8px 8px 8px 8px",
                   padding: 6,
                   textAlign: "center",
                   letterSpacing: -1,
@@ -966,7 +937,7 @@ function App() {
                 style={{
                   height: itemspace * items.length + 80,
                   position: "relative",
-                  borderRadius: "8px 8px 0px 0px",
+                  borderRadius: "8px 8px 8px 8px",
                   padding: 6,
                   textAlign: "center",
                   letterSpacing: -1,
@@ -1004,7 +975,7 @@ function App() {
                   transformOrigin: "46% 76%",
                   height: itemspace * items.length + 80,
                   position: "relative",
-                  borderRadius: "0px 0px 8px 8px",
+                  borderRadius: "8px 8px 8px 8px",
                   padding: 6,
                   textAlign: "center",
                   letterSpacing: -1,
@@ -1040,7 +1011,7 @@ function App() {
                 style={{
                   height: itemspace * items.length + 80,
                   position: "relative",
-                  borderRadius: "8px 8px 0px 0px",
+                  borderRadius: "8px 8px 8px 8px",
                   padding: 6,
                   textAlign: "center",
                   letterSpacing: -1,
@@ -1059,7 +1030,7 @@ function App() {
           customNodes.push(
             <Grid
               key={"girdder" + n}
-              onMouseLeave={mouseLeave}
+              // onMouseLeave={mouseLeave}
               item
               style={{
                 zIndex: 3,
@@ -1067,15 +1038,12 @@ function App() {
                 fontSize: tabFontSize,
                 fontFamily: "'Rubik Mono One', sans-serif",
               }}
-              onClick={() => {
-                setMenu(global.customNodes[n].name);
-              }}
             >
               <div
                 style={{
-                  width: itemspace * items.length + 80,
                   position: "relative",
-                  borderRadius: "0px 0px 8px 8px",
+                  width: "100%",
+                  borderRadius: "8px 8px 8px 8px",
                   padding: 6,
                   textAlign: "center",
                   letterSpacing: -1,
@@ -1103,8 +1071,8 @@ function App() {
             customNodes.push(
               <Grid
                 key={"grd" + n}
-                onMouseLeave={mouseLeave}
-                onMouseEnter={mouseEnter.bind(this, global.customNodes[n].name)}
+                // onMouseLeave={mouseLeave}
+                // onMouseEnter={mouseEnter.bind(this, global.customNodes[n].name)}
                 item
                 style={{
                   cursor: "pointer",
@@ -1124,7 +1092,7 @@ function App() {
               >
                 <div
                   style={{
-                    borderRadius: "0px 0px 8px 8px",
+                    borderRadius: "8px 8px 8px 8px",
                     padding: 6,
                     paddingTop: 16,
                     paddingBottom: 8,
@@ -1157,18 +1125,14 @@ function App() {
                 fontFamily: "'Rubik Mono One', sans-serif",
               }}
               onClick={(e) => {
-                //if(e.pageY<height-80){
-                //  setMenu("")
-                //}else{
                 setMenu(global.customNodes[n].name);
-                //}
               }}
             >
               <div
                 style={{
                   transform: "rotate(-90deg)",
                   transformOrigin: "100px 30px",
-                  borderRadius: "8px 8px 0px 0px",
+                  borderRadius: "8px 8px 8px 8px",
                   padding: 6,
                   textAlign: "center",
                   color: "#222222",
@@ -1205,7 +1169,7 @@ function App() {
             >
               <div
                 style={{
-                  borderRadius: "8px 8px 0px 0px",
+                  borderRadius: "8px 8px 8px 8px",
                   padding: 6,
                   textAlign: "center",
                   color: "#222222",
@@ -1235,18 +1199,14 @@ function App() {
                 fontFamily: "'Rubik Mono One', sans-serif",
               }}
               onClick={(e) => {
-                //if(e.pageY<height-80){
-                //  setMenu("")
-                //}else{
                 setMenu(global.customNodes[n].name);
-                //}
               }}
             >
               <div
                 style={{
                   transform: "rotate(90deg)",
                   transformOrigin: "22px 30px",
-                  borderRadius: "8px 8px 0px 0px",
+                  borderRadius: "8px 8px 8px 8px",
                   padding: 6,
                   textAlign: "center",
                   color: "#222222",
@@ -1283,7 +1243,7 @@ function App() {
             >
               <div
                 style={{
-                  borderRadius: "8px 8px 0px 0px",
+                  borderRadius: "8px 8px 8px 8px",
                   padding: 6,
                   textAlign: "center",
                   color: "#222222",
@@ -1301,8 +1261,8 @@ function App() {
           customNodes.push(
             <Grid
               key={"grd" + n}
-              onMouseLeave={mouseLeave}
-              onMouseEnter={mouseEnter.bind(this, global.customNodes[n].name)}
+              // onMouseLeave={mouseLeave}
+              // onMouseEnter={mouseEnter.bind(this, global.customNodes[n].name)}
               item
               style={{
                 cursor: "pointer",
@@ -1311,16 +1271,14 @@ function App() {
                 fontFamily: "'Rubik Mono One', sans-serif",
               }}
               onClick={(e) => {
-                if (e.pageY > 60) {
+                if (menu === global.customNodes[n].name) {
                   setMenu("");
-                } else {
-                  setMenu(global.customNodes[n].name);
-                }
+                } else setMenu(global.customNodes[n].name);
               }}
             >
               <div
                 style={{
-                  borderRadius: "0px 0px 8px 8px",
+                  borderRadius: "8px 8px 8px 8px",
                   padding: 6,
                   paddingTop: 16,
                   paddingBottom: 8,
@@ -1358,7 +1316,6 @@ function App() {
           height: "100%",
         }}
         onClick={() => {
-          setMenu("");
           if (global.graph && global.graph.canvas.search_box)
             global.graph.canvas.search_box.close();
         }}
@@ -1558,7 +1515,7 @@ function App() {
         >
           <div
             style={{
-              borderRadius: "8px 0px 0px 8px",
+              borderRadius: "8px 8px 8px 8px",
               textAlign: "left",
               color: "#dddddd",
               height: 400,
@@ -1694,7 +1651,7 @@ function App() {
       >
         <div
           style={{
-            borderRadius: "8px 8px 0px 0px",
+            borderRadius: "8px 8px 8px 8px",
             paddingLeft: 6,
             margin: "auto",
             textAlign: "left",
@@ -2072,7 +2029,13 @@ function App() {
                 <Icon onClick={() => setShowMenu(false)}>close</Icon>
               </Tooltip>
             </Grid>
-            <Grid item md={12}>
+            <Grid
+              container
+              item
+              md={12}
+              spacing={2}
+              style={{ flexDirection: "column", padding: "0 16px" }}
+            >
               {customNodes}
             </Grid>
           </Grid>
@@ -2107,7 +2070,7 @@ function App() {
   );
 }
 
-//,borderRadius:"16px 16px 0px 0px"
+//,borderRadius:"16px 16px 8px 8px"
 
 function useWindowSize() {
   let [size, setSize] = React.useState([0, 0]);
