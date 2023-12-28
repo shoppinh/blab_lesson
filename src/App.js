@@ -818,256 +818,42 @@ function App() {
           ]);
         }
 
-        if (global.customNodes[n].name == "Modules") {
-          items.push(
-            <div>
-              <div
-                onMouseUp={() => {
-                  console.log("copying global to canvas");
-                  global.graph.canvas.copyToClipboard();
-                  let item = localStorage.getItem("litegrapheditor_clipboard");
-                  console.log(item);
-
-                  let webfile =
-                    `<?xml version="1.0" encoding="UTF-8"?>
-  <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-  <plist version="1.0">
-  <dict>
-    <key>URL</key>
-    <string>https://eth.build/` +
-                    codec.compress(item) +
-                    `</string>
-  </dict>
-  </plist>
-    `;
-
-                  var file = new Blob([item]);
-                  var url = URL.createObjectURL(file);
-                  var element = document.createElement("a");
-                  element.setAttribute("href", url);
-                  element.setAttribute("download", "eth.build.module");
-                  element.style.display = "none";
-                  if (document.body) {
-                    document.body.appendChild(element);
-                    element.click();
-                    document.body.removeChild(element);
-                    setTimeout(function () {
-                      URL.revokeObjectURL(url);
-                    }, 1000 * 60);
-                    setOpenSaveDialog(false);
-                  }
-                }}
-                style={{ ...style, bottom: itemspace * 1 }}
-              >
-                Save
-              </div>
-            </div>
-          );
-          items.push(
-            <div style={{ ...positionStyle, bottom: itemspace * 2 }}>
-              <div
-                onMouseUp={() => {
-                  document.getElementById("moduleloader").click();
-                }}
-                style={{ ...style, bottom: 0 }}
-              >
-                Load
-              </div>
-            </div>
-          );
-        }
-
-        if (width < 1000 && global.customNodes[n].name == "Modules") {
-          extraTabs.push(
+        customNodes.push(
+          <Grid
+            key={"girdder" + n}
+            // onMouseLeave={mouseLeave}
+            item
+            style={{
+              zIndex: 3,
+              cursor: "pointer",
+              fontSize: tabFontSize,
+              fontFamily: "'Rubik Mono One', sans-serif",
+            }}
+          >
             <div
-              onMouseLeave={mouseLeave}
               style={{
-                position: "absolute",
-                bottom: 0,
-                right: 80,
-                zIndex: 3,
-                cursor: "pointer",
-                fontSize: tabFontSize,
-                fontFamily: "'Rubik Mono One', sans-serif",
-              }}
-              onClick={() => {
-                setMenu(global.customNodes[n].name);
+                position: "relative",
+                width: "100%",
+                borderRadius: "8px 8px 8px 8px",
+                padding: 6,
+                textAlign: "center",
+                letterSpacing: -1,
+                color: "#888888",
+                backgroundColor: "#222222",
+                opacity: 0.9,
               }}
             >
-              <div
-                style={{
-                  transform: "rotate(90deg)",
-                  transformOrigin: "63% 52%",
-                  height: itemspace * items.length + 80,
-                  width: "100%",
-                  position: "relative",
-                  borderRadius: "8px 8px 8px 8px",
-                  padding: 6,
-                  textAlign: "center",
-                  letterSpacing: -1,
-                  color: "#888888",
-                  backgroundColor: "#222222",
-                  opacity: 0.9,
-                }}
-              >
-                {global.customNodes[n].name}
+              {width > 800
+                ? global.customNodes[n].name
+                : global.customNodes[n].icon}
 
-                {items}
-              </div>
+              {items}
             </div>
-          );
-        } else if (global.customNodes[n].name == "Modules") {
-          extraTabs.push(
-            <div
-              onMouseLeave={mouseLeave}
-              style={{
-                position: "absolute",
-                bottom: 0,
-                right: 80,
-                zIndex: 3,
-                cursor: "pointer",
-                fontSize: tabFontSize,
-                fontFamily: "'Rubik Mono One', sans-serif",
-              }}
-              onClick={() => {
-                setMenu(global.customNodes[n].name);
-              }}
-            >
-              <div
-                style={{
-                  height: itemspace * items.length + 80,
-                  position: "relative",
-                  borderRadius: "8px 8px 8px 8px",
-                  padding: 6,
-                  textAlign: "center",
-                  letterSpacing: -1,
-                  color: "#888888",
-                  backgroundColor: "#222222",
-                  opacity: 0.9,
-                }}
-              >
-                {global.customNodes[n].name}
-
-                {items}
-              </div>
-            </div>
-          );
-        } else if (width < 1000 && global.customNodes[n].name == "Components") {
-          extraTabs.push(
-            <div
-              onMouseLeave={mouseLeave}
-              style={{
-                position: "absolute",
-                bottom: 0,
-                left: 80,
-                zIndex: 3,
-                cursor: "pointer",
-                fontSize: tabFontSize,
-                fontFamily: "'Rubik Mono One', sans-serif",
-              }}
-              onClick={() => {
-                setMenu(global.customNodes[n].name);
-              }}
-            >
-              <div
-                style={{
-                  transform: "rotate(90deg)",
-                  transformOrigin: "46% 76%",
-                  height: itemspace * items.length + 80,
-                  position: "relative",
-                  borderRadius: "8px 8px 8px 8px",
-                  padding: 6,
-                  textAlign: "center",
-                  letterSpacing: -1,
-                  color: "#888888",
-                  backgroundColor: "#222222",
-                  opacity: 0.9,
-                }}
-              >
-                {global.customNodes[n].name}
-
-                {items}
-              </div>
-            </div>
-          );
-        } else if (global.customNodes[n].name == "Components") {
-          extraTabs.push(
-            <div
-              onMouseLeave={mouseLeave}
-              style={{
-                position: "absolute",
-                bottom: 0,
-                left: 80,
-                zIndex: 3,
-                cursor: "pointer",
-                fontSize: tabFontSize,
-                fontFamily: "'Rubik Mono One', sans-serif",
-              }}
-              onClick={() => {
-                setMenu(global.customNodes[n].name);
-              }}
-            >
-              <div
-                style={{
-                  height: itemspace * items.length + 80,
-                  position: "relative",
-                  borderRadius: "8px 8px 8px 8px",
-                  padding: 6,
-                  textAlign: "center",
-                  letterSpacing: -1,
-                  color: "#888888",
-                  backgroundColor: "#222222",
-                  opacity: 0.9,
-                }}
-              >
-                {global.customNodes[n].name}
-
-                {items}
-              </div>
-            </div>
-          );
-        } else {
-          customNodes.push(
-            <Grid
-              key={"girdder" + n}
-              // onMouseLeave={mouseLeave}
-              item
-              style={{
-                zIndex: 3,
-                cursor: "pointer",
-                fontSize: tabFontSize,
-                fontFamily: "'Rubik Mono One', sans-serif",
-              }}
-            >
-              <div
-                style={{
-                  position: "relative",
-                  width: "100%",
-                  borderRadius: "8px 8px 8px 8px",
-                  padding: 6,
-                  textAlign: "center",
-                  letterSpacing: -1,
-                  color: "#888888",
-                  backgroundColor: "#222222",
-                  opacity: 0.9,
-                }}
-              >
-                {width > 800
-                  ? global.customNodes[n].name
-                  : global.customNodes[n].icon}
-
-                {items}
-              </div>
-            </Grid>
-          );
-        }
+          </Grid>
+        );
       } else {
         if (drawing) {
-          if (
-            global.customNodes[n].name != "Modules" &&
-            global.customNodes[n].name != "Special" &&
-            global.customNodes[n].name != "Components"
-          ) {
+          if (global.customNodes[n].name != "Special") {
             customNodes.push(
               <Grid
                 key={"grd" + n}
@@ -1108,154 +894,6 @@ function App() {
           }
 
           //setDrawingColor
-        } else if (width < 1000 && global.customNodes[n].name == "Modules") {
-          extraTabs.push(
-            <div
-              onMouseLeave={mouseLeave}
-              onMouseEnter={mouseEnter.bind(this, global.customNodes[n].name)}
-              style={{
-                overflow: "hidden",
-                position: "absolute",
-                bottom: 80,
-                height: 200,
-                right: 0,
-                zIndex: 3,
-                cursor: "pointer",
-                fontSize: tabFontSize,
-                fontFamily: "'Rubik Mono One', sans-serif",
-              }}
-              onClick={(e) => {
-                setMenu(global.customNodes[n].name);
-              }}
-            >
-              <div
-                style={{
-                  transform: "rotate(-90deg)",
-                  transformOrigin: "100px 30px",
-                  borderRadius: "8px 8px 8px 8px",
-                  padding: 6,
-                  textAlign: "center",
-                  color: "#222222",
-                  height: 200,
-                  backgroundColor: "#" + global.customNodes[n].color,
-                  opacity: 0.6,
-                }}
-              >
-                {global.customNodes[n].name}
-              </div>
-            </div>
-          );
-        } else if (global.customNodes[n].name == "Modules") {
-          extraTabs.push(
-            <div
-              onMouseLeave={mouseLeave}
-              onMouseEnter={mouseEnter.bind(this, global.customNodes[n].name)}
-              style={{
-                position: "absolute",
-                bottom: 0,
-                right: 80,
-                zIndex: 3,
-                cursor: "pointer",
-                fontSize: tabFontSize,
-                fontFamily: "'Rubik Mono One', sans-serif",
-              }}
-              onClick={(e) => {
-                if (e.pageY < height - 80) {
-                  setMenu("");
-                } else {
-                  setMenu(global.customNodes[n].name);
-                }
-              }}
-            >
-              <div
-                style={{
-                  borderRadius: "8px 8px 8px 8px",
-                  padding: 6,
-                  textAlign: "center",
-                  color: "#222222",
-                  height: 30,
-                  backgroundColor: "#" + global.customNodes[n].color,
-                  opacity: 0.6,
-                }}
-              >
-                {global.customNodes[n].name}
-              </div>
-            </div>
-          );
-        } else if (width < 1000 && global.customNodes[n].name == "Components") {
-          extraTabs.push(
-            <div
-              onMouseLeave={mouseLeave}
-              onMouseEnter={mouseEnter.bind(this, global.customNodes[n].name)}
-              style={{
-                overflow: "hidden",
-                position: "absolute",
-                bottom: 80,
-                height: 200,
-                left: 0,
-                zIndex: 3,
-                cursor: "pointer",
-                fontSize: tabFontSize,
-                fontFamily: "'Rubik Mono One', sans-serif",
-              }}
-              onClick={(e) => {
-                setMenu(global.customNodes[n].name);
-              }}
-            >
-              <div
-                style={{
-                  transform: "rotate(90deg)",
-                  transformOrigin: "22px 30px",
-                  borderRadius: "8px 8px 8px 8px",
-                  padding: 6,
-                  textAlign: "center",
-                  color: "#222222",
-                  height: 200,
-                  backgroundColor: "#" + global.customNodes[n].color,
-                  opacity: 0.6,
-                }}
-              >
-                {global.customNodes[n].name}
-              </div>
-            </div>
-          );
-        } else if (global.customNodes[n].name == "Components") {
-          extraTabs.push(
-            <div
-              onMouseLeave={mouseLeave}
-              onMouseEnter={mouseEnter.bind(this, global.customNodes[n].name)}
-              style={{
-                position: "absolute",
-                bottom: 0,
-                left: 80,
-                zIndex: 3,
-                cursor: "pointer",
-                fontSize: tabFontSize,
-                fontFamily: "'Rubik Mono One', sans-serif",
-              }}
-              onClick={(e) => {
-                if (e.pageY < height - 80) {
-                  setMenu("");
-                } else {
-                  setMenu(global.customNodes[n].name);
-                }
-              }}
-            >
-              <div
-                style={{
-                  borderRadius: "8px 8px 8px 8px",
-                  padding: 6,
-                  textAlign: "center",
-                  color: "#222222",
-                  height: 30,
-                  backgroundColor: "#" + global.customNodes[n].color,
-                  opacity: 0.6,
-                }}
-              >
-                {global.customNodes[n].name}
-              </div>
-            </div>
-          );
         } else if (global.customNodes[n].name == "Special") {
         } else {
           customNodes.push(
@@ -1316,6 +954,7 @@ function App() {
           height: "100%",
         }}
         onClick={() => {
+          setShowMenu(false);
           if (global.graph && global.graph.canvas.search_box)
             global.graph.canvas.search_box.close();
         }}
@@ -1832,6 +1471,7 @@ function App() {
               }}
               onClick={async () => {
                 setShowVideoLibrary(true);
+                setShowMenu(false);
                 global.showLibrary = true;
                 localStorage.setItem("eth.build.showLibrary", true);
               }}
