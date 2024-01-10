@@ -360,45 +360,45 @@ function SaveDialog(props) {
               </Tooltip>
             </Grid>
 
-            <Grid item style={{ width: 220 }}>
-              <Tooltip title="Save to your 3Box space">
-                <Button
-                  variant="contained"
-                  className={classes.button}
-                  color="primary"
-                  onClick={() => {
-                    setSaveType("3BOX_SCREEN");
-                    if (connected && threeBoxConnectionStep === 0) {
-                      setThreeBoxConnectionStep(1);
-                    }
-                    let fetching = isFetching();
-                    if (fetching) {
-                      setThreeBoxStatus(
-                        "Connection to 3Box already in progress"
-                      );
-                      let checkCompletion = () => {
-                        let fetching3Box = isFetching();
-                        if (!fetching3Box) {
-                          changeTo3BoxSavePage();
-                        } else {
-                          setTimeout(checkCompletion, 1000);
-                        }
-                      };
-                      setTimeout(checkCompletion, 1000);
-                    }
-                    let box = getBox();
-                    let space = getSpace();
-                    if (box && space) {
-                      console.log("3BOX is already open and available");
-                      changeTo3BoxSavePage();
-                    }
-                  }}
-                  startIcon={<ThreeBoxIcon />}
-                >
-                  Save to 3Box
-                </Button>
-              </Tooltip>
-            </Grid>
+            {/*<Grid item style={{ width: 220 }}>*/}
+            {/*  <Tooltip title="Save to your 3Box space">*/}
+            {/*    <Button*/}
+            {/*      variant="contained"*/}
+            {/*      className={classes.button}*/}
+            {/*      color="primary"*/}
+            {/*      onClick={() => {*/}
+            {/*        setSaveType("3BOX_SCREEN");*/}
+            {/*        if (connected && threeBoxConnectionStep === 0) {*/}
+            {/*          setThreeBoxConnectionStep(1);*/}
+            {/*        }*/}
+            {/*        let fetching = isFetching();*/}
+            {/*        if (fetching) {*/}
+            {/*          setThreeBoxStatus(*/}
+            {/*            "Connection to 3Box already in progress"*/}
+            {/*          );*/}
+            {/*          let checkCompletion = () => {*/}
+            {/*            let fetching3Box = isFetching();*/}
+            {/*            if (!fetching3Box) {*/}
+            {/*              changeTo3BoxSavePage();*/}
+            {/*            } else {*/}
+            {/*              setTimeout(checkCompletion, 1000);*/}
+            {/*            }*/}
+            {/*          };*/}
+            {/*          setTimeout(checkCompletion, 1000);*/}
+            {/*        }*/}
+            {/*        let box = getBox();*/}
+            {/*        let space = getSpace();*/}
+            {/*        if (box && space) {*/}
+            {/*          console.log("3BOX is already open and available");*/}
+            {/*          changeTo3BoxSavePage();*/}
+            {/*        }*/}
+            {/*      }}*/}
+            {/*      startIcon={<ThreeBoxIcon />}*/}
+            {/*    >*/}
+            {/*      Save to 3Box*/}
+            {/*    </Button>*/}
+            {/*  </Tooltip>*/}
+            {/*</Grid>*/}
           </Grid>
           <CardActions style={{ justifyContent: "center" }}>
             {qrcode}

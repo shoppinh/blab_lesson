@@ -660,17 +660,6 @@ function App() {
           >
             Load
           </Button>
-
-          <Button
-            size="small"
-            style={{ marginLeft: 20 }}
-            variant="contained"
-            onClick={() => {
-              window.open(lesson.video);
-            }}
-          >
-            Watch
-          </Button>
         </CardActions>
       </Card>
     );
@@ -1298,7 +1287,7 @@ function App() {
             height: barHeight,
             left: 0,
             bottom: 0,
-            width: 525,
+            width: 380,
             backgroundColor: "#DFDFDF",
           }}
         >
@@ -1366,21 +1355,7 @@ function App() {
                 localStorage.setItem("eth.build.showLibrary", true);
               }}
             >
-              <span style={{ color: "#03a9f4" }}>eth</span>
-              <span
-                style={{
-                  position: "relative",
-                  left: -5,
-                  bottom: 15,
-                  color: "#f44336",
-                  marginBottom: 25,
-                }}
-              >
-                .
-              </span>
-              <span style={{ position: "relative", left: -10, color: "#333" }}>
-                build
-              </span>
+              <span style={{ color: "#03a9f4" }}>blab</span>
             </span>
 
             <span
@@ -1416,23 +1391,6 @@ function App() {
                 style={{ marginLeft: 10, cursor: "pointer" }}
               >
                 <Icon>open_in_browser</Icon>
-              </Tooltip>
-            </span>
-            <span
-              style={{
-                margin: 5,
-                borderLeft: "1px solid #cccccc",
-                height: barHeight,
-              }}
-              onClick={async () => {
-                setOpenAboutDialog(true);
-              }}
-            >
-              <Tooltip
-                title="About"
-                style={{ marginLeft: 10, cursor: "pointer" }}
-              >
-                <Icon>info</Icon>
               </Tooltip>
             </span>
 
@@ -1619,21 +1577,9 @@ function App() {
                 localStorage.setItem("eth.build.showLibrary", false);
               }}
             >
-              <span style={{ color: "#03a9f4" }}>eth</span>
-              <span
-                style={{
-                  position: "relative",
-                  left: -5,
-                  bottom: 15,
-                  color: "#f44336",
-                  marginBottom: 25,
-                }}
-              >
-                .
-              </span>
-              <span style={{ position: "relative", left: -10, color: "#333" }}>
-                build
-              </span>
+              <span style={{ color: "#03a9f4" }}>blab</span>
+
+
               <span
                 style={{
                   margin: 5,

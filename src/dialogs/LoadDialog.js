@@ -259,46 +259,46 @@ function LoadDialog(props) {
                 </Tooltip>
               </Grid>
 
-              <Grid item style={{ width: 220 }}>
-                <Tooltip title="Load from your 3Box space">
-                  <Button
-                    variant="contained"
-                    className={classes.button}
-                    color="primary"
-                    onClick={() => {
-                      setLoadType("3BOX_SCREEN");
-                      if (connected && threeBoxConnectionStep === 0) {
-                        setThreeBoxConnectionStep(1);
-                      }
-                      let fetching = isFetching();
-                      if (fetching) {
-                        setThreeBoxStatus(
-                          "Connection to 3Box already in progress"
-                        );
-                        let checkCompletion = () => {
-                          let fetching3Box = isFetching();
-                          if (!fetching3Box) {
-                            changeTo3BoxLoadPage();
-                          } else {
-                            setTimeout(checkCompletion, 1000);
-                          }
-                        };
-                        setTimeout(checkCompletion, 1000);
-                      }
-                      let box = getBox();
-                      let space = getSpace();
+              {/*<Grid item style={{ width: 220 }}>*/}
+              {/*  <Tooltip title="Load from your 3Box space">*/}
+              {/*    <Button*/}
+              {/*      variant="contained"*/}
+              {/*      className={classes.button}*/}
+              {/*      color="primary"*/}
+              {/*      onClick={() => {*/}
+              {/*        setLoadType("3BOX_SCREEN");*/}
+              {/*        if (connected && threeBoxConnectionStep === 0) {*/}
+              {/*          setThreeBoxConnectionStep(1);*/}
+              {/*        }*/}
+              {/*        let fetching = isFetching();*/}
+              {/*        if (fetching) {*/}
+              {/*          setThreeBoxStatus(*/}
+              {/*            "Connection to 3Box already in progress"*/}
+              {/*          );*/}
+              {/*          let checkCompletion = () => {*/}
+              {/*            let fetching3Box = isFetching();*/}
+              {/*            if (!fetching3Box) {*/}
+              {/*              changeTo3BoxLoadPage();*/}
+              {/*            } else {*/}
+              {/*              setTimeout(checkCompletion, 1000);*/}
+              {/*            }*/}
+              {/*          };*/}
+              {/*          setTimeout(checkCompletion, 1000);*/}
+              {/*        }*/}
+              {/*        let box = getBox();*/}
+              {/*        let space = getSpace();*/}
 
-                      if (box && space) {
-                        console.log("3BOX is already open and available");
-                        changeTo3BoxLoadPage();
-                      }
-                    }}
-                    startIcon={<ThreeBoxIcon />}
-                  >
-                    Load from 3Box
-                  </Button>
-                </Tooltip>
-              </Grid>
+              {/*        if (box && space) {*/}
+              {/*          console.log("3BOX is already open and available");*/}
+              {/*          changeTo3BoxLoadPage();*/}
+              {/*        }*/}
+              {/*      }}*/}
+              {/*      startIcon={<ThreeBoxIcon />}*/}
+              {/*    >*/}
+              {/*      Load from 3Box*/}
+              {/*    </Button>*/}
+              {/*  </Tooltip>*/}
+              {/*</Grid>*/}
             </Grid>
           </>
         )}
