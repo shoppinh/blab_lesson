@@ -7,11 +7,9 @@ import "./App.css";
 import LiteGraphJS from "litegraph.js/build/litegraph.js";
 import "litegraph.js/css/litegraph.css";
 import CustomNodes from "./CustomNodes";
-import ICON from "./icon.png";
 import StackGrid from "react-stack-grid";
 
 import QrReader from "react-qr-reader";
-
 import Dragger from "./Dragger.js";
 import { useDrop } from "react-dnd";
 
@@ -35,11 +33,8 @@ import lessons from "./data/lessons";
 import SaveDialog from "./dialogs/SaveDialog";
 import LoadDialog from "./dialogs/LoadDialog";
 import html2canvas from "html2canvas";
-
 var codec = require("json-url")("lzw");
-var QRCode = require("qrcode.react");
 const axios = require("axios");
-
 const useStyles = makeStyles({
   card: {
     maxWidth: 345,
@@ -53,9 +48,6 @@ const useStyles = makeStyles({
   },
 });
 
-console.log("LOAD MODULES");
-let dynamicallyloadedis = require("./Modules");
-console.log("dynamicallyloadedis", dynamicallyloadedis);
 global.modules = {
   price: {
     nodes: [
@@ -301,24 +293,13 @@ const touchHandler = (event) => {
 };
 
 function App() {
-  console.log("APP");
 
-  /*
-  window.addEventListener("wheel", event => {
-    console.info(event.deltaY)
-    event.preventDefault();
-  });*/
 
   const [menu, setMenu] = React.useState("");
 
   const [selectToolActive, setSelectToolActive] = React.useState(false);
 
-  //  var defaultPrevent=function(e){e.preventDefault();}
-  //document.addEventListener("touchstart", defaultPrevent);
-  //document.addEventListener("touchmove" , defaultPrevent);
-  //
-  //
-  //
+
   const [moreInfo, setMoreInfo] = React.useState(false);
 
   const [drawing, setDrawing] = React.useState(false);
@@ -405,7 +386,7 @@ function App() {
         <CardActions style={{ justifyContent: "center" }}>
           <div style={{ padding: "2%" }}>
             <a target="_blank" href="https://eth.build">
-              Eth.Build
+              BLAB
             </a>{" "}
             (
             <a
@@ -488,7 +469,7 @@ function App() {
   React.useEffect(() => {
     console.log("MOUNT", LiteGraphJS);
 
-    global.title = "eth.build";
+    global.title = "BLAB";
 
     global.LiteGraphJS = LiteGraphJS;
     var graph = new LiteGraphJS.LGraph();
@@ -582,12 +563,30 @@ function App() {
         if (!viewedNewFrontPage)
           localStorage.setItem("viewedNewNewNEWFrontPage", "true");
 
-        //THIS IS THE DEFAULT FIRST TIME LANDING CASE
 
-        let defaultData =
-          "wofCrGxhc3Rfbm9kZV9pZMONASfEgcSDxIVsaW5rxIvEjQI7wqXEh8SJc8OcABPCisKixIzEjhLCpHR5cGXCrElucHV0L051bWJlcsKjcG9zwpLDjQJ2w4zCqsKkc2l6ZcKSw4zCgjTCpWbEgmdzwoDCpW9yxIlyAMKkbcSIZQDCpsSVxLB0c8KRwoPCpG5hbWXCoMSoxKrFnMKkxJTElsOAwqdvxLHFoMWixaTFpsWoxarEqcSrwqZuxLXEt3LCpcWva8WixL8vwqpwcm_Eq3J0aWVzwoPCq3DEgmNlaG9sxZbCoSPCpcaOdGxlwqbEtMS2xLjCpXZhbHVlwqQxMzM3xKPEpQEUxavEq8KrTWF0aC9SYW5kb23EusS8xL4CbMSOIsWExYbFiMOMw4gexY3Fj8WRxZPFlcS4AcWZxZvFncWfxLHFtsWlxafFqca2ZcO_xa7ElWvFscWzdMW1wpHChMeexajGp8apxqvHocW9xb_GpsaDxoUCMMaCYcS3bMOLQ8Khw5QoG8OIw7NcxojGisaMxo7GkMKDwqlhxLHHgsa6aWPDg8KjbcSVAMiVYXjHvsKrw4FtZ07DiADGssSNARPHocKtxrnGuy9NdWzGjsaUeceExL3DjQN6x47Hi8WHwpJ4PMeRYcWQxZLFlMWWCceYxInHmsSvx5zCksW3x5_CoUHHssW-xqVyx6TElsaGyYvFqMKhQsmPx7TJksaDxL8wxbLFtMecxaPHrWXCoT3JmsmRxoLHpce3MciHxovEuMiKxpHJjcONBTnJmMe-yIDIgsiEXMKiT1DCoSrCicSkyKUWx6HCr0Rpc8aUYXkvQmxvY2vGj8izxL4ETMSOQMi5xYhGyL3Fjsi_x5PJgsS4D8mFxZzFnsmIxaHJo8W4x6DFu8WtyZ0CMsmuyInGj3PChMKrYsqQypLGj1PHjDLGk8aVxpfGmcWWwqDGnmnGoMWpx6_GqmXDmUIweGM4YjgwZmVmNTnLkmE4NmZhNzRkYTnHuzUyxIkyMTHLkDkwOMumMDXGrzNjOTg3YWUxZjTLljRjY2EyNcucNWHIpMSOGMqGQ3LEqnRvL0tleSBQYWnEucS7yLQBw4jEv8O4ypvCgsKhMMOKQ1PCmcKawqExQsi-yYDHlMWWDcqlyYfFtcmKyaTCrVvGiWnGqHRlIGvMk13HssSEcsSVZ8mTa8S_NsmWZcKoZ2VuxLjGusasyq3Ho8aDx6fJocWhwpPNisaTzYPMusy8zL55zYF0zYNuZ8mqxJbHtzjNisaIdcq4yJLMvcyTzaHNo82lx7bDgM2KwqdhZGRyxpBzzbHNhM2mxoTCkcS_OcqyybDKtMKAzIgBFcehwqvMjMyOzJBIxINoypXItcKixI5KypvIu8eQyp_MrcqicgzMscqnx6rNisKlx5t0yKjNgs2ELMmQxoDNhsS_Mcmgx6nJos2KwqRozpLNvs2kzoDItMqwxL86zoXGjc6HzokgyKjKiMqKxILKjVfGumPOk8yaypYkw4zCtM6ZyLUxyp7HksmBx5VyEM6hzqbFosesyqvFusWsxZjKrzrHuse8wqDOsceqz57Hn8-gxKsAzrrDgM-lZWzCoM6_ybHCgcuFy4fCpc-JdM-Lzokhx6HCqsSuxaAvVGV4dM6UAsKUxI7Dgs-SAn8yzKzKoc-YAs-byqjHnc-fx6HPoselzZbOssqpzYrPrMaizqnOuce2zoLEms-1yrTKtsq4ypHKk2XKvMWHyr7Ki8aWxpjGmsS4wq_Njsy7ciDMu9CHIGjEuGXPuMahwqtMZWFybiBNxZRlz6TGqMuKw5lIaHTHqXM6Ly930ZoueceozaxlLmPHgi_Ki3nElMSEP9GndD1QTEp6MUhydUXNj25DWEg3S1c3d0JDRUJuQkxPVsqTcUlpzokez4TKidGlL8-7z4vOlAHDvsS_ds-SA8-U0JLPl8WWEdCWz6nJpNCh0JvJlAI4z7HPs8-oyaLPqsW50JrPr9Kpz7TGicmvz4DGkM-3xp_Goc-6z4poyoLGs8eKyq3Cqs-F0pFRUs6UBcKWxI5Uz5IBwpDEjsKQ0p3MrsS4CtKh0qzSo9Cazq7EmtKp0ZHRk9GV0ZfRmdGb0Z3EsdGf0aHRo9Gl0arRqcqJ0avRrdGv0bHRs9G1zY7RuNG60bzRvtKA0oLShNKG0ohp0opp0KjGkMKCwqZxctCvZcyJyapn0ZPDgsKIyoPEjiPSj8-GyozQhMuGxqHKlUbFitOLw7TPrs6c0JPFlgPMsdO9c8KHwqhmb2501IMsyrfKudCt1IPQscuA0LTLg9GC0YFU1JLRgdGPxqvCqWXGuy5idWnGmsKq1KPUpUbFp9S-ecK8J1LNrGlr0YrUpG8gT82PJywgc8a_cy1zxLhpZsKl0aLKkHLCpyPNudWkZM6JGcyLzI1wzI_IrM2PxZpuyJLKlcOM04gDSMygzKLMpDpmZsypzKvUmtKexLgL05TNmM2qW23VrtSkyJLNgMqtwqbQo82FzZXNtlvElcSJeNaLxazHs8mRzYbNtcmkzYzNjs2QzLvHoc2Ux6XEvzXSq8WhzLTKq82bzLnNkc2vzaDWjNaOzrrQps2J1pzWh2XVr8iSzrjNs8mr0KY31J_Pt9aT0IYA0r3IpR_KhtOCz4cvQc25zbtzc86UAwzItdCVxYXIutOJUNOQzp7Ep8WayYbOos6z05bKrdKlzYcCzoTSs8qzyIvUqdCsyrvKvcq_YdCzy4LEuMuE0rhlwqfXis26zbzOiR3UjtKR0pPPjMeFxI7CpMi1x6zXlMWIyLXDvc-VyqDWgHIO1oPPndefz6HTmDfSsdam2I3Qmdeg0rDEgs-m1r7UsdK6z7xo1IrGsyTXhtKQ14hDx4LFqNSlypUew4zDsNSX1JnPltORcgTUntelzobGkMKE1KLUpNSmx4wS16zXrtC1csKu0Zgg0aJt2KfFoS7ZiNSxwqfYpdmF0LjLicary4zDsMKfwpPCnSBDUkVBVEUgQSBORVcgQlVJTEQ6CmjLhtmDzaJsK2HQu9WP1ZrGoWN0IMapbNC70L_Ridmr2bfEicahzLsg2J_IpSfYotSPyo3ZjNmG2KnEjl7YrdeYz5gF2LPIiNi1yrXYuNSl1IPYvNCyy4HYv9mBL9mD2KbQuHPZiC7ZitqK2Y7UtsuLwoTZksKVwrXZksKPwrvDosKAwo3DosKZwoLDr8K4wo8gU9mZUkNI14lE2ajQvtmsyorXrcy8YtGH2bjHgNC7xawKw6LCncKMIEVYSVTGvUXavFQ624TZt8aQzIHEqwrZqm92xLgg26TbpsyPxplz26fRica7zLzNg9SH255kzY0g1KPQusWazbsgLdu8270-2oTEjibah9KR2qfYqM-NHsSOw7Taj9W_2LAG2pPStMmx2LfVgdi6xYfamtSu16_ZgNmC2YTZhtqj2YnXstmL2qHUpdmPy4te2ZLCp8KQIEzavU7Rik_ZmNucY8SUypLZu9uIb9GUx4LQu3LKjNu2xZQgZXDKicWb26wK2ZLCksK-2rtBVkXcsNyy1YzVltulIMiS1KTdkdGJYty2zI9t3LnKjNyAASXcg9ik3KHQiM-NMsS_bNOLTQTakMWWB9yP16baltyT2pnYvdqcxZbantqg2Y3Updyd2qXcn9yFdNyjw5kg3YXCrNu2ZWVk24nKktucQMiOxITNhM2D1bvLhmggIM6JG8ehxK3KqMqOxLHMj27ajALDms6Zx47QkdSawoHCqdWfxIJw1Zpkw4LYsAjYjMqqz6vWodaa2JPWqN6wzZPWsdak0KDHocKuzqzEuCzdlsaZ0YZuz6_Un8KD3KPCqNyxyJLVjMeu17LCpkLemtSk1Z7Fs9SlEM66wpvTiAIvxKYAxI4TxZ3evHLflzDEjhTfm8imAdaYxoDflzHfnN-lFQDCrdaOzqvJm9-X3aTOit-lFgAA35c1xI4b36UZAsO_35c2xI4Z36UYxZ3Wjt-XN-CghQHEjh3fud-XOMyJ36Ue4KCRzoPMiQLEjh_goJcCOsSO367EjiDgoJ07xI4h36Ui37nCpmfGinXeqMKQwqbRom5maWfCgMKn26VyxYXUpMOLP8OZwpngoYDgoYDCmg";
+        // Compress the data to a URL-safe string
+        // const defaultDataCompress = codec.compress(temp).then((compressed) =>           {
+        //   console.log("compressed", compressed)
+        // });
+
+
+
+        // Change this line to load a different graph
+        let defaultData = "wofCrGxhc3Rfbm9kZV9pZMONASfEgcSDxIVsaW5rxIvEjQI7wqXEh8SJc8OcABLCisKixIzEjhLCpHR5cGXCrElucHV0L051bWJlcsKjcG9zwpLDjQJ2w4zCqsKkc2l6ZcKSw4zCgjTCpWbEgmdzwoDCpW9yxIlyAMKkbcSIZQDCpsSVxLB0c8KRwoPCpG5hbWXCoMSoxKrFnMKkxJTElsOAwqdvxLHFoMWixaTFpsWoxarEqcSrwqZuxLXEt3LCpcWva8WixL8vwqpwcm_Eq3J0aWVzwoPCq3DEgmNlaG9sxZbCoSPCpcaOdGxlwqbEtMS2xLjCpXZhbHVlwqQxMzM3xKPEpQEUxavEq8KrTWF0aC9SYW5kb23EusS8xL4CbMSOIsWExYbFiMOMw4gexY3Fj8WRxZPFlcS4AcWZxZvFncWfxLHFtsWlxafFqca2ZcO_xa7ElWvFscWzdMW1wpHChMeexajGp8apxqvHocW9xb_GpsaDxoUCMMaCYcS3bMOLQ8Khw5QoG8OIw7NcxojGisaMxo7GkMKDwqlhxLHHgsa6aWPDg8KjbcSVAMiVYXjHvsKrw4FtZ07DiADGssSNARPHocKtxrnGuy9NdWzGjsaUeceExL3DjQN6x47Hi8WHwpJ4PMeRYcWQxZLFlMWWCceYxInHmsSvx5zCksW3x5_CoUHHssW-xqVyx6TElsaGyYvFqMKhQsmPx7TJksaDxL8wxbLFtMecxaPHrWXCoT3JmsmRxoLHpce3MciHxovEuMiKxpHJjcONBTnJmMe-yIDIgsiEXMKiT1DCoSrCicSkyKUWx6HCr0Rpc8aUYXkvQmxvY2vGj8izxL4ETMSOQMi5xYhGyL3Fjsi_x5PJgsS4D8mFxZzFnsmIxaHJo8W4x6DFu8WtyZ0CMsmuyInGj3PChMKrYsqQypLGj1PHjDLGk8aVxpfGmcWWwqDGnmnGoMWpx6_GqmXDmUIweGM4YjgwZmVmNTnLkmE4NmZhNzRkYTnHuzUyxIkyMTHLkDkwOMumMDXGrzNjOTg3YWUxZjTLljRjY2EyNcucNWHIpMSOGMqGQ3LEqnRvL0tleSBQYWnEucS7yLQBw4jEv8O4ypvCgsKhMMOKQ1PCmcKawqExQsi-yYDHlMWWDcqlyYfFtcmKyaTCrVvGiWnGqHRlIGvMk13HssSEcsSVZ8mTa8S_NsmWZcKoZ2VuxLjGusasyq3Ho8aDx6fJocWhwpPNisaTzYPMusy8zL55zYF0zYNuZ8mqxJbHtzjNisaIdcq4yJLMvcyTzaHNo82lx7bDgM2KwqdhZGRyxpBzzbHNhM2mxoTCkcS_OcqyybDKtMKAzIgBFcehwqvMjMyOzJBIxINoypXItcKixI5KypvIu8eQyp_MrcqicgzMscqnx6rNisKlx5t0yKjNgs2ELMmQxoDNhsS_Mcmgx6nJos2KwqRozpLNvs2kzoDItMqwxL86zoXGjc6HzokgyKjKiMqKxILKjVfGumPOk8yaypYkw4zCtM6ZyLUxyp7HksmBx5VyEM6hzqbFosesyqvFusWsxZjKrzrHuse8wqDOsceqz57Hn8-gxKsAzrrDgM-lZWzCoM6_ybHCgcuFy4fCpc-JdM-Lzokhx6HCqsSuxaAvVGV4dM6UAsKUxI7Dgs-SAn8yzKzKoc-YAs-byqjHnc-fx6HPoselzZbOssqpzYrPrMaizqnOuce2zoLEms-1yrTKtsq4ypHKk2XKvMWHyr7Ki8aWxpjGmsS4wq_Njsy7ciDMu9CHIGjEuGXPuMahwqtMZWFybiBNxZRlz6TGqMuKw5lIaHTHqXM6Ly930ZoueceozaxlLmPHgi_Ki3nElMSEP9GndD1QTEp6MUhydUXNj25DWEg3S1c3d0JDRUJuQkxPVsqTcUlpzokez4TKidGlL8-7z4vOlAHDvsS_ds-SA8-U0JLPl8WWEdCWz6nJpNCh0JvJlAI4z7HPs8-oyaLPqsW50JrPr9Kpz7TGicmvz4DGkM-3xp_Goc-6z4powojKg8SOI9KPz4bKjNCEy4bGocqVRsWKz5IBw7TPrs6c0JPFlgPMsdCoxpDCh8KoZm9udNCvZSzKt8q50K3Tm9Cxy4DQtMuD0YLRgVTThdGB0Y_Gq8KpZca7LmJ1acaawqrTl9OZRsWn07N5wrwnUs2saWvRitOYbyBPzY8nLCBzxr9zLXPEuGlmwqXRosqQcsKnI8251JlkzokZzIvMjXDMj8iszY_Fmm7IksqVw4zClsi1SMygzKLMpDpmZsypzKvTjtKexLgL0qHHnM2ZyaTCqltt1KPTmMiSzYDKrcKm0KPNhc2VzbZbxJXEiXjVgsWsx7PJkc2GzbXJpM2MzY7NkMy7x6HNlMelxL810qvFocy0yqvNm8y5zZHNr82g1YPVhc660KbNidWT1L5l1KTIks64zbPJq9CmN9OTc8-31YrQhgDKgsazH8qGz4XSkUHNuc27c3POlAMMyLXQlcWFyLrEjlRQ0p3MrsS4xKfFmsmGzqLOs9Kj0JrOrgLOhNKzyrPIi9Oe0KzKu8q9yr9h0LPLgsS4y4TSuGXCp9aBzbrNvM6JHdOB0pHSk8-Mx4XEjsKkyLXHrNaLxYjItcO9z5XKoNS1cg7UuMqp0q3KrM-h1po30rHVnc-d1pjKrc-uzbTSsdW10rfTqdK6z7zSvNK-ASTVvtKQz4cvQ8eCxajTmcqVHsOMw7DTitOM1pDOngTTktadzobGkMKE05bTmNOax4wS1qTWptC1csKu0Zgg0aJt16LFoS7YgtOmwqfXoNe_0LjLicarw5lBw7DCn8KTwp0gQ1JFQVRFIEEgTkVXIEJVSUxEOgpoy4bXvc2ibCth0LvUhNSPxqFjdCDGqWzQu9C_0YnYptiyxInGocy70r3GsyfXnNOCyo3YhtiA16TEjl7XqNONz5bWkXIF163IiNevyrXXstOZ05vXttCyy4HXude7L9e916HQuHPYgi7YhNmE2IjTq8uLwoTYjcKVwrXYjcKPwrvDosKAwo3DosKZwoLDr8K4wo8gU9iUUkNIL0FE2KPQvtinyorWpcy8YtGH2LPHgNC7xawKw6LCncKMIEVYSVTGvUXZuFQ62oHYssaQzIHEqwrYpW92xLgg2qHao8yPxplz2qTRica7zLzNg2fRkyBlZM2NINOX0LrFms27IC3au9q8Pti-yKUm2YHSkdmj16PPjR7EjsO02YnXqs-YBtmP0rTJsdex07bXtMWH2ZbTo9an17rXvNe-2IDZn9iD1qrYhdmd05nYicuLXtiNwqfCkCBM2blO0YpP2JPamWPElMqS2LbahW_RlMeC0LtyyozatcWU2rFwyonFm9qpCtiNwpLCvtm3QVZF26_bsdSB1IvaoiDIktOY3I_RiWLbtcyPbdu4yozav8SOJduC157bhNCIz40yxL9s04pNBNuLxZYH247WntmS25LZlde32ZjFltma2ZzYh9OZ25zZodue3J_bosOZINyDwqzatWXastqGypLamUDIjsSEzYTNg9Swy4ZoICDOiRvHocStyqjKjsSxzI9u2YYCw5rOmceO0JHTjsKBwqnUlMSCcNSPZMOC2YwI14TQmM-r1ZjVkdeM1Z_drM2T1ajVm9Cgx6HCrs6sxLgs3JTGmdGGbs-v1bXCg9uiwqjbsMiS1IHHrtaqwqZC3ZbTmNSTxbPTmRDOusKb1KkCL8SmAMSOE8Wd3bhy3pMwxI4U3pfIpgHVj8aA3pMx3pjeoRUAwq3Vhc6ryZvek9yizoreoRYAAN6TNcSOG96hGQLDv96TNsSOGd6hGMWd1YXekzffgQHEjh3etd6TOMyJ3qEe343Og8yJAsSOH9-TAjrEjt6qxI4g35k7xI4h3qEi3rXCpmfGinXdpMKQwqbRom5maWfCgMKn2qJyxYXTmMOLP8OZwpnfvN-8wpo"
         codec.decompress(defaultData).then((json) => {
-          global.graph.configure(json);
+          // console.log("JSON", JSON.stringify(json));
+          const modifiedNodes = json.nodes.map((node) => {
+            if (node.type == "Display/Title") {
+              node.properties.value = "BLAB!";
+            }
+            return node;
+          });
+          const filteredJsonData = {
+            ...json,
+            nodes: modifiedNodes.filter((node) => node.type !== "Display/Comment"),
+
+          }
+          global.graph.configure(filteredJsonData);
           //graph.start()
           graph.canvas = canvas;
           setLiteGraph(graph);
@@ -772,6 +771,7 @@ function App() {
 
         let items = [];
         let itemspace = 40;
+        console.log("global.customNodeItems",global.customNodeItems)
         for (let i in global.customNodeItems[global.customNodes[n].name]) {
           let item = global.customNodeItems[global.customNodes[n].name][i];
           //console.log("Add item",item)
@@ -1560,6 +1560,7 @@ function App() {
             background: "#111111",
             outline: "none",
             borderBottom: "1px solid #666666",
+            backgroundImage: "url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw8PDQ0PDw8PDw8NDQ0NDQ8PDw8PDw8NFREWFhUVFRUYHSggGBolHRUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKBQUFDgUFDisZExkrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIALcBEwMBIgACEQEDEQH/xAAXAAEBAQEAAAAAAAAAAAAAAAAAAQIH/8QAGBABAQEBAQAAAAAAAAAAAAAAABEB8EH/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A7DjSYoAKCKKAEWAEWKDMWLFgMxYsAQjQDMI0AzCNAMwikBIjUIDKRqEBmI1EBBUBBQEZaAYFigAoAKAsMUCKKBAUAFBBQEUAEUBFABFAQUBkUBmCgMxGkgMioCCgJ3oAAKAuCgKKAoACgAAAAAAAAAAAAAAAAIKgIjSAyjSaDIqAd6ixAXAXAVUxQVUUBQAAAAAAAAAAAVAAAAAAAAAEFQERpNBlF1AQAEzGkawFxcRQUAFAAAAAAAAAAAAVAAAAAAAAABAARUBE1UBAQDGsZxrAVUxQUAFAAAAAAAAAAAAAAAAAAAAAARUARUBNTWtZ0ERUAaZxrAVUUFABRFAAAAAAAAAAAAAAAAAAAAARUARUBE1UBICAYuMtYDSs4oKqKAqKAAAAAAAAAAAAAAAAAAACAAgKyqaAyqaAggC4yoNYuM4uaDSs40CiKAqAKIAoigAAAAAAAAAACAAICoIAhqaBqACAAyrKg0tZqg1isNZoNKzVBRFBRAFEUAAAAAAAAAEBUoACICpRN0BEpQEABWb0ATBnNazQUQBpayoNZq1mgN0Zq0Gis0oNVWSg1RKgNCUoKIUFKzSg0lSlBalSpQaqVKgLUqAFKIACaBRKgM5rVAFUAFAAqgBVACgClABagC0qALUoAUoAUqAFKAJoAJQAQACs7oAl6oAP/9k=')"
           }}
         ></canvas>
         <div id="reactElements"></div>
