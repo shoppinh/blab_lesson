@@ -3,11 +3,6 @@ FROM node:14.17.5
 # Set working directory
 WORKDIR /app
 
-
-# # Install build-essential
-# RUN apt-get update && apt-get install -y build-essential
-
-# RUN apt-get update && apt-install git
 # Install Yarn globally
 RUN npm install -g yarn@1.22.5 --force
 
