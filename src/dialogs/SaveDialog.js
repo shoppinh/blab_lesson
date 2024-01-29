@@ -297,7 +297,7 @@ function SaveDialog(props) {
           <Grid
             container
             spacing={3}
-            justify="center"
+            justifyContent="center"
             style={{ margin: 0, width: "100%", padding: "32px 32px 0 32px" }}
           >
             {/* <Grid item style={{ width: 220 }}>

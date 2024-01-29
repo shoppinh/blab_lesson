@@ -320,13 +320,12 @@ function App() {
   const [openSaveDialog, setOpenSaveDialog] = React.useState(false);
   const [openLoadDialog, setOpenLoadDialog] = React.useState(false);
   const [currentScreenShot, setCurrentScreenShot] = React.useState(null);
-
+  console.log("openSaveDialog",openSaveDialog)
   const handleOpenSaveDialog = async () => {
+    setOpenSaveDialog(true);
     let canvas = await html2canvas(document.body);
     let canvasImg = canvas.toDataURL("image/png", 0.35);
-    console.log({ canvasImg });
     setCurrentScreenShot(canvasImg);
-    setOpenSaveDialog(true);
   };
 
   let showLibrary = localStorage.getItem("eth.build.showLibrary");

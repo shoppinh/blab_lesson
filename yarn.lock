@@ -8277,6 +8277,15 @@ concat-map@0.0.1:
   resolved "https://registry.yarnpkg.com/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
   integrity sha1-2Klr13/Wjfd5OnMDajug1UBdR3s=
 
+concat-stream@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/concat-stream/-/concat-stream-2.0.0.tgz#414cf5af790a48c60ab9be4527d56d5e41133cb1"
+  integrity sha512-MWufYdFw53ccGjCA+Ol7XJYpAlW6/prSMzuPOTRnJGcGzuhLn4Scrz7qf6o8bROZ514ltazcIFJZevcfbo0x7A==
+  dependencies:
+    buffer-from "^1.0.0"
+    inherits "^2.0.3"
+    readable-stream "^3.0.2"
+    typedarray "^0.0.6"
 
 configstore@^3.0.0:
   version "3.1.5"
@@ -10611,6 +10620,7 @@ eslint@4.10.0:
     ajv "^5.2.0"
     babel-code-frame "^6.22.0"
     chalk "^2.1.0"
+    concat-stream "^1.6.0"
     cross-spawn "^5.1.0"
     debug "^3.0.1"
     doctrine "^2.0.0"
@@ -11055,6 +11065,7 @@ eth-tx-summary@^3.1.2:
   dependencies:
     async "^2.1.2"
     clone "^2.0.0"
+    concat-stream "^1.5.1"
     end-of-stream "^1.1.0"
     eth-query "^2.0.2"
     ethereumjs-block "^1.4.1"
@@ -14070,6 +14081,7 @@ ipfs-http-client@^33.1.0:
     bs58 "^4.0.1"
     buffer "^5.2.1"
     cids "~0.7.1"
+    concat-stream "github:hugomrdias/concat-stream#feat/smaller"
     debug "^4.1.0"
     detect-node "^2.0.4"
     end-of-stream "^1.4.1"
@@ -14124,6 +14136,7 @@ ipfs-http-client@^39.0.2:
     buffer "^5.4.2"
     callbackify "^1.1.0"
     cids "~0.7.1"
+    concat-stream "github:hugomrdias/concat-stream#feat/smaller"
     debug "^4.1.0"
     delay "^4.3.0"
     detect-node "^2.0.4"
@@ -19378,6 +19391,7 @@ mississippi@^3.0.0:
   resolved "https://registry.yarnpkg.com/mississippi/-/mississippi-3.0.0.tgz#ea0a3291f97e0b5e8776b363d5f0a12d94c67022"
   integrity sha512-x471SsVjUtBRtcvd4BzKE9kFC+/2TeWgKCgw0bZcw1b9l2X3QX5vCWgF+KaZaYm87Ss//rHnWryupDrgLvmSkA==
   dependencies:
+    concat-stream "^1.5.0"
     duplexify "^3.4.2"
     end-of-stream "^1.1.0"
     flush-write-stream "^1.0.0"
