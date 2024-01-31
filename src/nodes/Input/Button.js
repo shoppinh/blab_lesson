@@ -11,6 +11,7 @@ function Button() {
   this.addOutput("", "number,boolean");
   this.properties =  {value:"click me",title:"Nút (Button)",count:0}
   this.size = [200, 50];
+  
 }
 
 Button.title = "Nút (Button)";

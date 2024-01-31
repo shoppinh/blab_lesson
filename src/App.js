@@ -320,7 +320,6 @@ function App() {
   const [openSaveDialog, setOpenSaveDialog] = React.useState(false);
   const [openLoadDialog, setOpenLoadDialog] = React.useState(false);
   const [currentScreenShot, setCurrentScreenShot] = React.useState(null);
-  console.log("openSaveDialog",openSaveDialog)
   const handleOpenSaveDialog = async () => {
     setOpenSaveDialog(true);
     let canvas = await html2canvas(document.body);
@@ -767,7 +766,7 @@ function App() {
             <div>
               <Dragger
                 key={"dragger" + n + "_" + i}
-                name={item.title}
+                name={item.name}
                 drop={(name, x, y) => {
                   //console.log("DO A DROP AT ",name,x,y)
                   setMenu("");
@@ -946,6 +945,7 @@ function App() {
         }}
         onClick={() => {
           setShowMenu(false);
+          if (menu) setMenu("");
           if (global.graph && global.graph.canvas.search_box)
             global.graph.canvas.search_box.close();
         }}
@@ -1615,7 +1615,10 @@ function App() {
           <Grid container>
             <Grid container md={12} style={{ justifyContent: "flex-end" }}>
               <Tooltip title={"Close"} style={{ cursor: "pointer" }}>
-                <Icon onClick={() => setShowMenu(false)}>close</Icon>
+                <Icon onClick={() => {
+                  setShowMenu(false)
+                  if (menu) setMenu("");
+                }}>close</Icon>
               </Tooltip>
             </Grid>
             <Grid
