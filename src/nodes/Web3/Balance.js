@@ -2,7 +2,7 @@ var Web3 = require('web3');
 
 const defaultProvider = "https://mainnet.infura.io/v3/e59c464c322f47e2963f5f00638be2f8"
 
-function Web3Balance() {
+function Balance() {
   this.addInput("address","string")
   this.addInput("[blockchain]","string")
   this.addInput("check",-1)
@@ -11,17 +11,17 @@ function Web3Balance() {
   this.size[0] = 210
 }
 
-Web3Balance.title = "Tiền dư (Balance)";
+Balance.title = "Tiền dư (Balance)";
 
-Web3Balance.prototype.onAdded = async function() {
+Balance.prototype.onAdded = async function() {
   this.connectWeb3()
 }
 
-Web3Balance.prototype.onAction = async function() {
+Balance.prototype.onAction = async function() {
   this.connectWeb3()
 }
 
-Web3Balance.prototype.checkBalance = async function() {
+Balance.prototype.checkBalance = async function() {
 //  console.log("CHECK BALANCE")
   if(this.properties.address && this.web3){
 //    console.log("BALANCE--->")
@@ -30,7 +30,7 @@ Web3Balance.prototype.checkBalance = async function() {
   }
 }
 
-Web3Balance.prototype.connectWeb3 = function() {
+Balance.prototype.connectWeb3 = function() {
   if(this.properties.provider){
 //    console.log("CONNECTING TO",this.properties.provider)
     try{
@@ -43,7 +43,7 @@ Web3Balance.prototype.connectWeb3 = function() {
   }
 }
 
-Web3Balance.prototype.onExecute = function() {
+Balance.prototype.onExecute = function() {
   let optionalProvider = this.getInputData(1)
   if(typeof optionalProvider != "undefined" && optionalProvider!=this.properties.provider){
     this.onPropertyChanged("provider",optionalProvider)
@@ -67,7 +67,7 @@ Web3Balance.prototype.onExecute = function() {
   }
 };
 
-Web3Balance.prototype.onPropertyChanged = async function(name, value){
+Balance.prototype.onPropertyChanged = async function(name, value){
 //  console.log("check "+name,this.properties[name],value)
   //if(this.properties[name]!=value){
     this.properties[name] = value;
@@ -82,4 +82,4 @@ Web3Balance.prototype.onPropertyChanged = async function(name, value){
   return true;
 };
 
-export default Web3Balance
+export default Balance

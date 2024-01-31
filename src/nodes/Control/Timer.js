@@ -1,4 +1,4 @@
-function TimerEvent() {
+function Timer() {
   this.addProperty("interval", 3000);
   this.addProperty("event", "tick");
   this.addOutput("on_tick", -1);
@@ -8,28 +8,28 @@ function TimerEvent() {
   this.size[0] = 140
 }
 
-TimerEvent.title = "Đếm thời gian (Timer)";
-TimerEvent.desc = "clock, repeat";
+Timer.title = "Đếm thời gian (Timer)";
+Timer.desc = "clock, repeat";
 
-TimerEvent.prototype.onStart = function() {
+Timer.prototype.onStart = function() {
   this.time = 0;
 };
 
-TimerEvent.prototype.getTitle = function() {
+Timer.prototype.getTitle = function() {
   return "Đếm thời gian (Timer)";
 };
 
-TimerEvent.on_color = "#AAA";
-TimerEvent.off_color = "#222";
+Timer.on_color = "#AAA";
+Timer.off_color = "#222";
 
-TimerEvent.prototype.onDrawBackground = function() {
+Timer.prototype.onDrawBackground = function() {
   this.boxcolor = this.triggered
-  ? TimerEvent.on_color
-  : TimerEvent.off_color;
+  ? Timer.on_color
+  : Timer.off_color;
   this.triggered = false;
 };
 
-TimerEvent.prototype.onExecute = function() {
+Timer.prototype.onExecute = function() {
   var dt = this.graph.elapsed_time * 1000; //in ms
 
   var trigger = this.time == 0;
@@ -59,12 +59,12 @@ TimerEvent.prototype.onExecute = function() {
   this.outputs[0].label = this.last_interval.toString()+"ms"
 };
 
-TimerEvent.prototype.onGetInputs = function() {
+Timer.prototype.onGetInputs = function() {
   return [["interval", "number"]];
 };
 
-TimerEvent.prototype.onGetOutputs = function() {
+Timer.prototype.onGetOutputs = function() {
   return [["tick", "boolean"]];
 };
 
-export default TimerEvent
+export default Timer

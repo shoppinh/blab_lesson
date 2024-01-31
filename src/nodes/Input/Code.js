@@ -7,17 +7,17 @@ import "ace-builds/src-noconflict/mode-java";
 import "ace-builds/src-noconflict/theme-monokai";
 
 
-function Text() {
+function Code() {
   this.addInput("", 0);
   this.addOutput("", "string");
   this.properties =  {blockieSize: 50,placeholder:"//code",title:"Mã nguồn (Code)",value:""}
   this.size = [500, 420];
 }
 
-Text.title = "Mã nguồn (Code)";
+Code.title = "Mã nguồn (Code)";
 
 
-Text.prototype.onExecute = function() {
+Code.prototype.onExecute = function() {
   let input = this.getInputData(0)
   if (this.inputs[0] && typeof input != "undefined" && this.properties.value != input ) {
     this.properties.value = input;
@@ -25,20 +25,20 @@ Text.prototype.onExecute = function() {
   this.setOutputData(0,this.properties.value);
 };
 
-Text.prototype.getTitle = function() {
+Code.prototype.getTitle = function() {
   if (this.flags.collapsed && this.properties.value) {
     return this.properties.value
   }
   return this.properties.title;
 };
 
-Text.prototype.handle = function(e) {
+Code.prototype.handle = function(e) {
     this.properties.value = e.target.value
     this.setOutputData(0,this.properties.value);
     this.onDrawBackground()
 }
 
-Text.prototype.onDrawBackground = function(ctx) {
+Code.prototype.onDrawBackground = function(ctx) {
 
   if (this.flags.collapsed) {
     /*this.render(
@@ -91,4 +91,4 @@ Text.prototype.onDrawBackground = function(ctx) {
 
 
 
-export default Text
+export default Code

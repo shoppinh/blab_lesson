@@ -5,20 +5,20 @@ import Blockies from 'react-blockies';
 import { Input, FilledInput } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
-function Password() {
+function Pin() {
   this.addInput("", 0);
   this.addOutput("", "number");
   this.properties =  {placeholder:"number",title:"Số nhận dạng cá nhân (PIN)"}
   this.size = [160, 50];
 }
 
-Password.title = "Số nhận dạng cá nhân (PIN)";
+Pin.title = "Số nhận dạng cá nhân (PIN)";
 
-Password.prototype.onConnectionsChange = function(args){
+Pin.prototype.onConnectionsChange = function(args){
   console.log("onConnectionsChange",args)
 }
 
-Password.prototype.onExecute = function() {
+Pin.prototype.onExecute = function() {
   let input = this.getInputData(0)
   if (this.inputs[0] && typeof input != "undefined" && this.value != input ) {
     this.value = this.getInputData(0);
@@ -26,17 +26,17 @@ Password.prototype.onExecute = function() {
   this.setOutputData(0,this.value);
 };
 
-Password.prototype.getTitle = function() {
+Pin.prototype.getTitle = function() {
   return this.title;
 };
 
-Password.prototype.handle = function(e) {
+Pin.prototype.handle = function(e) {
     this.value = e.target.value
     this.setOutputData(0,this.value);
     this.onDrawBackground()
 }
 
-Password.prototype.onDrawBackground = function(ctx) {
+Pin.prototype.onDrawBackground = function(ctx) {
 
   if (this.flags.collapsed) {
     /*this.render(
@@ -56,8 +56,8 @@ Password.prototype.onDrawBackground = function(ctx) {
             label="Name"
             placeholder={this.properties.placeholder}
             value={this.value}
-            type="password"
-            onChange={Password.prototype.handle.bind(this)}
+            type="Pin"
+            onChange={Pin.prototype.handle.bind(this)}
             margin="normal"
             variant="outlined"
           />
@@ -72,4 +72,4 @@ Password.prototype.onDrawBackground = function(ctx) {
 
 
 
-export default Password
+export default Pin

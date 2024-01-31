@@ -1,4 +1,4 @@
-function EventCounter() {
+function Counter() {
     this.addInput("inc", -1);
     this.addInput("dec", -1);
     this.addInput("reset", -1);
@@ -7,17 +7,17 @@ function EventCounter() {
     this.num = 0;
 }
 
-EventCounter.title = "Bộ đếm (Counter)";
-EventCounter.desc = "Counts events";
+Counter.title = "Bộ đếm (Counter)";
+Counter.desc = "Counts events";
 
-EventCounter.prototype.getTitle = function() {
+Counter.prototype.getTitle = function() {
     if (this.flags.collapsed) {
         return String(this.num);
     }
     return this.title;
 };
 
-EventCounter.prototype.onAction = function(action, param) {
+Counter.prototype.onAction = function(action, param) {
     var v = this.num;
     if (action == "inc") {
         this.num += 1;
@@ -31,7 +31,7 @@ EventCounter.prototype.onAction = function(action, param) {
     }
 };
 
-EventCounter.prototype.onDrawBackground = function(ctx) {
+Counter.prototype.onDrawBackground = function(ctx) {
     if (this.flags.collapsed) {
         return;
     }
@@ -41,8 +41,8 @@ EventCounter.prototype.onDrawBackground = function(ctx) {
     ctx.fillText(this.num, this.size[0] * 0.5, this.size[1] * 0.5);
 };
 
-EventCounter.prototype.onExecute = function() {
+Counter.prototype.onExecute = function() {
     this.setOutputData(1, this.num);
 };
 
-export default EventCounter
+export default Counter

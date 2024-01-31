@@ -1,4 +1,4 @@
-function DownloadData() {
+function Download() {
   this.size = [60, 30];
   this.addInput("data", 0 );
   this.addInput("download", -1 );
@@ -12,10 +12,10 @@ function DownloadData() {
   });
 }
 
-DownloadData.title = "Tải về (Download)";
-DownloadData.desc = "Tải về dữ liệu";
+Download.title = "Tải về (Download)";
+Download.desc = "Tải về dữ liệu";
 
-DownloadData.prototype.downloadAsFile = function()
+Download.prototype.downloadAsFile = function()
 {
   if(this.value == null)
   return;
@@ -38,22 +38,22 @@ DownloadData.prototype.downloadAsFile = function()
   setTimeout( function(){ URL.revokeObjectURL( url ); }, 1000*60 ); //wait one minute to revoke url
 }
 
-DownloadData.prototype.onAction = function(action, param) {
+Download.prototype.onAction = function(action, param) {
   var that = this;
   setTimeout( function(){ that.downloadAsFile(); }, 100); //deferred to avoid blocking the renderer with the popup
 }
 
-DownloadData.prototype.onExecute = function() {
+Download.prototype.onExecute = function() {
   if (this.inputs[0]) {
     this.value = this.getInputData(0);
   }
 };
 
-DownloadData.prototype.getTitle = function() {
+Download.prototype.getTitle = function() {
   if (this.flags.collapsed) {
     return this.properties.filename;
   }
   return this.title;
 };
 
-export default DownloadData
+export default Download

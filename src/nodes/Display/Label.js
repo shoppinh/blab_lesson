@@ -5,26 +5,26 @@ import Blockies from 'react-blockies';
 import { Input, FilledInput } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
-function Text() {
+function Label() {
   this.properties =  {blockieSize: 50,placeholder:"",title:"Nhãn (Label)",value:null,fontSize:28}
   this.size = [300, 0];
 }
 
-Text.title = "Nhãn (Label)";
-Text.title_color = "#222"
+Label.title = "Nhãn (Label)";
+Label.title_color = "#222"
 
-Text.prototype.onConnectionsChange = function(args){
+Label.prototype.onConnectionsChange = function(args){
   console.log("onConnectionsChange",args)
 }
 
-Text.prototype.getTitle = function() {
+Label.prototype.getTitle = function() {
   if (this.flags.collapsed && this.properties.value) {
     return this.properties.value
   }
   return "";
 };
 
-Text.prototype.handle = function(e) {
+Label.prototype.handle = function(e) {
     this.properties.value = e.target.value
     this.setOutputData(0,this.properties.value);
     this.onDrawBackground()
@@ -39,13 +39,13 @@ Text.prototype.handle = function(e) {
   label="Name"
   placeholder={this.properties.placeholder}
   value={this.properties.value}
-  onChange={Text.prototype.handle.bind(this)}
+  onChange={Label.prototype.handle.bind(this)}
   margin="normal"
   variant="outlined"
 />
  */
 
-Text.prototype.onDrawBackground = function(ctx) {
+Label.prototype.onDrawBackground = function(ctx) {
 
   if (this.flags.collapsed) {
     /*this.render(
@@ -79,4 +79,4 @@ Text.prototype.onDrawBackground = function(ctx) {
 
 
 
-export default Text
+export default Label

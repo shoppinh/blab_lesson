@@ -11,7 +11,7 @@ import { FileCopy } from '@material-ui/icons';
 
 function Address() {
   this.addInput("", 0);
-  this.properties =  {blockieSize: 50,placeholder:"",title:"Address"}
+  this.properties =  {blockieSize: 50,placeholder:"",title:"Địa chỉ (Address)"}
   this.size = [340, 80];
 }
 

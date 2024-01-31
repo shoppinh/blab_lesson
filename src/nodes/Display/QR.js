@@ -1,16 +1,16 @@
 
 var QRCode = require('qrcode')
 
-function DisplayQR() {
+function QR() {
     this.addInput("", 0, { label: "" });
     this.size = [400,400]
     this.value = "";
     this.properties = {qrSize:280,light:false}
 }
 
-DisplayQR.title = "Mã QR";
+QR.title = "Mã QR";
 
-DisplayQR.prototype.onExecute = function() {
+QR.prototype.onExecute = function() {
     if (this.inputs[0] && this.value != this.getInputData(0)) {
         this.value = this.getInputData(0);
         if(this.value){
@@ -35,14 +35,14 @@ DisplayQR.prototype.onExecute = function() {
     }
 };
 
-DisplayQR.prototype.getTitle = function() {
+QR.prototype.getTitle = function() {
     if (this.flags.collapsed) {
         return this.inputs[0].label;
     }
     return this.title;
 };
 
-DisplayQR.prototype.onDrawBackground = function(ctx) {
+QR.prototype.onDrawBackground = function(ctx) {
     //show the current value
     this.inputs[0].label = this.value;
     if(this.qr){
@@ -53,4 +53,4 @@ DisplayQR.prototype.onDrawBackground = function(ctx) {
 
 };
 
-export default DisplayQR
+export default QR

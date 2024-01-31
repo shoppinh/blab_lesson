@@ -1,5 +1,5 @@
 
-function Combine() {
+function Any() {
   this.size = [110, 30];
   this.addInput("A", 0);
   this.addInput("B", 0);
@@ -8,9 +8,9 @@ function Combine() {
   this.value = 0;
 }
 
-Combine.title = "Bất kỳ (Any)";
+Any.title = "Bất kỳ (Any)";
 
-Combine.prototype.onExecute = function() {
+Any.prototype.onExecute = function() {
 
   this.value = this.getInputData(0) || this.getInputData(1) || this.getInputData(2)
 
@@ -20,4 +20,4 @@ Combine.prototype.onExecute = function() {
 
 };
 
-export default Combine
+export default Any

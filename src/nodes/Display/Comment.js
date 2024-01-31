@@ -1,38 +1,35 @@
 import React from 'react';
-import ReactDOM from 'react-dom'
-import Blockies from 'react-blockies';
 
-import { Input, FilledInput, TextareaAutosize } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import { TextareaAutosize } from '@material-ui/core';
 
-function Text() {
+function Comment() {
   this.properties =  {fontSize: 18,placeholder:"// comments...",title:"Bình luận (Comment)" ,value:null}
   this.size = [500, 0];
 }
 
-Text.title = "Bình luận (Comment)";
-Text.title_color = "#222"
-//Text.bgcolor ="#000"
+Comment.title = "Bình luận (Comment)";
+Comment.title_color = "#222"
+//Comment.bgcolor ="#000"
 
-Text.prototype.onConnectionsChange = function(args){
+Comment.prototype.onConnectionsChange = function(args){
   console.log("onConnectionsChange",args)
 }
 
-Text.prototype.getTitle = function() {
+Comment.prototype.getTitle = function() {
   if (this.flags.collapsed && this.properties.value) {
     return this.properties.value
   }
   return "";
 };
 
-Text.prototype.handle = function(e) {
+Comment.prototype.handle = function(e) {
     this.properties.value = e.target.value
     this.setOutputData(0,this.properties.value);
     this.onDrawBackground()
     if(this.properties.value) global.title = this.properties.value
 }
 
-Text.prototype.onDrawBackground = function(ctx) {
+Comment.prototype.onDrawBackground = function(ctx) {
 
   if (this.flags.collapsed) {
     /*this.render(
@@ -52,7 +49,7 @@ Text.prototype.onDrawBackground = function(ctx) {
             label="Name"
             placeholder={this.properties.placeholder}
             value={this.properties.value}
-            onChange={Text.prototype.handle.bind(this)}
+            onChange={Comment.prototype.handle.bind(this)}
             margin="normal"
             variant="outlined"
           />
@@ -67,4 +64,4 @@ Text.prototype.onDrawBackground = function(ctx) {
 
 
 
-export default Text
+export default Comment

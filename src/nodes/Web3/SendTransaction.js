@@ -2,7 +2,7 @@ var Web3 = require('web3');
 
 const defaultProvider = "https://mainnet.infura.io/v3/e59c464c322f47e2963f5f00638be2f8"
 
-function Web3SendTransaction() {
+function SendTransaction() {
   this.addInput("signed","string")
   this.addInput("[blockchain]","string")
   this.addInput("send",-1)
@@ -11,13 +11,13 @@ function Web3SendTransaction() {
   this.properties = { address: "", provider: defaultProvider };
 }
 
-Web3SendTransaction.title = "Gửi giao dịch (Send Transaction)";
+SendTransaction.title = "Gửi giao dịch (Send Transaction)";
 
-Web3SendTransaction.prototype.onAdded = async function() {
+SendTransaction.prototype.onAdded = async function() {
   this.connectWeb3()
 }
 
-Web3SendTransaction.prototype.onAction = function(event, tx, raw) {
+SendTransaction.prototype.onAction = function(event, tx, raw) {
   //console.log("ACTION",event,tx,raw)
 
   let transaction = raw
@@ -48,7 +48,7 @@ Web3SendTransaction.prototype.onAction = function(event, tx, raw) {
   }
 }
 
-Web3SendTransaction.prototype.checkForReceipt = async function() {
+SendTransaction.prototype.checkForReceipt = async function() {
   if(this.transactionHash){
     console.log("Checking for receipt of "+this.transactionHash)
     this.receipt = await this.web3.eth.getTransactionReceipt(this.transactionHash)
@@ -60,14 +60,14 @@ Web3SendTransaction.prototype.checkForReceipt = async function() {
 
 }
 
-Web3SendTransaction.prototype.connectWeb3 = function() {
+SendTransaction.prototype.connectWeb3 = function() {
   if(this.properties.provider){
     console.log("WEB3 CONNECTING TO",this.properties.provider)
     this.web3 = new Web3(this.properties.provider)
   }
 }
 
-Web3SendTransaction.prototype.onExecute = function() {
+SendTransaction.prototype.onExecute = function() {
   let optionalProvider = this.getInputData(1)
   if(typeof optionalProvider != "undefined" && optionalProvider!=this.properties.provider){
     this.onPropertyChanged("provider",optionalProvider)
@@ -81,7 +81,7 @@ Web3SendTransaction.prototype.onExecute = function() {
   this.setOutputData(1,this.receipt)
 };
 
-Web3SendTransaction.prototype.onPropertyChanged = async function(name, value){
+SendTransaction.prototype.onPropertyChanged = async function(name, value){
   console.log("check "+name,this.properties[name],value)
   this.properties[name] = value;
   console.log("property change",name,value)
@@ -93,4 +93,4 @@ Web3SendTransaction.prototype.onPropertyChanged = async function(name, value){
   return true;
 };
 
-export default Web3SendTransaction
+export default SendTransaction

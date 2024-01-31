@@ -1,13 +1,13 @@
-function StringLength() {
+function Compare() {
   this.addInput("string", "string");
   this.addOutput("length", "number");
   this.size = [140, 26];
 }
 
-StringLength.title = "Độ dài (Length)";
-StringLength.description = "get string character count" //added for search
+Compare.title = "Độ dài (Length)";
+Compare.description = "get string character count" //added for search
 
-StringLength.prototype.onExecute = function() {
+Compare.prototype.onExecute = function() {
   if (this.inputs[0] && this.getInputData(0) && typeof this.getInputData(0) == "string") {
     this.value = this.getInputData(0).length;
     this.setOutputData(0,this.value)
@@ -17,11 +17,11 @@ StringLength.prototype.onExecute = function() {
   }
 };
 
-StringLength.prototype.getTitle = function() {
+Compare.prototype.getTitle = function() {
   if (this.flags.collapsed) {
     return "Length("+this.value+")";
   }
   return this.title;
 };
 
-export default StringLength
+export default Compare

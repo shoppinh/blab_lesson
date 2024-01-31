@@ -4,7 +4,7 @@ const keccak256 = require('keccak256')
 
 const defaultProvider = "https://mainnet.infura.io/v3/e59c464c322f47e2963f5f00638be2f8"
 
-function Web3Balance() {
+function Block() {
   this.addInput("number","string,number")
   this.addInput("[blockchain]","string")
   this.addOutput("block","object")
@@ -19,13 +19,13 @@ function Web3Balance() {
   this.loading = false
 }
 
-Web3Balance.title = "Khố (Block)";
+Block.title = "Khố (Block)";
 
-Web3Balance.prototype.onAdded = async function() {
+Block.prototype.onAdded = async function() {
   this.connectWeb3()
 }
 
-Web3Balance.prototype.onAction = async function() {
+Block.prototype.onAction = async function() {
   this.connectWeb3()
   let blockNumber = this.getInputData(0)
   //console.log("blockNumber",blockNumber)
@@ -128,7 +128,7 @@ Web3Balance.prototype.onAction = async function() {
 
 }
 
-Web3Balance.prototype.cleanValue = function(number) {
+Block.prototype.cleanValue = function(number) {
   let str = ""+this.web3.utils.toHex(number)
   if(str=="0x0") {
     str = "0x"
@@ -136,7 +136,7 @@ Web3Balance.prototype.cleanValue = function(number) {
   return str
 }
 
-Web3Balance.prototype.connectWeb3 = function() {
+Block.prototype.connectWeb3 = function() {
   if(this.properties.provider){
     try{
       this.web3 = new Web3(this.properties.provider)
@@ -148,7 +148,7 @@ Web3Balance.prototype.connectWeb3 = function() {
   }
 }
 
-Web3Balance.prototype.onExecute = function() {
+Block.prototype.onExecute = function() {
 
   let optionalProvider = this.getInputData(1)
   if(typeof optionalProvider != "undefined" && optionalProvider!=this.properties.provider){
@@ -196,7 +196,7 @@ Web3Balance.prototype.onExecute = function() {
 
 };
 
-Web3Balance.prototype.onPropertyChanged = async function(name, value){
+Block.prototype.onPropertyChanged = async function(name, value){
 //  console.log("check "+name,this.properties[name],value)
   //if(this.properties[name]!=value){
     this.properties[name] = value;
@@ -208,4 +208,4 @@ Web3Balance.prototype.onPropertyChanged = async function(name, value){
   return true;
 };
 
-export default Web3Balance
+export default Block

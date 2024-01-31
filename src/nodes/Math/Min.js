@@ -1,38 +1,38 @@
-function MathOperation() {
+function Min() {
   this.addInput("A", "number");
   this.addInput("B", "number");
   this.addOutput("=", "number");
   this.addProperty("A", 1);
   this.addProperty("B", 1);
-  this.addProperty("OP", "min", "enum", { values: MathOperation.values });
+  this.addProperty("OP", "min", "enum", { values: Min.values });
   this.size[0] = 120
 }
 
-MathOperation.values = ["+", "-", "*", "/", "%", "^", "max", "min"];
+Min.values = ["+", "-", "*", "/", "%", "^", "max", "min"];
 
-MathOperation.title = "Nhỏ nhât (Min)";
+Min.title = "Nhỏ nhât (Min)";
 
-MathOperation["@OP"] = {
+Min["@OP"] = {
   type: "enum",
   title: "operation",
-  values: MathOperation.values
+  values: Min.values
 };
-MathOperation.size = [100, 60];
+Min.size = [100, 60];
 
-MathOperation.prototype.getTitle = function() {
+Min.prototype.getTitle = function() {
   if(this.properties.OP == "max" || this.properties.OP == "min")
   return this.properties.OP 
   return "A " + this.properties.OP + " B";
 };
 
-MathOperation.prototype.setValue = function(v) {
+Min.prototype.setValue = function(v) {
   if (typeof v == "string") {
     v = parseFloat(v);
   }
   this.properties["value"] = v;
 };
 
-MathOperation.prototype.onExecute = function() {
+Min.prototype.onExecute = function() {
   var A = this.getInputData(0);
   var B = this.getInputData(1);
   if (A != null) {
@@ -81,7 +81,7 @@ MathOperation.prototype.onExecute = function() {
   this.setOutputData(0, result);
 };
 
-MathOperation.prototype.onDrawBackground = function(ctx) {
+Min.prototype.onDrawBackground = function(ctx) {
   if (this.flags.collapsed) {
     return;
   }
@@ -97,4 +97,4 @@ MathOperation.prototype.onDrawBackground = function(ctx) {
   ctx.textAlign = "left";
 };
 
-export default MathOperation
+export default Min

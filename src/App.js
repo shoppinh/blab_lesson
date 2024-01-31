@@ -573,7 +573,7 @@ function App() {
         // Change this line to load a different graph
         let defaultData = "wofCrGxhc3Rfbm9kZV9pZMONASfEgcSDxIVsaW5rxIvEjQI7wqXEh8SJc8OcABLCisKixIzEjhLCpHR5cGXCrElucHV0L051bWJlcsKjcG9zwpLDjQJ2w4zCqsKkc2l6ZcKSw4zCgjTCpWbEgmdzwoDCpW9yxIlyAMKkbcSIZQDCpsSVxLB0c8KRwoPCpG5hbWXCoMSoxKrFnMKkxJTElsOAwqdvxLHFoMWixaTFpsWoxarEqcSrwqZuxLXEt3LCpcWva8WixL8vwqpwcm_Eq3J0aWVzwoPCq3DEgmNlaG9sxZbCoSPCpcaOdGxlwqbEtMS2xLjCpXZhbHVlwqQxMzM3xKPEpQEUxavEq8KrTWF0aC9SYW5kb23EusS8xL4CbMSOIsWExYbFiMOMw4gexY3Fj8WRxZPFlcS4AcWZxZvFncWfxLHFtsWlxafFqca2ZcO_xa7ElWvFscWzdMW1wpHChMeexajGp8apxqvHocW9xb_GpsaDxoUCMMaCYcS3bMOLQ8Khw5QoG8OIw7NcxojGisaMxo7GkMKDwqlhxLHHgsa6aWPDg8KjbcSVAMiVYXjHvsKrw4FtZ07DiADGssSNARPHocKtxrnGuy9NdWzGjsaUeceExL3DjQN6x47Hi8WHwpJ4PMeRYcWQxZLFlMWWCceYxInHmsSvx5zCksW3x5_CoUHHssW-xqVyx6TElsaGyYvFqMKhQsmPx7TJksaDxL8wxbLFtMecxaPHrWXCoT3JmsmRxoLHpce3MciHxovEuMiKxpHJjcONBTnJmMe-yIDIgsiEXMKiT1DCoSrCicSkyKUWx6HCr0Rpc8aUYXkvQmxvY2vGj8izxL4ETMSOQMi5xYhGyL3Fjsi_x5PJgsS4D8mFxZzFnsmIxaHJo8W4x6DFu8WtyZ0CMsmuyInGj3PChMKrYsqQypLGj1PHjDLGk8aVxpfGmcWWwqDGnmnGoMWpx6_GqmXDmUIweGM4YjgwZmVmNTnLkmE4NmZhNzRkYTnHuzUyxIkyMTHLkDkwOMumMDXGrzNjOTg3YWUxZjTLljRjY2EyNcucNWHIpMSOGMqGQ3LEqnRvL0tleSBQYWnEucS7yLQBw4jEv8O4ypvCgsKhMMOKQ1PCmcKawqExQsi-yYDHlMWWDcqlyYfFtcmKyaTCrVvGiWnGqHRlIGvMk13HssSEcsSVZ8mTa8S_NsmWZcKoZ2VuxLjGusasyq3Ho8aDx6fJocWhwpPNisaTzYPMusy8zL55zYF0zYNuZ8mqxJbHtzjNisaIdcq4yJLMvcyTzaHNo82lx7bDgM2KwqdhZGRyxpBzzbHNhM2mxoTCkcS_OcqyybDKtMKAzIgBFcehwqvMjMyOzJBIxINoypXItcKixI5KypvIu8eQyp_MrcqicgzMscqnx6rNisKlx5t0yKjNgs2ELMmQxoDNhsS_Mcmgx6nJos2KwqRozpLNvs2kzoDItMqwxL86zoXGjc6HzokgyKjKiMqKxILKjVfGumPOk8yaypYkw4zCtM6ZyLUxyp7HksmBx5VyEM6hzqbFosesyqvFusWsxZjKrzrHuse8wqDOsceqz57Hn8-gxKsAzrrDgM-lZWzCoM6_ybHCgcuFy4fCpc-JdM-Lzokhx6HCqsSuxaAvVGV4dM6UAsKUxI7Dgs-SAn8yzKzKoc-YAs-byqjHnc-fx6HPoselzZbOssqpzYrPrMaizqnOuce2zoLEms-1yrTKtsq4ypHKk2XKvMWHyr7Ki8aWxpjGmsS4wq_Njsy7ciDMu9CHIGjEuGXPuMahwqtMZWFybiBNxZRlz6TGqMuKw5lIaHTHqXM6Ly930ZoueceozaxlLmPHgi_Ki3nElMSEP9GndD1QTEp6MUhydUXNj25DWEg3S1c3d0JDRUJuQkxPVsqTcUlpzokez4TKidGlL8-7z4vOlAHDvsS_ds-SA8-U0JLPl8WWEdCWz6nJpNCh0JvJlAI4z7HPs8-oyaLPqsW50JrPr9Kpz7TGicmvz4DGkM-3xp_Goc-6z4powojKg8SOI9KPz4bKjNCEy4bGocqVRsWKz5IBw7TPrs6c0JPFlgPMsdCoxpDCh8KoZm9udNCvZSzKt8q50K3Tm9Cxy4DQtMuD0YLRgVTThdGB0Y_Gq8KpZca7LmJ1acaawqrTl9OZRsWn07N5wrwnUs2saWvRitOYbyBPzY8nLCBzxr9zLXPEuGlmwqXRosqQcsKnI8251JlkzokZzIvMjXDMj8iszY_Fmm7IksqVw4zClsi1SMygzKLMpDpmZsypzKvTjtKexLgL0qHHnM2ZyaTCqltt1KPTmMiSzYDKrcKm0KPNhc2VzbZbxJXEiXjVgsWsx7PJkc2GzbXJpM2MzY7NkMy7x6HNlMelxL810qvFocy0yqvNm8y5zZHNr82g1YPVhc660KbNidWT1L5l1KTIks64zbPJq9CmN9OTc8-31YrQhgDKgsazH8qGz4XSkUHNuc27c3POlAMMyLXQlcWFyLrEjlRQ0p3MrsS4xKfFmsmGzqLOs9Kj0JrOrgLOhNKzyrPIi9Oe0KzKu8q9yr9h0LPLgsS4y4TSuGXCp9aBzbrNvM6JHdOB0pHSk8-Mx4XEjsKkyLXHrNaLxYjItcO9z5XKoNS1cg7UuMqp0q3KrM-h1po30rHVnc-d1pjKrc-uzbTSsdW10rfTqdK6z7zSvNK-ASTVvtKQz4cvQ8eCxajTmcqVHsOMw7DTitOM1pDOngTTktadzobGkMKE05bTmNOax4wS1qTWptC1csKu0Zgg0aJt16LFoS7YgtOmwqfXoNe_0LjLicarw5lBw7DCn8KTwp0gQ1JFQVRFIEEgTkVXIEJVSUxEOgpoy4bXvc2ibCth0LvUhNSPxqFjdCDGqWzQu9C_0YnYptiyxInGocy70r3GsyfXnNOCyo3YhtiA16TEjl7XqNONz5bWkXIF163IiNevyrXXstOZ05vXttCyy4HXude7L9e916HQuHPYgi7YhNmE2IjTq8uLwoTYjcKVwrXYjcKPwrvDosKAwo3DosKZwoLDr8K4wo8gU9iUUkNIL0FE2KPQvtinyorWpcy8YtGH2LPHgNC7xawKw6LCncKMIEVYSVTGvUXZuFQ62oHYssaQzIHEqwrYpW92xLgg2qHao8yPxplz2qTRica7zLzNg2fRkyBlZM2NINOX0LrFms27IC3au9q8Pti-yKUm2YHSkdmj16PPjR7EjsO02YnXqs-YBtmP0rTJsdex07bXtMWH2ZbTo9an17rXvNe-2IDZn9iD1qrYhdmd05nYicuLXtiNwqfCkCBM2blO0YpP2JPamWPElMqS2LbahW_RlMeC0LtyyozatcWU2rFwyonFm9qpCtiNwpLCvtm3QVZF26_bsdSB1IvaoiDIktOY3I_RiWLbtcyPbdu4yozav8SOJduC157bhNCIz40yxL9s04pNBNuLxZYH247WntmS25LZlde32ZjFltma2ZzYh9OZ25zZodue3J_bosOZINyDwqzatWXastqGypLamUDIjsSEzYTNg9Swy4ZoICDOiRvHocStyqjKjsSxzI9u2YYCw5rOmceO0JHTjsKBwqnUlMSCcNSPZMOC2YwI14TQmM-r1ZjVkdeM1Z_drM2T1ajVm9Cgx6HCrs6sxLgs3JTGmdGGbs-v1bXCg9uiwqjbsMiS1IHHrtaqwqZC3ZbTmNSTxbPTmRDOusKb1KkCL8SmAMSOE8Wd3bhy3pMwxI4U3pfIpgHVj8aA3pMx3pjeoRUAwq3Vhc6ryZvek9yizoreoRYAAN6TNcSOG96hGQLDv96TNsSOGd6hGMWd1YXekzffgQHEjh3etd6TOMyJ3qEe343Og8yJAsSOH9-TAjrEjt6qxI4g35k7xI4h3qEi3rXCpmfGinXdpMKQwqbRom5maWfCgMKn2qJyxYXTmMOLP8OZwpnfvN-8wpo"
         codec.decompress(defaultData).then((json) => {
-          // console.log("JSON", JSON.stringify(json));
+          console.log("JSON", JSON.stringify(json));
           const modifiedNodes = json.nodes.map((node) => {
             if (node.type == "Display/Title") {
               node.properties.value = "BLAB!";
@@ -772,7 +772,7 @@ function App() {
                   //console.log("DO A DROP AT ",name,x,y)
                   setMenu("");
                   var node_watch = global.LiteGraphJS.LiteGraph.createNode(
-                    menu + "/" + item.title
+                    menu + "/" + item.name
                   );
                   node_watch.pos = [
                     x - 40 + global.graph.canvas.visible_area[0],
@@ -787,7 +787,7 @@ function App() {
                     if (menu) {
                       setMenu("");
                       var node_watch = global.LiteGraphJS.LiteGraph.createNode(
-                        menu + "/" + item.title
+                        menu + "/" + item.name
                       );
                       node_watch.pos = [
                         width / 2 - 40 + global.graph.canvas.visible_area[0],

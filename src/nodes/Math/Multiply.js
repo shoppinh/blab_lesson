@@ -1,38 +1,38 @@
-function MathOperation() {
+function Multiply() {
   this.addInput("A", "number");
   this.addInput("B", "number");
   this.addOutput("=", "number");
   this.addProperty("A", 1);
   this.addProperty("B", 1);
-  this.addProperty("OP", "*", "enum", { values: MathOperation.values });
+  this.addProperty("OP", "*", "enum", { values: Multiply.values });
   this.size[0] = 120
 }
 
-MathOperation.values = ["+", "-", "*", "/", "%", "^", "max", "min"];
+Multiply.values = ["+", "-", "*", "/", "%", "^", "max", "min"];
 
-MathOperation.title = "Nhân (Multiply)";
-MathOperation.desc = "*";
-MathOperation["@OP"] = {
+Multiply.title = "Nhân (Multiply)";
+Multiply.desc = "*";
+Multiply["@OP"] = {
   type: "enum",
   title: "operation",
-  values: MathOperation.values
+  values: Multiply.values
 };
-MathOperation.size = [100, 60];
+Multiply.size = [100, 60];
 
-MathOperation.prototype.getTitle = function() {
+Multiply.prototype.getTitle = function() {
   if(this.properties.OP == "max" || this.properties.OP == "min")
   return this.properties.OP + "(A,B)";
   return "A " + this.properties.OP + " B";
 };
 
-MathOperation.prototype.setValue = function(v) {
+Multiply.prototype.setValue = function(v) {
   if (typeof v == "string") {
     v = parseFloat(v);
   }
   this.properties["value"] = v;
 };
 
-MathOperation.prototype.onExecute = function() {
+Multiply.prototype.onExecute = function() {
   var A = this.getInputData(0);
   var B = this.getInputData(1);
   if (A != null) {
@@ -81,7 +81,7 @@ MathOperation.prototype.onExecute = function() {
   this.setOutputData(0, result);
 };
 
-MathOperation.prototype.onDrawBackground = function(ctx) {
+Multiply.prototype.onDrawBackground = function(ctx) {
   if (this.flags.collapsed) {
     return;
   }
@@ -97,4 +97,4 @@ MathOperation.prototype.onDrawBackground = function(ctx) {
   ctx.textAlign = "left";
 };
 
-export default MathOperation
+export default Multiply

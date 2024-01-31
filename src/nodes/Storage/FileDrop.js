@@ -1,13 +1,13 @@
 const axios = require('axios');
 
-function FileRead() {
+function FileDrop() {
   this.addOutput("output", "string");
   this.size = [194,36]
 }
 
-FileRead.title = "Kéo thả file (FileDrop)";
+FileDrop.title = "Kéo thả file (FileDrop)";
 
-FileRead.prototype.onDrawBackground = function(ctx) {
+FileDrop.prototype.onDrawBackground = function(ctx) {
   if (this.flags.collapsed) {
     return;
   }
@@ -20,13 +20,13 @@ FileRead.prototype.onDrawBackground = function(ctx) {
 
 };
 
-FileRead.prototype.onExecute = function() {
+FileDrop.prototype.onExecute = function() {
   if(this.contents && this.outputs[0]!=this.contents){
     this.setOutputData(0, this.contents);
   }
 };
 
-FileRead.prototype.onDropFile = function(file) {
+FileDrop.prototype.onDropFile = function(file) {
   //console.log("dropped file",file)
   this.file = file
   var that = this;
@@ -43,4 +43,4 @@ FileRead.prototype.onDropFile = function(file) {
   reader.readAsText(file)
 };
 
-export default FileRead
+export default FileDrop

@@ -1,14 +1,14 @@
-function BasicVariable() {
+function Variable() {
   this.size = [60, 30];
   this.addInput("in");
   this.addOutput("out");
-  this.properties = { varname: "var", global: true };
+  this.properties = { varname: "Biến (Variable)", global: true };
   this.value = null;
 }
 
-BasicVariable.title = "Biến (Variable)";
+Variable.title = "Biến (Variable)";
 
-BasicVariable.prototype.onExecute = function() {
+Variable.prototype.onExecute = function() {
   if(typeof this.getInputData(0) != "undefined"){
     this.value = this.getInputData(0);
     if(this.graph)
@@ -25,8 +25,8 @@ BasicVariable.prototype.onExecute = function() {
   }
 };
 
-BasicVariable.prototype.getTitle = function() {
+Variable.prototype.getTitle = function() {
   return this.properties.varname;
 };
 
-export default BasicVariable
+export default Variable

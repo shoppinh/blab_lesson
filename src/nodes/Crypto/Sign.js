@@ -3,7 +3,7 @@ const Web3 = require('web3');
 
 const defaultProvider = "https://rpc.eth.build:46234" //some junk url because you don't need a provider to sign messages but web3.js still needs a provider
 
-function Web3Sign() {
+function Sign() {
   this.addInput("[privatekey]","string")
   this.addInput("[provider]","string")
   this.addInput("[message]","string")
@@ -16,15 +16,15 @@ function Web3Sign() {
   this.signatures = [] //cache each after signing
 }
 
-Web3Sign.title = "Ký (Sign)";
+Sign.title = "Ký (Sign)";
 
-Web3Sign.prototype.onAction = async function() {
+Sign.prototype.onAction = async function() {
   if(this.properties['message'] && this.address){
     this.sign()
   }
 }
 
-Web3Sign.prototype.onExecute = async function() {
+Sign.prototype.onExecute = async function() {
   let optionalPrivateKey = this.getInputData(0)
   if(typeof optionalPrivateKey != "undefined" && optionalPrivateKey!=this.properties.privateKey){
     this.onPropertyChanged("privateKey",optionalPrivateKey)
@@ -42,7 +42,7 @@ Web3Sign.prototype.onExecute = async function() {
   this.setOutputData(2,this.signature)
 };
 
-Web3Sign.prototype.onPropertyChanged = async function(name, value){
+Sign.prototype.onPropertyChanged = async function(name, value){
   this.properties[name] = value;
 
   if(name=="privateKey"||name=="provider"){
@@ -69,7 +69,7 @@ Web3Sign.prototype.onPropertyChanged = async function(name, value){
   return true;
 };
 
-Web3Sign.prototype.sign = async function(){
+Sign.prototype.sign = async function(){
   console.log("this.properties['message']",this.properties['message'],"this.properties['autoSign']",this.properties['autoSign'],"this.address",this.address)
   if(this.signatures[this.address+this.properties['message']]){
     this.signature = this.signatures[this.address+this.properties['message']];
@@ -85,4 +85,4 @@ Web3Sign.prototype.sign = async function(){
 }
 
 
-export default Web3Sign
+export default Sign

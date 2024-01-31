@@ -4,7 +4,7 @@ var Web3 = require('web3');
 
 const defaultProvider = "https://mainnet.infura.io/v3/e59c464c322f47e2963f5f00638be2f8"
 
-function Web3Transaction() {
+function Transaction() {
   this.addInput("[blockchain]","string")
   this.addInput("[privatekey]","string")
   this.addInput("[to]","string")
@@ -23,24 +23,24 @@ function Web3Transaction() {
   this.signed = false
 }
 
-Web3Transaction.title = "Giao dịch (Transaction)";
+Transaction.title = "Giao dịch (Transaction)";
 
 
-Web3Transaction.prototype.connectWeb3 = function() {
+Transaction.prototype.connectWeb3 = function() {
   if(this.properties.provider){
     //console.log("CONNECTING TO",this.properties.provider)
     this.web3 = new Web3(this.properties.provider)
   }
 }
 
-Web3Transaction.prototype.setInput = function(index,name,type) {
+Transaction.prototype.setInput = function(index,name,type) {
   let optional = this.getInputData(index)
   if(typeof optional != "undefined" && optional!=this.properties[name]){
     this.onPropertyChanged(name,optional)
   }
 }
 
-Web3Transaction.prototype.assureHex = function(str){
+Transaction.prototype.assureHex = function(str){
   if(str.indexOf("0x")<0){
     str = "0x"+str
   }
@@ -48,7 +48,7 @@ Web3Transaction.prototype.assureHex = function(str){
 }
 
 
-Web3Transaction.prototype.onExecute = function() {
+Transaction.prototype.onExecute = function() {
 
   let optionalProvider = this.getInputData(0)
   if(typeof optionalProvider != "undefined" && optionalProvider!=this.properties.provider){
@@ -115,7 +115,7 @@ Web3Transaction.prototype.onExecute = function() {
 };
 
 
-Web3Transaction.prototype.onAction = async function(event, args) {
+Transaction.prototype.onAction = async function(event, args) {
   try{
     await this.craftTransaction()
     const tx = new EthTx(this.transaction);
@@ -140,7 +140,7 @@ Web3Transaction.prototype.onAction = async function(event, args) {
 
 
 
-Web3Transaction.prototype.craftTransaction = async function(){
+Transaction.prototype.craftTransaction = async function(){
   try{
     console.log("Crafting a transaction...")
     this.connectWeb3()
@@ -189,7 +189,7 @@ Web3Transaction.prototype.craftTransaction = async function(){
 }
 
 
-Web3Transaction.prototype.onPropertyChanged = async function(name, value){
+Transaction.prototype.onPropertyChanged = async function(name, value){
   if(this.properties[name]!=value){
     this.properties[name] = value;
     this.craftTransaction()
@@ -198,4 +198,4 @@ Web3Transaction.prototype.onPropertyChanged = async function(name, value){
   return true;
 };
 
-export default Web3Transaction
+export default Transaction

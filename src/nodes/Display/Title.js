@@ -5,34 +5,34 @@ import Blockies from 'react-blockies';
 import { Input, FilledInput } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
-function Text() {
+function Title() {
   this.properties =  {fontSize: 44,blockieSize: 50,placeholder:"",title:"Tiêu đề",value:null,fontFamily:"'Roboto', sans-serif",color:"#dddddd"}
   this.size = [500, 0];
 }
 
-Text.title = "Tiêu đề (Title)";
-Text.title_color = "#222"
-//Text.bgcolor ="#000"
+Title.title = "Tiêu đề (Title)";
+Title.title_color = "#222"
+//Title.bgcolor ="#000"
 
-Text.prototype.onConnectionsChange = function(args){
+Title.prototype.onConnectionsChange = function(args){
   console.log("onConnectionsChange",args)
 }
 
-Text.prototype.getTitle = function() {
+Title.prototype.getTitle = function() {
   if (this.flags.collapsed && this.properties.value) {
     return this.properties.value
   }
   return "";
 };
 
-Text.prototype.handle = function(e) {
+Title.prototype.handle = function(e) {
     this.properties.value = e.target.value
     this.setOutputData(0,this.properties.value);
     this.onDrawBackground()
     if(this.properties.value) global.title = this.properties.value
 }
 
-Text.prototype.onDrawBackground = function(ctx) {
+Title.prototype.onDrawBackground = function(ctx) {
 
   if (this.flags.collapsed) {
     /*this.render(
@@ -52,7 +52,7 @@ Text.prototype.onDrawBackground = function(ctx) {
             label="Name"
             placeholder={this.properties.placeholder}
             value={this.properties.value}
-            onChange={Text.prototype.handle.bind(this)}
+            onChange={Title.prototype.handle.bind(this)}
             margin="normal"
             variant="outlined"
           />
@@ -67,4 +67,4 @@ Text.prototype.onDrawBackground = function(ctx) {
 
 
 
-export default Text
+export default Title

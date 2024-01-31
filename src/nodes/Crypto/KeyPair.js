@@ -1,6 +1,6 @@
 var EthUtil = require('ethereumjs-util');
 
-function Web3KeyPair() {
+function KeyPair() {
   this.addInput("[private key]","string")
   this.addInput("generate",-1)
   this.addOutput("private key", "string");
@@ -8,10 +8,10 @@ function Web3KeyPair() {
   this.addOutput("address", "string");
 }
 
-Web3KeyPair.title = "Cặp khóa (Key Pair)";
-Web3KeyPair.description = "private public cryptography keypair";
+KeyPair.title = "Cặp khóa (Key Pair)";
+KeyPair.description = "private public cryptography keypair";
 
-Web3KeyPair.prototype.onAction = function() {
+KeyPair.prototype.onAction = function() {
   var chars = "0123456789abcdef";
   let str = ""
   for (var i = 0; i < 64; i++)
@@ -21,7 +21,7 @@ Web3KeyPair.prototype.onAction = function() {
   this.updateAddress()
 }
 
-Web3KeyPair.prototype.onExecute = function() {
+KeyPair.prototype.onExecute = function() {
   let optionalPrivateKey = this.getInputData(0)
   if(typeof optionalPrivateKey != "undefined" && optionalPrivateKey!=this.privateKey){
     if(optionalPrivateKey && typeof optionalPrivateKey.indexOf == "function" && optionalPrivateKey.indexOf("0x")<0){
@@ -36,14 +36,14 @@ Web3KeyPair.prototype.onExecute = function() {
   this.setOutputData(2,this.address)
 };
 
-Web3KeyPair.prototype.onAdded = async function(){
+KeyPair.prototype.onAdded = async function(){
   if(!this.privateKey){
     this.onAction()
   }
   this.updateAddress()
 }
 
-Web3KeyPair.prototype.updateAddress = async function(){
+KeyPair.prototype.updateAddress = async function(){
   try{
     if(this.privateKey){
       //console.log("PK",this.privateKey)
@@ -58,4 +58,4 @@ Web3KeyPair.prototype.updateAddress = async function(){
   return true;
 };
 
-export default Web3KeyPair
+export default KeyPair

@@ -9,20 +9,20 @@ import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import InputAdornment from '@material-ui/core/InputAdornment';
 
-function Text() {
+function Dollars() {
   this.addInput("", 0);
   this.addOutput("", "number");
   this.properties =  {blockieSize: 50,placeholder:"enter text here",title:"Giá tiền(USD)",value:null}
   this.size = [190, 55];
 }
 
-Text.title = "Giá tiền(USD)";
+Dollars.title = "Giá tiền(USD)";
 
-Text.prototype.onConnectionsChange = function(args){
+Dollars.prototype.onConnectionsChange = function(args){
   console.log("onConnectionsChange",args)
 }
 
-Text.prototype.onExecute = function() {
+Dollars.prototype.onExecute = function() {
   let input = this.getInputData(0)
   if (this.inputs[0] && typeof input != "undefined" && this.properties.value != input ) {
     this.properties.value = input;
@@ -30,20 +30,20 @@ Text.prototype.onExecute = function() {
   this.setOutputData(0,this.properties.value);
 };
 
-Text.prototype.getTitle = function() {
+Dollars.prototype.getTitle = function() {
   if (this.flags.collapsed && this.properties.value) {
     return this.properties.value
   }
   return this.properties.title;
 };
 
-Text.prototype.handle = function(e) {
+Dollars.prototype.handle = function(e) {
     this.properties.value = e.target.value
     this.setOutputData(0,this.properties.value);
     this.onDrawBackground()
 }
 
-Text.prototype.onDrawBackground = function(ctx) {
+Dollars.prototype.onDrawBackground = function(ctx) {
 
   if (this.flags.collapsed) {
     /*this.render(
@@ -77,4 +77,4 @@ Text.prototype.onDrawBackground = function(ctx) {
 
 
 
-export default Text
+export default Dollars

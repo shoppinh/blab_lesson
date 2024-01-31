@@ -1,9 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom'
 
-import { List, ListItem, ListItemText } from '@material-ui/core';
+import { ListItem, ListItemText, List as MaterialList } from '@material-ui/core';
 
-function DisplayList() {
+function List() {
   this.addInput("",0)
   this.addInput("add",-1)
   this.addInput("reset",-1)
@@ -15,9 +14,9 @@ function DisplayList() {
   this.lastItem = null
 }
 
-DisplayList.title = "Danh sách (List)";
+List.title = "Danh sách (List)";
 
-DisplayList.prototype.onExecute = function() {
+List.prototype.onExecute = function() {
   let input = this.getInputData(0)
   if(input && this.lastItem!=input && this.properties.autoAddNewItem){
     this.lastItem = input
@@ -27,7 +26,7 @@ DisplayList.prototype.onExecute = function() {
   this.setOutputData(0,this.list)
 }
 
-DisplayList.prototype.onAction = function(action) {
+List.prototype.onAction = function(action) {
   if(action == "reset"){
     this.list = []
   }else{
@@ -40,13 +39,13 @@ DisplayList.prototype.onAction = function(action) {
 }
 
 
-DisplayList.prototype.onDrawBackground = function(ctx) {
+List.prototype.onDrawBackground = function(ctx) {
   if (this.flags.collapsed) {
     this.destory()///SHOULD WE DESTORY THE ELEMENT FROM THE DOM OR
   }else{
     this.render(
       <div>
-        <List dense={true}>
+        <MaterialList dense={true}>
           {
             this.list.map( item =>{
               return (
@@ -58,10 +57,10 @@ DisplayList.prototype.onDrawBackground = function(ctx) {
               )
             })
           }
-        </List>
+        </MaterialList>
       </div>
     )
   }
 };
 
-export default DisplayList
+export default List

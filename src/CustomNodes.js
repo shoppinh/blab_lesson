@@ -494,12 +494,14 @@ const addNodes = function (LiteGraphJS, name, color, shadow) {
       if (shadow && !nodeObject.shadow_color)
         nodeObject.prototype.shadow_color = shadow;
       LiteGraphJS.LiteGraph.registerNodeType(
-        name + "/" + nodeSet[n].default.title,
+        name + "/" + nodeSet[n].default.name,
         addHelpers(nodeObject)
       );
       global.customNodeItems[name].push({
         title: nodeSet[n].default.title,
         color: nodeObject.title_color,
+        name: nodeSet[n].default.name,
+
       });
     }
   }
