@@ -42,7 +42,7 @@ function Output() {
   this.size = [180, 40];
 }
 
-Output.title = "Output";
+Output.title = "Đầu ra (Output)";
 Output.desc = "Output of the graph";
 
 Output.prototype.onExecute = function() {

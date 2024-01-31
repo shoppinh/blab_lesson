@@ -12,11 +12,11 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 function Text() {
   this.addInput("", 0);
   this.addOutput("", "number");
-  this.properties =  {blockieSize: 50,placeholder:"enter text here",title:"Dollars",value:null}
+  this.properties =  {blockieSize: 50,placeholder:"enter text here",title:"Giá tiền(USD)",value:null}
   this.size = [190, 55];
 }
 
-Text.title = "Dollars";
+Text.title = "Giá tiền(USD)";
 
 Text.prototype.onConnectionsChange = function(args){
   console.log("onConnectionsChange",args)

@@ -5,13 +5,13 @@ import ReactDOM from 'react-dom'
 function Action() {
   this.addInput("",-1);
   this.properties = {
-    title:"Action",
+    title:"Hoạt động (Action)",
     value:""
   }
   this.size = [310,220]
 }
 
-Action.title = "Action";
+Action.title = "Hoạt động (Action)";
 
 Action.prototype.onExecute = function() {
 };

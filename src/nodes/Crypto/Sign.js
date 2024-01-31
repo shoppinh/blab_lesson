@@ -16,7 +16,7 @@ function Web3Sign() {
   this.signatures = [] //cache each after signing
 }
 
-Web3Sign.title = "Sign";
+Web3Sign.title = "Ký (Sign)";
 
 Web3Sign.prototype.onAction = async function() {
   if(this.properties['message'] && this.address){

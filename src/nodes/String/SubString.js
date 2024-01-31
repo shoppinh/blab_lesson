@@ -9,7 +9,7 @@ function SubString() {
   this.size[0] = 190
 }
 
-SubString.title = "SubString";
+SubString.title = "Chuỗi con (SubString)";
 
 SubString.prototype.onExecute = function() {
   if (this.inputs[0]) {

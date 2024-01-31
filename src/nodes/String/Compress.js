@@ -8,7 +8,7 @@ function Compress() {
   this.cached = false
 }
 
-Compress.title = "Compress";
+Compress.title = "Nén (Compress)";
 
 Compress.prototype.onExecute = async function() {
 

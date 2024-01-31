@@ -19,7 +19,7 @@ function Web3Balance() {
   this.loading = false
 }
 
-Web3Balance.title = "Block";
+Web3Balance.title = "Khố (Block)";
 
 Web3Balance.prototype.onAdded = async function() {
   this.connectWeb3()

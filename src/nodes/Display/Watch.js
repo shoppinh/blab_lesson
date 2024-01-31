@@ -8,10 +8,10 @@ function Watch() {
   this.value = 0;
   this.size = [300, 60];
   this.autosized = false
-  this.properties = {title:"Watch"}
+  this.properties = {title:"Theo dõi (Watch)"}
 }
 
-Watch.title = "Watch";
+Watch.title = "Theo dõi (Watch)";
 
 Watch.prototype.onExecute = function() {
   if (this.inputs[0]) {

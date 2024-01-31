@@ -10,7 +10,7 @@ function MathOperation() {
 
 MathOperation.values = ["+", "-", "*", "/", "%", "^", "max", "min"];
 
-MathOperation.title = "Modulo";
+MathOperation.title = "Chia dư (Modulo)";
 MathOperation.desc = "Easy math operators";
 MathOperation["@OP"] = {
   type: "enum",

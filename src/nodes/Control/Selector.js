@@ -11,7 +11,7 @@ function Selector() {
 
 const NODE_SLOT_HEIGHT = 20
 
-Selector.title = "Selector";
+Selector.title = "Lựa chọn (Selector)";
 Selector.desc = "selects an output";
 
 Selector.prototype.onDrawBackground = function(ctx) {

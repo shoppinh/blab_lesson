@@ -2,11 +2,11 @@ function Memory() {
   this.size = [120, 30];
   this.addInput("set", 0);
   this.addOutput("get", 0);
-  this.properties = {title:"Memory"}
+  this.properties = {title:"Bộ nhớ (Memory)"}
   this._pending = [];
 }
 
-Memory.title = "Memory";
+Memory.title = "Bộ nhớ (Memory)";
 Memory.prototype.getTitle = function() {
   return this.properties.title;
 };

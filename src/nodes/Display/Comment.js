@@ -6,11 +6,11 @@ import { Input, FilledInput, TextareaAutosize } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 function Text() {
-  this.properties =  {fontSize: 18,placeholder:"// comments...",title:"Comment",value:null}
+  this.properties =  {fontSize: 18,placeholder:"// comments...",title:"Bình luận (Comment)" ,value:null}
   this.size = [500, 0];
 }
 
-Text.title = "Comment";
+Text.title = "Bình luận (Comment)";
 Text.title_color = "#222"
 //Text.bgcolor ="#000"
 

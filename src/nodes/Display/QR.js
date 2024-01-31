@@ -8,7 +8,7 @@ function DisplayQR() {
     this.properties = {qrSize:280,light:false}
 }
 
-DisplayQR.title = "QR";
+DisplayQR.title = "Mã QR";
 
 DisplayQR.prototype.onExecute = function() {
     if (this.inputs[0] && this.value != this.getInputData(0)) {

@@ -10,7 +10,7 @@ function MathOperation() {
 
 MathOperation.values = ["+", "-", "*", "/", "%", "^", "max", "min"];
 
-MathOperation.title = "Max";
+MathOperation.title = "Lớn nhất (Max)";
 
 MathOperation["@OP"] = {
   type: "enum",

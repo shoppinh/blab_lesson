@@ -7,7 +7,7 @@ function EventCounter() {
     this.num = 0;
 }
 
-EventCounter.title = "Counter";
+EventCounter.title = "Bộ đếm (Counter)";
 EventCounter.desc = "Counts events";
 
 EventCounter.prototype.getTitle = function() {

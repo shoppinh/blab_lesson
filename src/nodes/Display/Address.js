@@ -15,13 +15,13 @@ function Address() {
   this.size = [340, 80];
 }
 
-Address.title = "Address";
+Address.title = "Địa chỉ (Address)";
 
 Address.prototype.getTitle = function() {
   if (this.flags.collapsed && this.value) {
     return this.value
   }
-  return "Address";
+  return "Địa chỉ (Address)";
 };
 
 Address.prototype.onExecute = function() {

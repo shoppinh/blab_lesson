@@ -8,7 +8,7 @@ function Combine() {
   this.value = 0;
 }
 
-Combine.title = "Any";
+Combine.title = "Bất kỳ (Any)";
 
 Combine.prototype.onExecute = function() {
 

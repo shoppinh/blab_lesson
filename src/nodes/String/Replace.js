@@ -5,11 +5,11 @@ function Replace() {
   this.addOutput("text", "string");
 
   this.properties = {
-    title: "Replace",
+    title: "Thay thế (Replace)",
   };
 }
 
-Replace.title = "Replace";
+Replace.title = "Thay thế (Replace)";
 Replace.prototype.getTitle = function () {
   return this.properties.title;
 };

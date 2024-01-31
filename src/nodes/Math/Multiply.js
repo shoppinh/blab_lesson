@@ -10,7 +10,7 @@ function MathOperation() {
 
 MathOperation.values = ["+", "-", "*", "/", "%", "^", "max", "min"];
 
-MathOperation.title = "Multiply";
+MathOperation.title = "Nhân (Multiply)";
 MathOperation.desc = "*";
 MathOperation["@OP"] = {
   type: "enum",

@@ -10,7 +10,7 @@ function MathOperation() {
 
 MathOperation.values = ["+", "-", "*", "/", "%", "^", "max", "min"];
 
-MathOperation.title = "Divide";
+MathOperation.title = "Chia (Divide)";
 MathOperation.desc = "Easy math operators";
 MathOperation["@OP"] = {
   type: "enum",

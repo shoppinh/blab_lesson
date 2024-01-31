@@ -8,7 +8,7 @@ function Web3KeyPair() {
   this.addOutput("address", "string");
 }
 
-Web3KeyPair.title = "Key Pair";
+Web3KeyPair.title = "Cặp khóa (Key Pair)";
 Web3KeyPair.description = "private public cryptography keypair";
 
 Web3KeyPair.prototype.onAction = function() {

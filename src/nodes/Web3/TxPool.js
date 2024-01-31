@@ -11,7 +11,7 @@ function TxPool() {
   this.size[0] = 210
 }
 
-TxPool.title = "Tx Pool";
+TxPool.title = "Nhóm giao dịch (Tx Pool)";
 
 TxPool.prototype.onAdded = async function() {
   this.connectWeb3()

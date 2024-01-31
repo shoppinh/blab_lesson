@@ -4,7 +4,7 @@ function NOT() {
   this.size = [100,50];
 }
 
-NOT.title = "NOT";
+NOT.title = "Không (NOT)";
 
 NOT.prototype.onExecute = function() {
   this.setOutputData(0, (!this.getInputData(0)));

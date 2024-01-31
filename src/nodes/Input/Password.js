@@ -8,11 +8,11 @@ import { makeStyles } from '@material-ui/core/styles';
 function Password() {
   this.addInput("", 0);
   this.addOutput("", "string");
-  this.properties =  {blockieSize: 50,placeholder:"password",title:"Password"}
+  this.properties =  {blockieSize: 50,placeholder:"password",title:"Mật khẩu (Password)"}
   this.size = [300, 50];
 }
 
-Password.title = "Password";
+Password.title = "Mật khẩu (Password)";
 
 Password.prototype.onConnectionsChange = function(args){
   console.log("onConnectionsChange",args)

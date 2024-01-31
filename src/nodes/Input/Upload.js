@@ -16,7 +16,7 @@ function Upload() {
 
 }
 
-Upload.title = "Upload";
+Upload.title = "Tải lên (Upload)";
 
 Upload.prototype.onDrawBackground = function(ctx) {
 

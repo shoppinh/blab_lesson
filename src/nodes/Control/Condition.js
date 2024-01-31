@@ -9,7 +9,7 @@ function Condition() {
       this.size[0] = 130
   }
 
-  Condition.title = "Condition";
+  Condition.title = "Điều kiện (Condition)";
 
   Condition.desc = "compare values equals not equals"
 

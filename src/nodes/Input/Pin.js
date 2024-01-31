@@ -8,11 +8,11 @@ import { makeStyles } from '@material-ui/core/styles';
 function Password() {
   this.addInput("", 0);
   this.addOutput("", "number");
-  this.properties =  {placeholder:"number",title:"Pin"}
+  this.properties =  {placeholder:"number",title:"Số nhận dạng cá nhân (PIN)"}
   this.size = [160, 50];
 }
 
-Password.title = "Pin";
+Password.title = "Số nhận dạng cá nhân (PIN)";
 
 Password.prototype.onConnectionsChange = function(args){
   console.log("onConnectionsChange",args)

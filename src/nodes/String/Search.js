@@ -7,11 +7,11 @@ function Search() {
   this.addOutput("last occurence", "number");
 
   this.properties = {
-    title: "Search",
+    title: "Tìm kiếm (Search)",
   };
 }
 
-Search.title = "Search";
+Search.title = "Tìm kiếm (Search)";
 Search.prototype.getTitle = function () {
   return this.properties.title;
 };

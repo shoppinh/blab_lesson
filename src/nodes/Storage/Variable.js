@@ -6,7 +6,7 @@ function BasicVariable() {
   this.value = null;
 }
 
-BasicVariable.title = "Variable";
+BasicVariable.title = "Biến (Variable)";
 
 BasicVariable.prototype.onExecute = function() {
   if(typeof this.getInputData(0) != "undefined"){

@@ -6,11 +6,11 @@ import { Input, FilledInput } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 function Text() {
-  this.properties =  {blockieSize: 50,placeholder:"",title:"Comment",value:null,fontSize:28}
+  this.properties =  {blockieSize: 50,placeholder:"",title:"Nhãn (Label)",value:null,fontSize:28}
   this.size = [300, 0];
 }
 
-Text.title = "Label";
+Text.title = "Nhãn (Label)";
 Text.title_color = "#222"
 
 Text.prototype.onConnectionsChange = function(args){

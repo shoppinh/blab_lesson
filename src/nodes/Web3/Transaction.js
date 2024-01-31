@@ -23,7 +23,7 @@ function Web3Transaction() {
   this.signed = false
 }
 
-Web3Transaction.title = "Transaction";
+Web3Transaction.title = "Giao dịch (Transaction)";
 
 
 Web3Transaction.prototype.connectWeb3 = function() {

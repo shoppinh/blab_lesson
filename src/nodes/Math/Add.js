@@ -10,7 +10,7 @@ function MathOperation() {
 
 MathOperation.values = ["+", "-", "*", "/", "%", "^", "max", "min"];
 
-MathOperation.title = "Add";
+MathOperation.title = "Cộng (Add)";
 MathOperation.desc = "Easy math operators";
 MathOperation["@OP"] = {
   type: "enum",

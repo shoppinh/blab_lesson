@@ -10,7 +10,7 @@ function MathOperation() {
 
 MathOperation.values = ["+", "-", "*", "/", "%", "^", "max", "min"];
 
-MathOperation.title = "Min";
+MathOperation.title = "Nhỏ nhât (Min)";
 
 MathOperation["@OP"] = {
   type: "enum",

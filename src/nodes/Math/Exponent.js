@@ -10,7 +10,7 @@ function MathOperation() {
 
 MathOperation.values = ["+", "-", "*", "/", "%", "^", "max", "min"];
 
-MathOperation.title = "Exponent";
+MathOperation.title = "Số mũ (Exponent)";
 MathOperation.desc = "^";
 MathOperation["@OP"] = {
   type: "enum",

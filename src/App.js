@@ -165,7 +165,7 @@ global.modules = {
               mode: 0,
               inputs: [{ name: "", type: 0, link: null }],
               outputs: [{ name: "", type: "number", links: [15] }],
-              properties: { placeholder: "#", title: "Number", value: "0" },
+              properties: { placeholder: "#", title: "Số", value: "0" },
             },
             {
               id: 13,
@@ -624,7 +624,7 @@ function App() {
               fontSize: 18,
               backgroundColor: lesson.color,
               color: "#FFFFFF",
-              fontFamily: "'Rubik Mono One', sans-serif",
+              fontFamily: "'Roboto', sans-serif",
             }}
           >
             {lesson.header}
@@ -667,7 +667,7 @@ function App() {
   /* FOR TOP MENU FOR TABLETS:
 <div style={{zIndex:1,position:"fixed",right:0,top:0,width:"100%"}}>
   <div style={{borderRadius:"8px 8px 8px 8px",paddingLeft:6,margin:"auto",textAlign:"left",color:"#222222",height:barHeight,right:0,top:0,width:475,backgroundColor:"#DFDFDF"}}>
-    <div style={{cursor:"pointer",letterSpacing:-5,fontSize:32, fontFamily: "'Rubik Mono One', sans-serif"}}>
+    <div style={{cursor:"pointer",letterSpacing:-5,fontSize:32, fontFamily: "'Roboto', sans-serif"}}>
 
       <span style={{margin:5,borderLeft:"1px solid #888888",height:barHeight}} onClick={async ()=>{
           alert("click")
@@ -815,7 +815,7 @@ function App() {
               zIndex: 3,
               cursor: "pointer",
               fontSize: tabFontSize,
-              fontFamily: "'Rubik Mono One', sans-serif",
+              fontFamily: "'Roboto', sans-serif",
             }}
           >
             <div
@@ -832,7 +832,7 @@ function App() {
               }}
             >
               {width > 800
-                ? global.customNodes[n].name
+                ? global.customNodes[n].displayName
                 : global.customNodes[n].icon}
 
               {items}
@@ -841,7 +841,7 @@ function App() {
         );
       } else {
         if (drawing) {
-          if (global.customNodes[n].name != "Special") {
+          if (global.customNodes[n].name !== "Special") {
             customNodes.push(
               <Grid
                 key={"grd" + n}
@@ -852,7 +852,7 @@ function App() {
                   cursor: "pointer",
                   letterSpacing: -3,
                   fontSize: tabFontSize,
-                  fontFamily: "'Rubik Mono One', sans-serif",
+                  fontFamily: "'Roboto', sans-serif",
                 }}
                 onClick={(e) => {
                   //console.log("SET COLOR",global.customNodes[n].color)
@@ -875,6 +875,7 @@ function App() {
                     height: 20,
                     backgroundColor: "#" + global.customNodes[n].color,
                     opacity: 0.6,
+                    letterSpacing: 'normal'
                   }}
                 ></div>
               </Grid>
@@ -894,7 +895,7 @@ function App() {
                 cursor: "pointer",
                 letterSpacing: -3,
                 fontSize: tabFontSize,
-                fontFamily: "'Rubik Mono One', sans-serif",
+                fontFamily: "'Roboto', sans-serif",
               }}
               onClick={(e) => {
                 if (menu === global.customNodes[n].name) {
@@ -913,10 +914,12 @@ function App() {
                   height: 20,
                   backgroundColor: "#" + global.customNodes[n].color,
                   opacity: 0.6,
+                  letterSpacing: 'normal'
+
                 }}
               >
                 {width > 800
-                  ? global.customNodes[n].name
+                  ? global.customNodes[n].displayName
                   : global.customNodes[n].icon}
               </div>
             </Grid>
@@ -1157,7 +1160,7 @@ function App() {
                 cursor: "pointer",
                 letterSpacing: -5,
                 fontSize: 32,
-                fontFamily: "'Rubik Mono One', sans-serif",
+                fontFamily: "'Roboto', sans-serif",
               }}
             >
               {tools}
@@ -1295,7 +1298,7 @@ function App() {
               cursor: "pointer",
               letterSpacing: -5,
               fontSize: 32,
-              fontFamily: "'Rubik Mono One', sans-serif",
+              fontFamily: "'Roboto', sans-serif",
             }}
           >
             <span
@@ -1563,7 +1566,7 @@ function App() {
                 borderLeft: "1px solid #999999",
                 borderRight: "1px solid #999999",
                 fontSize: 32,
-                fontFamily: "'Rubik Mono One', sans-serif",
+                fontFamily: "'Roboto', sans-serif",
               }}
               onTouchStart={async () => {
                 setShowVideoLibrary(false);

@@ -9,13 +9,13 @@ function DisplayList() {
   this.addInput("reset",-1)
   this.addOutput("",0)
   this.addOutput("latest",0)
-  this.properties =  {title:"List",fontSize:18,autoAddNewItem:true}
+  this.properties =  {title:"Danh sách (List)",fontSize:18,autoAddNewItem:true}
   this.size = [250,250]
   this.list = []
   this.lastItem = null
 }
 
-DisplayList.title = "List";
+DisplayList.title = "Danh sách (List)";
 
 DisplayList.prototype.onExecute = function() {
   let input = this.getInputData(0)

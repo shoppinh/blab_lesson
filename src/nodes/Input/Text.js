@@ -8,11 +8,11 @@ import { makeStyles } from '@material-ui/core/styles';
 function Text() {
   this.addInput("", 0);
   this.addOutput("", "string");
-  this.properties =  {blockieSize: 50,placeholder:"enter text here",title:"Text",value:null}
+  this.properties =  {blockieSize: 50,placeholder:"enter text here",title:"Chuỗi (Text)",value:null}
   this.size = [300, 50];
 }
 
-Text.title = "Text";
+Text.title = "Chuỗi (Text)" ;
 
 Text.prototype.onConnectionsChange = function(args){
   console.log("onConnectionsChange",args)

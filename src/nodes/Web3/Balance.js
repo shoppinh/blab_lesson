@@ -11,7 +11,7 @@ function Web3Balance() {
   this.size[0] = 210
 }
 
-Web3Balance.title = "Balance";
+Web3Balance.title = "Tiền dư (Balance)";
 
 Web3Balance.prototype.onAdded = async function() {
   this.connectWeb3()

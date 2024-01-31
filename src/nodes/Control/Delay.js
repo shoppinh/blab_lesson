@@ -5,7 +5,7 @@ function DelayEvent() {
   this.addOutput("", -1);
 }
 
-DelayEvent.title = "Delay";
+DelayEvent.title = "Bộ đếm (Delay)";
 
 DelayEvent.prototype.onAction = function(action, param) {
   setTimeout(()=>{

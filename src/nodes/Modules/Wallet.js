@@ -34,7 +34,7 @@ function Module() {
   })
 }
 
-Module.title = "Wallet";
+Module.title = "Ví (Wallet)";
 
 Module.title_color = "#"+(defaultColor);
 

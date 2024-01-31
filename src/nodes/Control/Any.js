@@ -5,7 +5,7 @@
       this.addOutput("output", -1);// -1 is LiteGraph.EVENT
   }
 
-  EventsAny.title = "Any";
+  EventsAny.title = "Bất kỳ (Any)";
 
   EventsAny.prototype.onAction = function(event, action) {
     this.trigger("output");

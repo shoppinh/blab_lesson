@@ -5,7 +5,7 @@ function FileRead() {
   this.size = [194,36]
 }
 
-FileRead.title = "File Drop";
+FileRead.title = "Kéo thả file (FileDrop)";
 
 FileRead.prototype.onDrawBackground = function(ctx) {
   if (this.flags.collapsed) {

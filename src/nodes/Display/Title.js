@@ -6,11 +6,11 @@ import { Input, FilledInput } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 function Text() {
-  this.properties =  {fontSize: 44,blockieSize: 50,placeholder:"",title:"Title",value:null,fontFamily:"'Rubik Mono One', sans-serif",color:"#dddddd"}
+  this.properties =  {fontSize: 44,blockieSize: 50,placeholder:"",title:"Tiêu đề",value:null,fontFamily:"'Roboto', sans-serif",color:"#dddddd"}
   this.size = [500, 0];
 }
 
-Text.title = "Title";
+Text.title = "Tiêu đề (Title)";
 Text.title_color = "#222"
 //Text.bgcolor ="#000"
 

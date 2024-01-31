@@ -10,11 +10,11 @@ import "ace-builds/src-noconflict/theme-monokai";
 function Text() {
   this.addInput("", 0);
   this.addOutput("", "string");
-  this.properties =  {blockieSize: 50,placeholder:"//code",title:"Code",value:""}
+  this.properties =  {blockieSize: 50,placeholder:"//code",title:"Mã nguồn (Code)",value:""}
   this.size = [500, 420];
 }
 
-Text.title = "Code";
+Text.title = "Mã nguồn (Code)";
 
 
 Text.prototype.onExecute = function() {

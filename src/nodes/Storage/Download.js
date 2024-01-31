@@ -5,15 +5,15 @@ function DownloadData() {
   this.properties = { filename: "data.json" };
   this.value = null;
   var that = this;
-  this.addWidget("button","Download","", function(v){
+  this.addWidget("button","Tải về","", function(v){
     if(!that.value)
     return;
     that.downloadAsFile();
   });
 }
 
-DownloadData.title = "Download";
-DownloadData.desc = "Download some data";
+DownloadData.title = "Tải về (Download)";
+DownloadData.desc = "Tải về dữ liệu";
 
 DownloadData.prototype.downloadAsFile = function()
 {

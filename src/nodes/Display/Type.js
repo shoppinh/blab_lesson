@@ -3,7 +3,7 @@ function DisplayType() {
   this.addOutput("", 0);
 }
 
-DisplayType.title = "Type";
+DisplayType.title = "Loại (Type)";
 
 DisplayType.prototype.getTitle = function() {
   if (this.flags.collapsed) {

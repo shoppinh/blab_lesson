@@ -4,11 +4,11 @@ import ReactDOM from 'react-dom'
 function Color() {
   this.addInput("", 0, { label: "" });
   this.addOutput("", 0, { label: "" });
-  this.properties =  {title:"Color", value:null}
+  this.properties =  {title:"Màu (Color)", value:null}
   this.size = [140, 50];
 }
 
-Color.title = "Color";
+Color.title = "Màu (Color)";
 
 Color.prototype.onExecute = function() {
   let input = this.getInputData(0)

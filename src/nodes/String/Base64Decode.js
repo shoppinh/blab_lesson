@@ -9,7 +9,7 @@ function Base64Decode() {
   this.decodedValue = -1
 }
 
-Base64Decode.title = "Base64 Decode";
+Base64Decode.title = "Base64";
 
 Base64Decode.prototype.onExecute = function() {
   if (this.inputs[0]) {

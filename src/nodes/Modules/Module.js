@@ -3,7 +3,7 @@ const defaultColor = "7e57c2"
 function Module() {
   var that = this;
   this.size = [200, 80];
-  this.properties = { enabled: true, title: "Module", color: defaultColor };
+  this.properties = { enabled: true, title: "Mô đun", color: defaultColor };
   this.enabled = true;
 
   //create inner graph
@@ -25,7 +25,7 @@ function Module() {
 
 }
 
-Module.title = "Module";
+Module.title = "Mô đun";
 
 Module.title_color = "#"+(defaultColor);
 

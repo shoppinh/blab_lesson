@@ -4,7 +4,7 @@ function StringSplit() {
   this.properties = {delimiter: "\n"}
 }
 
-StringSplit.title = "Split";
+StringSplit.title = "Tách chuỗi (Split)";
 
 StringSplit.prototype.onExecute = function() {
   if (this.inputs[0] && this.getInputData(0) && typeof this.getInputData(0) == "string") {

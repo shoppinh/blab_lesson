@@ -11,7 +11,7 @@ function Web3Recover() {
   this.signatures = [] //cache each after signing
 }
 
-Web3Recover.title = "Recover";
+Web3Recover.title = "Gửi lại (Recover)";
 
 Web3Recover.prototype.onExecute = async function() {
   let optionalMessage = this.getInputData(0)

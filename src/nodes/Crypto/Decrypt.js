@@ -11,7 +11,7 @@ function Decrypt()
 }
 
 //name to show
-Decrypt.title = "Decrypt";
+Decrypt.title = "Giải mã (Decrypt)";
 
 //function to call when the node is executed
 Decrypt.prototype.onExecute = async function()
