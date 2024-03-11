@@ -33,6 +33,7 @@ import lessons from "./data/lessons";
 import SaveDialog from "./dialogs/SaveDialog";
 import LoadDialog from "./dialogs/LoadDialog";
 import html2canvas from "html2canvas";
+import { EXTERNAL_URLS } from "./utils/constant.js";
 var codec = require("json-url")("lzw");
 const axios = require("axios");
 const useStyles = makeStyles({
@@ -762,6 +763,35 @@ function App() {
         for (let i in global.customNodeItems[global.customNodes[n].name]) {
           let item = global.customNodeItems[global.customNodes[n].name][i];
           //console.log("Add item",item)
+          if (item.name === "Transaction"  || item.name ==="Contract" || item.name === "TxPool") {
+            items.push([
+              <div>
+                <Dragger
+                  key={"dragger" + n + "_" + i}
+                  name={item.name}
+                  drop={(name, x, y) => {
+                    //console.log("DO A DROP AT ",name,x,y)
+                    setMenu("");
+                   
+                  }}
+                >
+                  <div
+                    onMouseUp={() => {
+                      if (menu) {
+                        setMenu("");
+                        window.open(EXTERNAL_URLS[item.name], "_blank").focus();
+                        
+                      }
+                    }}
+                    style={style}
+                  >
+                    {item.title}
+                  </div>
+                </Dragger>
+              </div>,
+            ]);
+          }
+          else 
           items.push([
             <div>
               <Dragger
