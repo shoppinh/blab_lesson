@@ -770,10 +770,18 @@ function App() {
                   key={"dragger" + n + "_" + i}
                   name={item.name}
                   drop={(name, x, y) => {
-                    //console.log("DO A DROP AT ",name,x,y)
-                    setMenu("");
-                   
-                  }}
+                  //console.log("DO A DROP AT ",name,x,y)
+                  setMenu("");
+                  var node_watch = global.LiteGraphJS.LiteGraph.createNode(
+                    menu + "/" + item.name
+                  );
+                  node_watch.pos = [
+                    x - 40 + global.graph.canvas.visible_area[0],
+                    y + global.graph.canvas.visible_area[1],
+                  ];
+                  //console.log("looking in",,liteGraph,liteGraph._is_subgraph)
+                  global.graph.canvas.graph.add(node_watch);
+                }}
                 >
                   <div
                     onMouseUp={() => {

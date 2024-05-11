@@ -529,7 +529,7 @@ global.customNodes = [
   { name: "Web3", color: "03A9F4", icon: "🦄", displayName: "Web3" },
   { name: "Control", color: "a4a4a4", icon: "⚙️", displayName: "Điều khiển" },
   { name: "Math", color: "7fa9cb", icon: "🧮", displayName: "Phép toán" },
-  { name: "Utils", color: "97784f", icon: "🔧" },
+  { name: "Utils", color: "97784f", icon: "🔧", displayName: "Ứng dụng" },
   { name: "String", color: "6b6b6b", icon: "💬", displayName: "Chuỗi" },
   // { name: "Object", color: "454545", icon: "📦" },
   // { name: "Components", color: "009688", icon: "" },
