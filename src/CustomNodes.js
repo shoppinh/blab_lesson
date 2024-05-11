@@ -501,7 +501,6 @@ const addNodes = function (LiteGraphJS, name, color, shadow) {
         title: nodeSet[n].default.title,
         color: nodeObject.title_color,
         name: nodeSet[n].default.name,
-
       });
     }
   }
@@ -522,19 +521,19 @@ const hexColor = (hex) => {
 //
 
 global.customNodes = [
-  { name: "Input", color: "3f51b5", icon: "✏️", displayName: "Đầu vào", },
-  { name: "Display", color: "357a38", icon: "🖥", displayName: "Hiển thị", },
+  { name: "Input", color: "3f51b5", icon: "✏️", displayName: "Đầu vào" },
+  { name: "Display", color: "357a38", icon: "🖥", displayName: "Hiển thị" },
   { name: "Storage", color: "c1790e", icon: "💾", displayName: "Lưu trữ" },
   { name: "Network", color: "b9a814", icon: "📡", displayName: "Mạng" },
   { name: "Crypto", color: "f44336", icon: "🔐", displayName: "Mật mã" },
-  { name: "Web3", color: "03A9F4", icon: "🦄",displayName: "Web3"  },
+  { name: "Web3", color: "03A9F4", icon: "🦄", displayName: "Web3" },
   { name: "Control", color: "a4a4a4", icon: "⚙️", displayName: "Điều khiển" },
   { name: "Math", color: "7fa9cb", icon: "🧮", displayName: "Phép toán" },
-  // { name: "Utils", color: "97784f", icon: "🔧" },
-  { name: "String", color: "6b6b6b", icon: "💬" , displayName: "Chuỗi"},
+  { name: "Utils", color: "97784f", icon: "🔧" },
+  { name: "String", color: "6b6b6b", icon: "💬", displayName: "Chuỗi" },
   // { name: "Object", color: "454545", icon: "📦" },
   // { name: "Components", color: "009688", icon: "" },
-  { name: "Special", color: "009688", icon: "", displayName: "Đặc biệt"},
+  { name: "Special", color: "009688", icon: "", displayName: "Đặc biệt" },
   // { name: "System", color: "989898", icon: "🎛" },
   { name: "Modules", color: "7e57c2", icon: "", displayName: "Mô đun" },
 ];
