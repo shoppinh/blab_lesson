@@ -1,0 +1,291 @@
+{
+  "last_node_id": 295,
+  "last_link_id": 571,
+  "nodes": [
+    {
+      "id": 274,
+      "type": "Input/Number",
+      "pos": [630, 170],
+      "size": [130, 52],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [{ "name": "", "type": 0, "link": null }],
+      "outputs": [{ "name": "", "type": "number", "links": [559] }],
+      "properties": { "placeholder": "#", "title": "Số", "value": "1337" }
+    },
+    {
+      "id": 276,
+      "type": "Math/Random",
+      "pos": [620, 290],
+      "size": [200, 30],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [{ "name": "", "type": -1, "link": null }],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "number",
+          "links": [560],
+          "label": 642347946754027000
+        }
+      ],
+      "properties": { "automatic": true, "min": 0, "max": 1000000000000000000 }
+    },
+    {
+      "id": 275,
+      "type": "Math/Multiply",
+      "pos": [890, 200],
+      "size": [120, 60],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        { "name": "A", "type": "number", "link": 559 },
+        { "name": "B", "type": "number", "link": 560 }
+      ],
+      "outputs": [{ "name": "=", "type": "number", "links": [561] }],
+      "properties": { "A": 1337, "B": 642347946754027000, "OP": "*" }
+    },
+    {
+      "id": 278,
+      "type": "Display/Blockie",
+      "pos": [1100, 320],
+      "size": [70, 60],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [{ "name": "", "type": 0, "link": 562 }],
+      "properties": {
+        "blockieSize": 50,
+        "placeholder": "",
+        "title": "",
+        "value": "0xc8b80fef59b8a86fa74da9ab52de211c89085205333c987ae1f4ef4cca25865a"
+      }
+    },
+    {
+      "id": 280,
+      "type": "Crypto/Key Pair",
+      "pos": [456, 760],
+      "size": { "0": 211.60000610351562, "1": 66 },
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        { "name": "[private key]", "type": "string", "link": 566 },
+        { "name": "generate", "type": -1, "link": null }
+      ],
+      "outputs": [
+        { "name": "private key", "type": "string", "links": [568] },
+        { "name": "public key", "type": "string", "links": null },
+        { "name": "address", "type": "string", "links": [569] }
+      ],
+      "properties": {}
+    },
+    {
+      "id": 277,
+      "type": "Crypto/Hash",
+      "pos": [930, 330],
+      "size": [120, 30],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [{ "name": "input", "type": "string,number", "link": 561 }],
+      "outputs": [{ "name": "hash", "type": "string", "links": [562, 570] }],
+      "properties": {}
+    },
+    {
+      "id": 288,
+      "type": "Display/Watch",
+      "pos": [1060, 180],
+      "size": [817, 60],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [{ "name": "", "type": 0, "link": 570, "label": "" }],
+      "outputs": [{ "name": "", "type": 0, "links": null, "label": "" }],
+      "properties": { "title": "Theo dõi" }
+    },
+    {
+      "id": 289,
+      "type": "Input/Text",
+      "pos": [660, 450],
+      "size": [639, 50],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [{ "name": "", "type": 0, "link": null }],
+      "outputs": [{ "name": "", "type": "string", "links": [571] }],
+      "properties": {
+        "blockieSize": 50,
+        "placeholder": "Nhập văn bản ở đây",
+        "title": "Học thêm:",
+        "value": "https://www.youtube.com/playlist?list=PLJz1HruEnenCXH7KW7wBCEBnBLOVkiqIi"
+      }
+    },
+    {
+      "id": 286,
+      "type": "Display/Watch",
+      "pos": [510, 630],
+      "size": [817, 60],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [{ "name": "", "type": 0, "link": 568, "label": "" }],
+      "outputs": [{ "name": "", "type": 0, "links": null, "label": "" }],
+      "properties": { "title": "Theo dõi" }
+    },
+    {
+      "id": 291,
+      "type": "Display/Title",
+      "pos": [70, 130],
+      "size": [500, 0],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "properties": {
+        "fontSize": 44,
+        "blockieSize": 50,
+        "placeholder": "",
+        "title": "Tiêu đề",
+        "value": "blab_lesson",
+        "fontFamily": "'Rubik Mono One', sans-serif",
+        "color": "#dddddd"
+      }
+    },
+    {
+      "id": 281,
+      "type": "Crypto/Mnemonic",
+      "pos": [150, 840],
+      "size": { "0": 186.39999389648438, "1": 66 },
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        { "name": "[mnemonic]", "type": "string", "link": null },
+        { "name": "[index]", "type": "number", "link": null },
+        { "name": "generate", "type": -1, "link": 565 }
+      ],
+      "outputs": [
+        { "name": "private key", "type": "string", "links": [566] },
+        { "name": "mnemonic", "type": "string", "links": [567] }
+      ],
+      "properties": { "index": 0 }
+    },
+    {
+      "id": 287,
+      "type": "Display/Address",
+      "pos": [780, 770],
+      "size": [340, 80],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [{ "name": "", "type": 0, "link": 569 }],
+      "properties": { "blockieSize": 50, "placeholder": "", "title": "Địa chỉ" }
+    },
+    {
+      "id": 285,
+      "type": "Display/Watch",
+      "pos": [420, 900],
+      "size": [1021, 60],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [{ "name": "", "type": 0, "link": 567, "label": "" }],
+      "outputs": [{ "name": "", "type": 0, "links": null, "label": "" }],
+      "properties": { "title": "Theo dõi" }
+    },
+    {
+      "id": 292,
+      "type": "Display/Comment",
+      "pos": [30, 240],
+      "size": [500, 0],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "properties": {
+        "fontSize": 18,
+        "placeholder": "// bình luận...",
+        "title": "Bình luận",
+        "value": "📝 TẠO BẢN XÂY MỚI:\nhit ctrl+a để chọn tất cả rồi nhấn xóa"
+      }
+    },
+    {
+      "id": 295,
+      "type": "Display/Comment",
+      "pos": [30, 350],
+      "size": [500, 0],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "properties": {
+        "fontSize": 18,
+        "placeholder": "// bình luận...",
+        "title": "Bình luận",
+        "value": "🕵🏻 ♂️ TÌM KIẾM/THÊM: nhấn phím cách và gõ\n❌ EXIT/RESET: nhấn escape\ndi chuột qua các công cụ ở cạnh phải để xem thêm ------>"
+      }
+    },
+    {
+      "id": 294,
+      "type": "Display/Comment",
+      "pos": [30, 500],
+      "size": [500, 0],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "properties": {
+        "fontSize": 18,
+        "placeholder": "// bình luận...",
+        "title": "Bình luận",
+        "value": "🧐 TÌM HIỂU THÊM: nhấp vào khay dưới cùng để xem các tập \n💾 LƯU: nhấp vào biểu tượng lưu ở khay dưới cùng"
+      }
+    },
+    {
+      "id": 293,
+      "type": "Display/Comment",
+      "pos": [50, 620],
+      "size": [333, 4],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "properties": {
+        "fontSize": 18,
+        "placeholder": "// bình luận...",
+        "title": "Bình luận",
+        "value": "💬 feedback: @blab_lesson  "
+      }
+    },
+    {
+      "id": 283,
+      "type": "Input/Button",
+      "pos": [30, 730],
+      "size": [200, 50],
+      "flags": { "collapsed": false },
+      "order": 8,
+      "mode": 0,
+      "inputs": [{ "name": "", "type": -1, "link": null }],
+      "outputs": [
+        { "name": "", "type": -1, "links": [565] },
+        { "name": "", "type": "number,boolean", "links": null }
+      ],
+      "properties": { "value": "nhấn", "title": "Nút", "count": 16 }
+    }
+  ],
+  "links": [
+    [559, 274, 0, 275, 0, "number"],
+    [560, 276, 0, 275, 1, "number"],
+    [561, 275, 0, 277, 0, "string,number"],
+    [562, 277, 0, 278, 0, 0],
+    [565, 283, 0, 281, 2, -1],
+    [566, 281, 0, 280, 0, "string"],
+    [567, 281, 1, 285, 0, 0],
+    [568, 280, 0, 286, 0, 0],
+    [569, 280, 2, 287, 0, 0],
+    [570, 277, 0, 288, 0, 0],
+    [571, 289, 0, 290, 0, 0]
+  ],
+  "groups": [],
+  "config": {},
+  "version": 0.4
+}

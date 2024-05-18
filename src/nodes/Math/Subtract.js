@@ -5,34 +5,34 @@ function Subtract() {
   this.addProperty("A", 1);
   this.addProperty("B", 1);
   this.addProperty("OP", "-", "enum", { values: Subtract.values });
-  this.size[0] = 120
+  this.size[0] = 120;
 }
 
 Subtract.values = ["+", "-", "*", "/", "%", "^", "max", "min"];
 
-Subtract.title = "Trừ (Subtract)";
+Subtract.title = "Trừ";
 Subtract.desc = "Easy math operators";
 Subtract["@OP"] = {
   type: "enum",
   title: "operation",
-  values: Subtract.values
+  values: Subtract.values,
 };
 Subtract.size = [100, 60];
 
-Subtract.prototype.getTitle = function() {
-  if(this.properties.OP == "max" || this.properties.OP == "min")
-  return this.properties.OP + "(A,B)";
+Subtract.prototype.getTitle = function () {
+  if (this.properties.OP == "max" || this.properties.OP == "min")
+    return this.properties.OP + "(A,B)";
   return "A " + this.properties.OP + " B";
 };
 
-Subtract.prototype.setValue = function(v) {
+Subtract.prototype.setValue = function (v) {
   if (typeof v == "string") {
     v = parseFloat(v);
   }
   this.properties["value"] = v;
 };
 
-Subtract.prototype.onExecute = function() {
+Subtract.prototype.onExecute = function () {
   var A = this.getInputData(0);
   var B = this.getInputData(1);
   if (A != null) {
@@ -50,38 +50,38 @@ Subtract.prototype.onExecute = function() {
   var result = 0;
   switch (this.properties.OP) {
     case "+":
-    result = A + B;
-    break;
+      result = A + B;
+      break;
     case "-":
-    result = A - B;
-    break;
+      result = A - B;
+      break;
     case "x":
     case "X":
     case "*":
-    result = A * B;
-    break;
+      result = A * B;
+      break;
     case "/":
-    result = A / B;
-    break;
+      result = A / B;
+      break;
     case "%":
-    result = A % B;
-    break;
+      result = A % B;
+      break;
     case "^":
-    result = Math.pow(A, B);
-    break;
+      result = Math.pow(A, B);
+      break;
     case "max":
-    result = Math.max(A, B);
-    break;
+      result = Math.max(A, B);
+      break;
     case "min":
-    result = Math.min(A, B);
-    break;
+      result = Math.min(A, B);
+      break;
     default:
-    console.warn("Unknown operation: " + this.properties.OP);
+      console.warn("Unknown operation: " + this.properties.OP);
   }
   this.setOutputData(0, result);
 };
 
-Subtract.prototype.onDrawBackground = function(ctx) {
+Subtract.prototype.onDrawBackground = function (ctx) {
   if (this.flags.collapsed) {
     return;
   }
@@ -97,4 +97,4 @@ Subtract.prototype.onDrawBackground = function(ctx) {
   ctx.textAlign = "left";
 };
 
-export default Subtract
+export default Subtract;

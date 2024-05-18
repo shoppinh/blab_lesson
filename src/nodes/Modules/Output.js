@@ -6,10 +6,10 @@ function Output() {
   var that = this;
 
   Object.defineProperty(this.properties, "name", {
-    get: function() {
+    get: function () {
       return that.name_in_graph;
     },
-    set: function(v) {
+    set: function (v) {
       if (v == "" || v == that.name_in_graph) {
         return;
       }
@@ -17,19 +17,19 @@ function Output() {
         //already added
         that.graph.renameOutput(that.name_in_graph, v);
       } else {
-        if(that.graph) that.graph.addOutput(v, 0);//
+        if (that.graph) that.graph.addOutput(v, 0); //
       }
       that.name_widget.value = v;
       that.name_in_graph = v;
     },
-    enumerable: true
+    enumerable: true,
   });
 
   this.name_widget = this.addWidget(
     "text",
     "Name",
     this.properties.name,
-    function(v) {
+    function (v) {
       if (!v) {
         return;
       }
@@ -37,32 +37,31 @@ function Output() {
     }
   );
 
-
   this.widgets_up = true;
   this.size = [180, 40];
 }
 
-Output.title = "Đầu ra (Output)";
+Output.title = "Đầu ra";
 Output.desc = "Output of the graph";
 
-Output.prototype.onExecute = function() {
+Output.prototype.onExecute = function () {
   this._value = this.getInputData(0);
   this.graph.setOutputData(this.properties.name, this._value);
 };
 
-Output.prototype.onAction = function(action, param) {
+Output.prototype.onAction = function (action, param) {
   if (this.properties.type == global.LiteGraphJS.ACTION) {
     this.graph.trigger(this.properties.name, param);
   }
 };
 
-Output.prototype.onRemoved = function() {
+Output.prototype.onRemoved = function () {
   if (this.name_in_graph) {
     this.graph.removeOutput(this.name_in_graph);
   }
 };
 
-Output.prototype.getTitle = function() {
+Output.prototype.getTitle = function () {
   if (this.flags.collapsed) {
     return this.properties.name;
   }
@@ -71,4 +70,4 @@ Output.prototype.getTitle = function() {
 
 global.LiteGraphJS.GraphOutput = Output;
 
-export default Output
+export default Output;

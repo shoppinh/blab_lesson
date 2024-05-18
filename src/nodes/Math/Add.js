@@ -5,34 +5,34 @@ function Add() {
   this.addProperty("A", 0);
   this.addProperty("B", 0);
   this.addProperty("OP", "+", "enum", { values: Add.values });
-  this.size[0] = 120
+  this.size[0] = 120;
 }
 
 Add.values = ["+", "-", "*", "/", "%", "^", "max", "min"];
 
-Add.title = "Cộng (Add)";
+Add.title = "Cộng";
 Add.desc = "Easy math operators";
 Add["@OP"] = {
   type: "enum",
   title: "operation",
-  values: Add.values
+  values: Add.values,
 };
 Add.size = [100, 60];
 
-Add.prototype.getTitle = function() {
-  if(this.properties.OP == "max" || this.properties.OP == "min")
-  return this.properties.OP + "(A,B)";
+Add.prototype.getTitle = function () {
+  if (this.properties.OP == "max" || this.properties.OP == "min")
+    return this.properties.OP + "(A,B)";
   return "A " + this.properties.OP + " B";
 };
 
-Add.prototype.setValue = function(v) {
+Add.prototype.setValue = function (v) {
   if (typeof v == "string") {
     v = parseFloat(v);
   }
   this.properties["value"] = v;
 };
 
-Add.prototype.onExecute = function() {
+Add.prototype.onExecute = function () {
   var A = this.getInputData(0);
   var B = this.getInputData(1);
   if (A != null) {
@@ -50,38 +50,38 @@ Add.prototype.onExecute = function() {
   var result = 0;
   switch (this.properties.OP) {
     case "+":
-    result = A + B;
-    break;
+      result = A + B;
+      break;
     case "-":
-    result = A - B;
-    break;
+      result = A - B;
+      break;
     case "x":
     case "X":
     case "*":
-    result = A * B;
-    break;
+      result = A * B;
+      break;
     case "/":
-    result = A / B;
-    break;
+      result = A / B;
+      break;
     case "%":
-    result = A % B;
-    break;
+      result = A % B;
+      break;
     case "^":
-    result = Math.pow(A, B);
-    break;
+      result = Math.pow(A, B);
+      break;
     case "max":
-    result = Math.max(A, B);
-    break;
+      result = Math.max(A, B);
+      break;
     case "min":
-    result = Math.min(A, B);
-    break;
+      result = Math.min(A, B);
+      break;
     default:
-    console.warn("Unknown operation: " + this.properties.OP);
+      console.warn("Unknown operation: " + this.properties.OP);
   }
   this.setOutputData(0, result);
 };
 
-Add.prototype.onDrawBackground = function(ctx) {
+Add.prototype.onDrawBackground = function (ctx) {
   if (this.flags.collapsed) {
     return;
   }
@@ -97,4 +97,4 @@ Add.prototype.onDrawBackground = function(ctx) {
   ctx.textAlign = "left";
 };
 
-export default Add
+export default Add;

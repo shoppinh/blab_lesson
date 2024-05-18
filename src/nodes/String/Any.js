@@ -1,4 +1,3 @@
-
 function Any() {
   this.size = [110, 30];
   this.addInput("A", 0);
@@ -8,16 +7,15 @@ function Any() {
   this.value = 0;
 }
 
-Any.title = "Bất kỳ (Any)";
+Any.title = "Bất kỳ";
 
-Any.prototype.onExecute = function() {
+Any.prototype.onExecute = function () {
+  this.value =
+    this.getInputData(0) || this.getInputData(1) || this.getInputData(2);
 
-  this.value = this.getInputData(0) || this.getInputData(1) || this.getInputData(2)
-
-  if(this.value){
-    this.setOutputData(0,this.value)
+  if (this.value) {
+    this.setOutputData(0, this.value);
   }
-
 };
 
-export default Any
+export default Any;

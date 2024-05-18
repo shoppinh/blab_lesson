@@ -5,34 +5,34 @@ function Multiply() {
   this.addProperty("A", 1);
   this.addProperty("B", 1);
   this.addProperty("OP", "*", "enum", { values: Multiply.values });
-  this.size[0] = 120
+  this.size[0] = 120;
 }
 
 Multiply.values = ["+", "-", "*", "/", "%", "^", "max", "min"];
 
-Multiply.title = "Nhân (Multiply)";
+Multiply.title = "Nhân";
 Multiply.desc = "*";
 Multiply["@OP"] = {
   type: "enum",
   title: "operation",
-  values: Multiply.values
+  values: Multiply.values,
 };
 Multiply.size = [100, 60];
 
-Multiply.prototype.getTitle = function() {
-  if(this.properties.OP == "max" || this.properties.OP == "min")
-  return this.properties.OP + "(A,B)";
+Multiply.prototype.getTitle = function () {
+  if (this.properties.OP == "max" || this.properties.OP == "min")
+    return this.properties.OP + "(A,B)";
   return "A " + this.properties.OP + " B";
 };
 
-Multiply.prototype.setValue = function(v) {
+Multiply.prototype.setValue = function (v) {
   if (typeof v == "string") {
     v = parseFloat(v);
   }
   this.properties["value"] = v;
 };
 
-Multiply.prototype.onExecute = function() {
+Multiply.prototype.onExecute = function () {
   var A = this.getInputData(0);
   var B = this.getInputData(1);
   if (A != null) {
@@ -50,38 +50,38 @@ Multiply.prototype.onExecute = function() {
   var result = 0;
   switch (this.properties.OP) {
     case "+":
-    result = A + B;
-    break;
+      result = A + B;
+      break;
     case "-":
-    result = A - B;
-    break;
+      result = A - B;
+      break;
     case "x":
     case "X":
     case "*":
-    result = A * B;
-    break;
+      result = A * B;
+      break;
     case "/":
-    result = A / B;
-    break;
+      result = A / B;
+      break;
     case "%":
-    result = A % B;
-    break;
+      result = A % B;
+      break;
     case "^":
-    result = Math.pow(A, B);
-    break;
+      result = Math.pow(A, B);
+      break;
     case "max":
-    result = Math.max(A, B);
-    break;
+      result = Math.max(A, B);
+      break;
     case "min":
-    result = Math.min(A, B);
-    break;
+      result = Math.min(A, B);
+      break;
     default:
-    console.warn("Unknown operation: " + this.properties.OP);
+      console.warn("Unknown operation: " + this.properties.OP);
   }
   this.setOutputData(0, result);
 };
 
-Multiply.prototype.onDrawBackground = function(ctx) {
+Multiply.prototype.onDrawBackground = function (ctx) {
   if (this.flags.collapsed) {
     return;
   }
@@ -97,4 +97,4 @@ Multiply.prototype.onDrawBackground = function(ctx) {
   ctx.textAlign = "left";
 };
 
-export default Multiply
+export default Multiply;

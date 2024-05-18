@@ -5,34 +5,34 @@ function Modulo() {
   this.addProperty("A", 1);
   this.addProperty("B", 1);
   this.addProperty("OP", "%", "enum", { values: Modulo.values });
-  this.size[0] = 120
+  this.size[0] = 120;
 }
 
 Modulo.values = ["+", "-", "*", "/", "%", "^", "max", "min"];
 
-Modulo.title = "Chia dư (Modulo)";
+Modulo.title = "Chia dư";
 Modulo.desc = "Easy math operators";
 Modulo["@OP"] = {
   type: "enum",
   title: "operation",
-  values: Modulo.values
+  values: Modulo.values,
 };
 Modulo.size = [100, 60];
 
-Modulo.prototype.getTitle = function() {
-  if(this.properties.OP == "max" || this.properties.OP == "min")
-  return this.properties.OP + "(A,B)";
+Modulo.prototype.getTitle = function () {
+  if (this.properties.OP == "max" || this.properties.OP == "min")
+    return this.properties.OP + "(A,B)";
   return "A " + this.properties.OP + " B";
 };
 
-Modulo.prototype.setValue = function(v) {
+Modulo.prototype.setValue = function (v) {
   if (typeof v == "string") {
     v = parseFloat(v);
   }
   this.properties["value"] = v;
 };
 
-Modulo.prototype.onExecute = function() {
+Modulo.prototype.onExecute = function () {
   var A = this.getInputData(0);
   var B = this.getInputData(1);
   if (A != null) {
@@ -50,38 +50,38 @@ Modulo.prototype.onExecute = function() {
   var result = 0;
   switch (this.properties.OP) {
     case "+":
-    result = A + B;
-    break;
+      result = A + B;
+      break;
     case "-":
-    result = A - B;
-    break;
+      result = A - B;
+      break;
     case "x":
     case "X":
     case "*":
-    result = A * B;
-    break;
+      result = A * B;
+      break;
     case "/":
-    result = A / B;
-    break;
+      result = A / B;
+      break;
     case "%":
-    result = A % B;
-    break;
+      result = A % B;
+      break;
     case "^":
-    result = Math.pow(A, B);
-    break;
+      result = Math.pow(A, B);
+      break;
     case "max":
-    result = Math.max(A, B);
-    break;
+      result = Math.max(A, B);
+      break;
     case "min":
-    result = Math.min(A, B);
-    break;
+      result = Math.min(A, B);
+      break;
     default:
-    console.warn("Unknown operation: " + this.properties.OP);
+      console.warn("Unknown operation: " + this.properties.OP);
   }
   this.setOutputData(0, result);
 };
 
-Modulo.prototype.onDrawBackground = function(ctx) {
+Modulo.prototype.onDrawBackground = function (ctx) {
   if (this.flags.collapsed) {
     return;
   }
@@ -97,4 +97,4 @@ Modulo.prototype.onDrawBackground = function(ctx) {
   ctx.textAlign = "left";
 };
 
-export default Modulo
+export default Modulo;

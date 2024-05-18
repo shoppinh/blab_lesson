@@ -4,24 +4,28 @@ function Compare() {
   this.size = [140, 26];
 }
 
-Compare.title = "Độ dài (Length)";
-Compare.description = "get string character count" //added for search
+Compare.title = "Độ dài";
+Compare.description = "get string character count"; //added for search
 
-Compare.prototype.onExecute = function() {
-  if (this.inputs[0] && this.getInputData(0) && typeof this.getInputData(0) == "string") {
+Compare.prototype.onExecute = function () {
+  if (
+    this.inputs[0] &&
+    this.getInputData(0) &&
+    typeof this.getInputData(0) == "string"
+  ) {
     this.value = this.getInputData(0).length;
-    this.setOutputData(0,this.value)
-    this.outputs[0].label = this.value
-  }else{
-    this.value = null
+    this.setOutputData(0, this.value);
+    this.outputs[0].label = this.value;
+  } else {
+    this.value = null;
   }
 };
 
-Compare.prototype.getTitle = function() {
+Compare.prototype.getTitle = function () {
   if (this.flags.collapsed) {
-    return "Length("+this.value+")";
+    return "Length(" + this.value + ")";
   }
   return this.title;
 };
 
-export default Compare
+export default Compare;

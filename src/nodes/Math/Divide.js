@@ -5,34 +5,34 @@ function Divide() {
   this.addProperty("A", 1);
   this.addProperty("B", 1);
   this.addProperty("OP", "/", "enum", { values: Divide.values });
-  this.size[0] = 120
+  this.size[0] = 120;
 }
 
 Divide.values = ["+", "-", "*", "/", "%", "^", "max", "min"];
 
-Divide.title = "Chia (Divide)";
+Divide.title = "Chia";
 Divide.desc = "Easy math operators";
 Divide["@OP"] = {
   type: "enum",
   title: "operation",
-  values: Divide.values
+  values: Divide.values,
 };
 Divide.size = [100, 60];
 
-Divide.prototype.getTitle = function() {
-  if(this.properties.OP == "max" || this.properties.OP == "min")
-  return this.properties.OP + "(A,B)";
+Divide.prototype.getTitle = function () {
+  if (this.properties.OP == "max" || this.properties.OP == "min")
+    return this.properties.OP + "(A,B)";
   return "A " + this.properties.OP + " B";
 };
 
-Divide.prototype.setValue = function(v) {
+Divide.prototype.setValue = function (v) {
   if (typeof v == "string") {
     v = parseFloat(v);
   }
   this.properties["value"] = v;
 };
 
-Divide.prototype.onExecute = function() {
+Divide.prototype.onExecute = function () {
   var A = this.getInputData(0);
   var B = this.getInputData(1);
   if (A != null) {
@@ -50,38 +50,38 @@ Divide.prototype.onExecute = function() {
   var result = 0;
   switch (this.properties.OP) {
     case "+":
-    result = A + B;
-    break;
+      result = A + B;
+      break;
     case "-":
-    result = A - B;
-    break;
+      result = A - B;
+      break;
     case "x":
     case "X":
     case "*":
-    result = A * B;
-    break;
+      result = A * B;
+      break;
     case "/":
-    result = A / B;
-    break;
+      result = A / B;
+      break;
     case "%":
-    result = A % B;
-    break;
+      result = A % B;
+      break;
     case "^":
-    result = Math.pow(A, B);
-    break;
+      result = Math.pow(A, B);
+      break;
     case "max":
-    result = Math.max(A, B);
-    break;
+      result = Math.max(A, B);
+      break;
     case "min":
-    result = Math.min(A, B);
-    break;
+      result = Math.min(A, B);
+      break;
     default:
-    console.warn("Unknown operation: " + this.properties.OP);
+      console.warn("Unknown operation: " + this.properties.OP);
   }
   this.setOutputData(0, result);
 };
 
-Divide.prototype.onDrawBackground = function(ctx) {
+Divide.prototype.onDrawBackground = function (ctx) {
   if (this.flags.collapsed) {
     return;
   }
@@ -97,4 +97,4 @@ Divide.prototype.onDrawBackground = function(ctx) {
   ctx.textAlign = "left";
 };
 
-export default Divide
+export default Divide;

@@ -5,12 +5,12 @@ function Delay() {
   this.addOutput("", -1);
 }
 
-Delay.title = "Bộ đếm (Delay)";
+Delay.title = "Bộ đếm";
 
-Delay.prototype.onAction = function(action, param) {
-  setTimeout(()=>{
-    this.trigger()
-  },this.properties.time_in_ms)
+Delay.prototype.onAction = function (action, param) {
+  setTimeout(() => {
+    this.trigger();
+  }, this.properties.time_in_ms);
 };
 
 export default Delay;

@@ -5,34 +5,34 @@ function Min() {
   this.addProperty("A", 1);
   this.addProperty("B", 1);
   this.addProperty("OP", "min", "enum", { values: Min.values });
-  this.size[0] = 120
+  this.size[0] = 120;
 }
 
 Min.values = ["+", "-", "*", "/", "%", "^", "max", "min"];
 
-Min.title = "Nhỏ nhât (Min)";
+Min.title = "Nhỏ nhât";
 
 Min["@OP"] = {
   type: "enum",
   title: "operation",
-  values: Min.values
+  values: Min.values,
 };
 Min.size = [100, 60];
 
-Min.prototype.getTitle = function() {
-  if(this.properties.OP == "max" || this.properties.OP == "min")
-  return this.properties.OP 
+Min.prototype.getTitle = function () {
+  if (this.properties.OP == "max" || this.properties.OP == "min")
+    return this.properties.OP;
   return "A " + this.properties.OP + " B";
 };
 
-Min.prototype.setValue = function(v) {
+Min.prototype.setValue = function (v) {
   if (typeof v == "string") {
     v = parseFloat(v);
   }
   this.properties["value"] = v;
 };
 
-Min.prototype.onExecute = function() {
+Min.prototype.onExecute = function () {
   var A = this.getInputData(0);
   var B = this.getInputData(1);
   if (A != null) {
@@ -50,38 +50,38 @@ Min.prototype.onExecute = function() {
   var result = 0;
   switch (this.properties.OP) {
     case "+":
-    result = A + B;
-    break;
+      result = A + B;
+      break;
     case "-":
-    result = A - B;
-    break;
+      result = A - B;
+      break;
     case "x":
     case "X":
     case "*":
-    result = A * B;
-    break;
+      result = A * B;
+      break;
     case "/":
-    result = A / B;
-    break;
+      result = A / B;
+      break;
     case "%":
-    result = A % B;
-    break;
+      result = A % B;
+      break;
     case "^":
-    result = Math.pow(A, B);
-    break;
+      result = Math.pow(A, B);
+      break;
     case "max":
-    result = Math.max(A, B);
-    break;
+      result = Math.max(A, B);
+      break;
     case "min":
-    result = Math.min(A, B);
-    break;
+      result = Math.min(A, B);
+      break;
     default:
-    console.warn("Unknown operation: " + this.properties.OP);
+      console.warn("Unknown operation: " + this.properties.OP);
   }
   this.setOutputData(0, result);
 };
 
-Min.prototype.onDrawBackground = function(ctx) {
+Min.prototype.onDrawBackground = function (ctx) {
   if (this.flags.collapsed) {
     return;
   }
@@ -97,4 +97,4 @@ Min.prototype.onDrawBackground = function(ctx) {
   ctx.textAlign = "left";
 };
 
-export default Min
+export default Min;

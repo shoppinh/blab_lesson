@@ -8,11 +8,11 @@ import { makeStyles } from "@material-ui/core/styles";
 function Number() {
   this.addInput("", 0);
   this.addOutput("", "number");
-  this.properties = { placeholder: "#", title: "Số (Number)", value: null };
+  this.properties = { placeholder: "#", title: "Số", value: null };
   this.size = [190, 50];
 }
 
-Number.title = "Số (Number)";
+Number.title = "Số";
 
 Number.prototype.onExecute = function () {
   let input = this.getInputData(0);

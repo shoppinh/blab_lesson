@@ -1,27 +1,28 @@
-var codec = require('json-url')('lzw');
+var codec = require("json-url")("lzw");
 
 function Compress() {
   this.size = [110, 30];
   this.addInput("", "string");
   this.addOutput("", "string");
   this.value = 0;
-  this.cached = false
+  this.cached = false;
 }
 
-Compress.title = "Nén (Compress)";
+Compress.title = "Nén";
 
-Compress.prototype.onExecute = async function() {
-
+Compress.prototype.onExecute = async function () {
   //this.setOutputData(0,this.value)
-  let input = this.getInputData(0)
-  if(input!=this.cached){
-    this.cached = input
-    try{
-      this.value = await codec.compress(this.cached)
-    }catch(e){console.log(e)}
+  let input = this.getInputData(0);
+  if (input != this.cached) {
+    this.cached = input;
+    try {
+      this.value = await codec.compress(this.cached);
+    } catch (e) {
+      console.log(e);
+    }
   }
 
-  this.setOutputData(0,this.value)
+  this.setOutputData(0, this.value);
 };
 
-export default Compress
+export default Compress;
