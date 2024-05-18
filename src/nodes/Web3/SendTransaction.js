@@ -12,7 +12,7 @@ function SendTransaction() {
   this.properties = { address: "", provider: defaultProvider };
 }
 
-SendTransaction.title = "Gửi giao dịch";
+SendTransaction.title = "Send Transaction";
 
 SendTransaction.prototype.onAdded = async function () {
   this.connectWeb3();

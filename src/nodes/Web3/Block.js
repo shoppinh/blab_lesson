@@ -20,7 +20,7 @@ function Block() {
   this.loading = false;
 }
 
-Block.title = "Khối";
+Block.title = "Block";
 
 Block.prototype.onAdded = async function () {
   this.connectWeb3();

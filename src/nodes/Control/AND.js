@@ -5,7 +5,7 @@ function AND() {
   this.size = [110, 50];
 }
 
-AND.title = "Và";
+AND.title = "AND";
 
 AND.prototype.onExecute = function () {
   this.setOutputData(0, this.getInputData(0) && this.getInputData(1));

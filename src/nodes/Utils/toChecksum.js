@@ -6,7 +6,7 @@ function ToHex() {
   this.size[0] = 200;
 }
 
-ToHex.title = "Ra Checksum";
+ToHex.title = "To Checksum";
 
 ToHex.prototype.onExecute = function () {
   let input = this.getInputData(0);

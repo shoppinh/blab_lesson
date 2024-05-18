@@ -9,7 +9,7 @@ function Hash() {
 }
 
 //name to show
-Hash.title = "Hàm băm";
+Hash.title = "Hash";
 
 //function to call when the node is executed
 Hash.prototype.onExecute = function () {

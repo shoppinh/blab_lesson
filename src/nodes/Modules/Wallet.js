@@ -34,7 +34,7 @@ function Wallet() {
   });
 }
 
-Wallet.title = "Ví";
+Wallet.title = "Wallet";
 
 Wallet.title_color = "#" + defaultColor;
 

@@ -10,7 +10,7 @@ function Max() {
 
 Max.values = ["+", "-", "*", "/", "%", "^", "max", "min"];
 
-Max.title = "Lớn nhất";
+Max.title = "Max";
 
 Max["@OP"] = {
   type: "enum",

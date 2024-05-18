@@ -7,7 +7,7 @@ function Any() {
   this.value = 0;
 }
 
-Any.title = "Bất kỳ";
+Any.title = "Any";
 
 Any.prototype.onExecute = function () {
   this.value =

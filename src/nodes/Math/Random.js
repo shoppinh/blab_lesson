@@ -7,8 +7,8 @@ function Random() {
   this.size = [200, 30];
 }
 
-Random.title = "Ngẫu nhiên";
-Random.desc = "Ngẫu nhiên ";
+Random.title = "Random";
+Random.desc = "Random";
 
 Random.prototype.onAction = function () {
   this.properties.automatic = false;

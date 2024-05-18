@@ -8,7 +8,7 @@ function Timer() {
   this.size[0] = 140;
 }
 
-Timer.title = "Đếm thời gian";
+Timer.title = "Timer";
 Timer.desc = "clock, repeat";
 
 Timer.prototype.onStart = function () {
@@ -16,7 +16,7 @@ Timer.prototype.onStart = function () {
 };
 
 Timer.prototype.getTitle = function () {
-  return "Đếm thời gian";
+  return "Timer";
 };
 
 Timer.on_color = "#AAA";

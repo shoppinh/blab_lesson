@@ -10,14 +10,14 @@ function Text() {
   this.addOutput("", "string");
   this.properties = {
     blockieSize: 50,
-    placeholder: "Nhập chuỗi ở đây",
-    title: "Chuỗi",
+    placeholder: "Enter text here",
+    title: "Text",
     value: null,
   };
   this.size = [300, 50];
 }
 
-Text.title = "Chuỗi";
+Text.title = "Text";
 
 Text.prototype.onConnectionsChange = function (args) {
   console.log("onConnectionsChange", args);

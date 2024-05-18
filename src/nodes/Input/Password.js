@@ -10,13 +10,13 @@ function Password() {
   this.addOutput("", "string");
   this.properties = {
     blockieSize: 50,
-    placeholder: "Mật khẩu",
-    title: "Mật khẩu",
+    placeholder: "Password",
+    title: "Password",
   };
   this.size = [300, 50];
 }
 
-Password.title = "Mật khẩu";
+Password.title = "Password";
 
 Password.prototype.onConnectionsChange = function (args) {
   console.log("onConnectionsChange", args);

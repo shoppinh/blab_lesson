@@ -11,7 +11,7 @@ function Encrypt() {
 }
 
 //name to show
-Encrypt.title = "Mã hóa";
+Encrypt.title = "Encrypt";
 
 //function to call when the node is executed
 Encrypt.prototype.onExecute = async function () {

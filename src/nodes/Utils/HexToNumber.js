@@ -6,7 +6,7 @@ function ToNumber() {
   this.size = [210, 30];
 }
 
-ToNumber.title = "Hex ra số";
+ToNumber.title = "To Number";
 
 ToNumber.prototype.onExecute = function () {
   let input = this.getInputData(0);

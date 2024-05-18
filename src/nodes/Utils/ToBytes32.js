@@ -6,7 +6,7 @@ function ToBytes32() {
   this.size = [170, 30];
 }
 
-ToBytes32.title = "Ra Bytes32";
+ToBytes32.title = "To Bytes32";
 
 ToBytes32.prototype.onExecute = function () {
   let input = this.getInputData(0);

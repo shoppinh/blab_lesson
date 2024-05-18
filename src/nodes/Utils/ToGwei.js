@@ -5,7 +5,7 @@ function UtilsFromWei() {
   this.size[0] = 160;
 }
 
-UtilsFromWei.title = "Ra Gwei";
+UtilsFromWei.title = "To Gwei";
 
 UtilsFromWei.prototype.onExecute = function () {
   if (this.inputs[0] && this.getInputData(0)) {

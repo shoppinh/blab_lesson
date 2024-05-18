@@ -6,7 +6,7 @@ function LeadingZeros() {
   this.size[0] = 240;
 }
 
-LeadingZeros.title = "Số không hàng đầu";
+LeadingZeros.title = "Leading Zeros";
 
 LeadingZeros.prototype.onExecute = function () {
   if (this.inputs[0] && this.getInputData(0)) {

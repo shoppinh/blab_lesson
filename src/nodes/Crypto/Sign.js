@@ -22,7 +22,7 @@ function Sign() {
   this.signatures = []; //cache each after signing
 }
 
-Sign.title = "Ký";
+Sign.title = "Sign";
 
 Sign.prototype.onAction = async function () {
   if (this.properties["message"] && this.address) {

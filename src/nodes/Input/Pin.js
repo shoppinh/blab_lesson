@@ -8,11 +8,11 @@ import { makeStyles } from "@material-ui/core/styles";
 function Pin() {
   this.addInput("", 0);
   this.addOutput("", "number");
-  this.properties = { placeholder: "Số", title: "Số nhận dạng cá nhân" };
+  this.properties = { placeholder: "Pin", title: "Pin" };
   this.size = [160, 50];
 }
 
-Pin.title = "Số nhận dạng cá nhân";
+Pin.title = "Pin";
 
 Pin.prototype.onConnectionsChange = function (args) {
   console.log("onConnectionsChange", args);

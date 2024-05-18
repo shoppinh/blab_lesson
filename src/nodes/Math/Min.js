@@ -10,7 +10,7 @@ function Min() {
 
 Min.values = ["+", "-", "*", "/", "%", "^", "max", "min"];
 
-Min.title = "Nhỏ nhât";
+Min.title = "Min";
 
 Min["@OP"] = {
   type: "enum",

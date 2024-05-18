@@ -7,7 +7,7 @@ function UtilsFromWei() {
   this.size[0] = 160;
 }
 
-UtilsFromWei.title = "Từ Hex";
+UtilsFromWei.title = "From Hex";
 
 UtilsFromWei.prototype.onStart = function () {
   this.web3 = new Web3();

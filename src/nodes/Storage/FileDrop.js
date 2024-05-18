@@ -5,7 +5,7 @@ function FileDrop() {
   this.size = [194, 36];
 }
 
-FileDrop.title = "Kéo thả file";
+FileDrop.title = "FileDrop";
 
 FileDrop.prototype.onDrawBackground = function (ctx) {
   if (this.flags.collapsed) {

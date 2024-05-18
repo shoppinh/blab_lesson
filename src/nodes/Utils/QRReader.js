@@ -10,7 +10,7 @@ function QRReader() {
   this.size = [320, 240];
 }
 
-QRReader.title = "Đọc mã QR";
+QRReader.title = "QR Reader";
 QRReader.desc = "Read QR code from image";
 
 QRReader.prototype.onAction = function () {

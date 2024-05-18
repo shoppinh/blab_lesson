@@ -4,7 +4,7 @@ function ToString() {
   this.size = [170, 30];
 }
 
-ToString.title = "Ra chuỗi";
+ToString.title = "To String";
 
 ToString.prototype.onExecute = function () {
   let input = this.getInputData(0);

@@ -3,7 +3,7 @@ function Type() {
   this.addOutput("", 0);
 }
 
-Type.title = "Loại";
+Type.title = "Type";
 
 Type.prototype.getTitle = function () {
   if (this.flags.collapsed) {

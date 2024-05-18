@@ -11,7 +11,7 @@ function RLPEncode() {
   this.size[0] = 190;
 }
 
-RLPEncode.title = "Mã hóa RLP";
+RLPEncode.title = "RLP Encode";
 
 RLPEncode.prototype.onExecute = function () {
   let dataArray = [];

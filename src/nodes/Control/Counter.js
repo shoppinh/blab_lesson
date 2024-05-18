@@ -7,7 +7,7 @@ function Counter() {
   this.num = 0;
 }
 
-Counter.title = "Bộ đếm";
+Counter.title = "Counter";
 Counter.desc = "Đếm các sự kiện";
 
 Counter.prototype.getTitle = function () {

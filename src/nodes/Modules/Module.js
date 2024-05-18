@@ -1,9 +1,9 @@
-const defaultColor = "7e57c2"
+const defaultColor = "7e57c2";
 
 function Module() {
   var that = this;
   this.size = [200, 80];
-  this.properties = { enabled: true, title: "Mô đun", color: defaultColor };
+  this.properties = { enabled: true, title: "Module", color: defaultColor };
   this.enabled = true;
 
   //create inner graph
@@ -20,31 +20,30 @@ function Module() {
 
   this.subgraph.onOutputAdded = this.onSubgraphNewOutput.bind(this);
   this.subgraph.onOutputRenamed = this.onSubgraphRenamedOutput.bind(this);
-  this.subgraph.onOutputTypeChanged = this.onSubgraphTypeChangeOutput.bind(this);
+  this.subgraph.onOutputTypeChanged =
+    this.onSubgraphTypeChangeOutput.bind(this);
   this.subgraph.onOutputRemoved = this.onSubgraphRemovedOutput.bind(this);
-
 }
 
-Module.title = "Mô đun";
+Module.title = "Module";
 
-Module.title_color = "#"+(defaultColor);
+Module.title_color = "#" + defaultColor;
 
-Module.prototype.onGetInputs = function() {
+Module.prototype.onGetInputs = function () {
   return [["enabled", "boolean"]];
 };
 
-Module.prototype.getTitle = function() {
-  return this.properties.title
-}
+Module.prototype.getTitle = function () {
+  return this.properties.title;
+};
 
-Module.prototype.onDrawTitle = function(ctx) {
-
+Module.prototype.onDrawTitle = function (ctx) {
   if (this.flags.collapsed) {
     return;
   }
 
-  this.title_color = "#"+(this.properties.color)
-/*
+  this.title_color = "#" + this.properties.color;
+  /*
   ctx.fillStyle = "#555";
   var w = global.LiteGraphJS.LiteGraph.NODE_TITLE_HEIGHT;
   var x = this.size[0] - w;
@@ -57,32 +56,32 @@ Module.prototype.onDrawTitle = function(ctx) {
   ctx.fill();*/
 };
 
-Module.prototype.onDblClick = function(e, pos, graphcanvas) {
-  console.log("MODULE DBLCLICK")
+Module.prototype.onDblClick = function (e, pos, graphcanvas) {
+  console.log("MODULE DBLCLICK");
   var that = this;
-  setTimeout(function() {
+  setTimeout(function () {
     graphcanvas.openSubgraph(that.subgraph);
   }, 10);
 };
 
-Module.prototype.onMouseDown = function(e, pos, graphcanvas) {
+Module.prototype.onMouseDown = function (e, pos, graphcanvas) {
   if (
     !this.flags.collapsed &&
     pos[0] > this.size[0] - global.LiteGraphJS.LiteGraph.NODE_TITLE_HEIGHT &&
     pos[1] < 0
   ) {
     var that = this;
-    setTimeout(function() {
+    setTimeout(function () {
       graphcanvas.openSubgraph(that.subgraph);
     }, 10);
   }
 };
 
-Module.prototype.onAction = function(action, param) {
+Module.prototype.onAction = function (action, param) {
   this.subgraph.onAction(action, param);
 };
 
-Module.prototype.onExecute = function() {
+Module.prototype.onExecute = function () {
   this.enabled = this.getInputOrProperty("enabled");
   if (!this.enabled) {
     return;
@@ -110,25 +109,25 @@ Module.prototype.onExecute = function() {
   }
 };
 
-Module.prototype.sendEventToAllNodes = function(eventname, param, mode) {
+Module.prototype.sendEventToAllNodes = function (eventname, param, mode) {
   if (this.enabled) {
     this.subgraph.sendEventToAllNodes(eventname, param, mode);
   }
 };
 
 //**** INPUTS ***********************************
-Module.prototype.onSubgraphTrigger = function(event, param) {
+Module.prototype.onSubgraphTrigger = function (event, param) {
   var slot = this.findOutputSlot(event);
   if (slot != -1) {
     this.triggerSlot(slot);
   }
 };
 
-Module.prototype.onSubgraphNewInput = function(name, type) {
+Module.prototype.onSubgraphNewInput = function (name, type) {
   var slot = this.findInputSlot(name);
   if (slot == -1) {
     //add input to the node
-    console.log("onSubgraphNewInput",name,type)
+    console.log("onSubgraphNewInput", name, type);
     this.addInput(name, 0);
   }
 };
@@ -186,7 +185,7 @@ Module.prototype.updateInputs = function(index,name,type){
   }
 }*/
 
-Module.prototype.onSubgraphRenamedInput = function(oldname, name) {
+Module.prototype.onSubgraphRenamedInput = function (oldname, name) {
   var slot = this.findInputSlot(oldname);
   if (slot == -1) {
     return;
@@ -195,8 +194,8 @@ Module.prototype.onSubgraphRenamedInput = function(oldname, name) {
   info.name = name;
 };
 
-Module.prototype.onSubgraphTypeChangeInput = function(name, type) {
-  console.log("onSubgraphTypeChangeInput",name, type)
+Module.prototype.onSubgraphTypeChangeInput = function (name, type) {
+  console.log("onSubgraphTypeChangeInput", name, type);
   var slot = this.findInputSlot(name);
   if (slot == -1) {
     return;
@@ -205,7 +204,7 @@ Module.prototype.onSubgraphTypeChangeInput = function(name, type) {
   info.type = type;
 };
 
-Module.prototype.onSubgraphRemovedInput = function(name) {
+Module.prototype.onSubgraphRemovedInput = function (name) {
   var slot = this.findInputSlot(name);
   if (slot == -1) {
     return;
@@ -214,14 +213,14 @@ Module.prototype.onSubgraphRemovedInput = function(name) {
 };
 
 //**** OUTPUTS ***********************************
-Module.prototype.onSubgraphNewOutput = function(name, type) {
+Module.prototype.onSubgraphNewOutput = function (name, type) {
   var slot = this.findOutputSlot(name);
   if (slot == -1) {
     this.addOutput(name, type);
   }
 };
 
-Module.prototype.onSubgraphRenamedOutput = function(oldname, name) {
+Module.prototype.onSubgraphRenamedOutput = function (oldname, name) {
   var slot = this.findOutputSlot(oldname);
   if (slot == -1) {
     return;
@@ -230,7 +229,7 @@ Module.prototype.onSubgraphRenamedOutput = function(oldname, name) {
   info.name = name;
 };
 
-Module.prototype.onSubgraphTypeChangeOutput = function(name, type) {
+Module.prototype.onSubgraphTypeChangeOutput = function (name, type) {
   var slot = this.findOutputSlot(name);
   if (slot == -1) {
     return;
@@ -239,7 +238,7 @@ Module.prototype.onSubgraphTypeChangeOutput = function(name, type) {
   info.type = type;
 };
 
-Module.prototype.onSubgraphRemovedOutput = function(name) {
+Module.prototype.onSubgraphRemovedOutput = function (name) {
   var slot = this.findInputSlot(name);
   if (slot == -1) {
     return;
@@ -248,23 +247,23 @@ Module.prototype.onSubgraphRemovedOutput = function(name) {
 };
 // *****************************************************
 
-Module.prototype.getExtraMenuOptions = function(graphcanvas) {
+Module.prototype.getExtraMenuOptions = function (graphcanvas) {
   var that = this;
   return [
     {
       content: "Open",
-      callback: function() {
+      callback: function () {
         graphcanvas.openSubgraph(that.subgraph);
-      }
-    }
+      },
+    },
   ];
 };
 
-Module.prototype.onResize = function(size) {
+Module.prototype.onResize = function (size) {
   size[1] += 20;
 };
 
-Module.prototype.serialize = function() {
+Module.prototype.serialize = function () {
   var data = global.LiteGraphJS.LGraphNode.prototype.serialize.call(this);
   //console.log("SERIALIZED",data)
   data.subgraph = this.subgraph.serialize();
@@ -272,7 +271,7 @@ Module.prototype.serialize = function() {
 };
 //no need to define node.configure, the default method detects node.subgraph and passes the object to node.subgraph.configure()
 
-Module.prototype.clone = function() {
+Module.prototype.clone = function () {
   var node = global.LiteGraphJS.LiteGraph.createNode(this.type);
   var data = this.serialize();
   delete data["id"];
@@ -282,4 +281,4 @@ Module.prototype.clone = function() {
   return node;
 };
 
-export default Module
+export default Module;

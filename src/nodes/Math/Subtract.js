@@ -10,7 +10,7 @@ function Subtract() {
 
 Subtract.values = ["+", "-", "*", "/", "%", "^", "max", "min"];
 
-Subtract.title = "Trừ";
+Subtract.title = "Subtract";
 Subtract.desc = "Easy math operators";
 Subtract["@OP"] = {
   type: "enum",

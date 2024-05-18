@@ -9,13 +9,13 @@ function TextArea() {
   this.addOutput("", "string");
 
   this.properties = {
-    title: "Chuỗi",
+    title: "String",
   };
   this.size = resetSize;
   this.value = {};
 }
 
-TextArea.title = "Chuỗi";
+TextArea.title = "String";
 TextArea.prototype.getTitle = function () {
   return this.properties.title;
 };

@@ -16,7 +16,7 @@ function Blockchain() {
   this.size[0] = 210;
 }
 
-Blockchain.title = "Khối chuỗi";
+Blockchain.title = "Blockchain";
 
 Blockchain.prototype.onAdded = async function () {
   this.connectWeb3();

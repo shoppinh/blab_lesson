@@ -2,11 +2,11 @@ function Variable() {
   this.size = [60, 30];
   this.addInput("in");
   this.addOutput("out");
-  this.properties = { varname: "Biến", global: true };
+  this.properties = { varname: "Variable", global: true };
   this.value = null;
 }
 
-Variable.title = "Biến";
+Variable.title = "Variable";
 
 Variable.prototype.onExecute = function () {
   if (typeof this.getInputData(0) != "undefined") {

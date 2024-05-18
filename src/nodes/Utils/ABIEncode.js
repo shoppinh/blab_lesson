@@ -13,7 +13,7 @@ function EncodeParameters() {
   this.size[0] = 190;
 }
 
-EncodeParameters.title = "Kiểm tra mã hóa";
+EncodeParameters.title = "Encode Parameter";
 
 EncodeParameters.prototype.onStart = async function () {
   this.connectWeb3();

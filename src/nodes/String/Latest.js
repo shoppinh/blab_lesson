@@ -7,7 +7,7 @@ function Combine() {
   this.value = 0;
 }
 
-Combine.title = "Mới nhất";
+Combine.title = "Combine";
 
 Combine.prototype.onExecute = function () {
   let in1 = this.getInputData(0);

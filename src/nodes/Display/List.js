@@ -12,13 +12,13 @@ function List() {
   this.addInput("reset", -1);
   this.addOutput("", 0);
   this.addOutput("latest", 0);
-  this.properties = { title: "Danh sách", fontSize: 18, autoAddNewItem: true };
+  this.properties = { title: "List", fontSize: 18, autoAddNewItem: true };
   this.size = [250, 250];
   this.list = [];
   this.lastItem = null;
 }
 
-List.title = "Danh sách";
+List.title = "List";
 
 List.prototype.onExecute = function () {
   let input = this.getInputData(0);

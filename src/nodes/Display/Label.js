@@ -9,14 +9,14 @@ function Label() {
   this.properties = {
     blockieSize: 50,
     placeholder: "",
-    title: "Nhãn",
+    title: "Label",
     value: null,
     fontSize: 28,
   };
   this.size = [300, 0];
 }
 
-Label.title = "Nhãn";
+Label.title = "Label";
 Label.title_color = "#222";
 
 Label.prototype.onConnectionsChange = function (args) {

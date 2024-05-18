@@ -9,11 +9,11 @@ function Button() {
   this.addInput("", -1);
   this.addOutput("", -1);
   this.addOutput("", "number,boolean");
-  this.properties = { value: "click me", title: "Nút", count: 0 };
+  this.properties = { value: "click me", title: "Button", count: 0 };
   this.size = [200, 50];
 }
 
-Button.title = "Nút";
+Button.title = "Button";
 
 Button.prototype.onConnectionsChange = function (args) {
   console.log("onConnectionsChange", args);

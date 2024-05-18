@@ -11,14 +11,14 @@ function Code() {
   this.addOutput("", "string");
   this.properties = {
     blockieSize: 50,
-    placeholder: "//mã nguồn",
-    title: "Mã nguồn",
+    placeholder: "//Code",
+    title: "Code",
     value: "",
   };
   this.size = [500, 420];
 }
 
-Code.title = "Mã nguồn";
+Code.title = "Code";
 
 Code.prototype.onExecute = function () {
   let input = this.getInputData(0);

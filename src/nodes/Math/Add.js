@@ -10,7 +10,7 @@ function Add() {
 
 Add.values = ["+", "-", "*", "/", "%", "^", "max", "min"];
 
-Add.title = "Cộng";
+Add.title = "Add";
 Add.desc = "Easy math operators";
 Add["@OP"] = {
   type: "enum",

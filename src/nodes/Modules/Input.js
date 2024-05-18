@@ -24,7 +24,7 @@ function Input() {
   this.size = [180, 60];
 }
 
-Input.title = "Đầu vào";
+Input.title = "Input";
 
 Input.prototype.onConfigure = function () {
   this.updateType();

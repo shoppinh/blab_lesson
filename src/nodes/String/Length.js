@@ -4,7 +4,7 @@ function Length() {
   this.size = [140, 26];
 }
 
-Length.title = "Độ dài";
+Length.title = "Length";
 Length.description = "get string character count"; //added for search
 
 Length.prototype.onExecute = function () {

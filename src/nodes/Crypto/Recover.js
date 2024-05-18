@@ -11,7 +11,7 @@ function Recover() {
   this.signatures = []; //cache each after signing
 }
 
-Recover.title = "Gửi lại";
+Recover.title = "Recover";
 
 Recover.prototype.onExecute = async function () {
   let optionalMessage = this.getInputData(0);

@@ -32,7 +32,7 @@ function Transaction() {
   this.signed = false;
 }
 
-Transaction.title = "Giao dịch";
+Transaction.title = "Transaction";
 
 Transaction.prototype.connectWeb3 = function () {
   if (this.properties.provider) {

@@ -10,7 +10,7 @@ function Divide() {
 
 Divide.values = ["+", "-", "*", "/", "%", "^", "max", "min"];
 
-Divide.title = "Chia";
+Divide.title = "Divide";
 Divide.desc = "Easy math operators";
 Divide["@OP"] = {
   type: "enum",

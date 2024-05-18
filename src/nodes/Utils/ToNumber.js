@@ -4,7 +4,7 @@ function ToNumber() {
   this.size = [170, 30];
 }
 
-ToNumber.title = "Ra số";
+ToNumber.title = "To Number";
 
 ToNumber.prototype.onExecute = function () {
   let input = this.getInputData(0);

@@ -5,7 +5,7 @@ function OR() {
   this.size = [100, 50];
 }
 
-OR.title = "Hoặc";
+OR.title = "OR";
 
 OR.prototype.onExecute = function () {
   this.setOutputData(0, this.getInputData(0) || this.getInputData(1));

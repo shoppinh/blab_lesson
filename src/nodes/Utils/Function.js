@@ -13,7 +13,7 @@ function Function() {
   this.value = null;
 }
 
-Function.title = "Hàm";
+Function.title = "Function";
 Function.prototype.getTitle = function () {
   return this.properties.name + "()";
 };

@@ -10,7 +10,7 @@ function Title() {
     fontSize: 44,
     blockieSize: 50,
     placeholder: "",
-    title: "Tiêu đề",
+    title: "Title",
     value: null,
     fontFamily: "'Roboto', sans-serif",
     color: "#dddddd",
@@ -18,7 +18,7 @@ function Title() {
   this.size = [500, 0];
 }
 
-Title.title = "Tiêu đề";
+Title.title = "Title";
 Title.title_color = "#222";
 //Title.bgcolor ="#000"
 

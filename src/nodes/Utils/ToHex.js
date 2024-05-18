@@ -7,7 +7,7 @@ function ToHex() {
   this.size[0] = 160;
 }
 
-ToHex.title = "Ra Hex";
+ToHex.title = "To Hex";
 
 ToHex.prototype.onStart = function () {
   this.web3 = new Web3();

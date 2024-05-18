@@ -4,7 +4,7 @@ function Compare() {
   this.size = [140, 26];
 }
 
-Compare.title = "Độ dài";
+Compare.title = "Compare";
 Compare.description = "get string character count"; //added for search
 
 Compare.prototype.onExecute = function () {

@@ -14,14 +14,14 @@ function Dollars() {
   this.addOutput("", "number");
   this.properties = {
     blockieSize: 50,
-    placeholder: "Nhập",
-    title: "Giá tiền",
+    placeholder: "Enter text",
+    title: "Dollars",
     value: null,
   };
   this.size = [190, 55];
 }
 
-Dollars.title = "Giá tiền";
+Dollars.title = "Dollars";
 
 Dollars.prototype.onConnectionsChange = function (args) {
   console.log("onConnectionsChange", args);

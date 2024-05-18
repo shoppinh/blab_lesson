@@ -7,7 +7,7 @@ function Combine() {
   this.value = 0;
 }
 
-Combine.title = "Kết hợp";
+Combine.title = "Combine";
 Combine.desc = "join concat string";
 
 Combine.prototype.onExecute = function () {

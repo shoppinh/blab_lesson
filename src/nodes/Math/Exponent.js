@@ -10,7 +10,7 @@ function Exponent() {
 
 Exponent.values = ["+", "-", "*", "/", "%", "^", "max", "min"];
 
-Exponent.title = "Số mũ";
+Exponent.title = "Exponent";
 Exponent.desc = "^";
 Exponent["@OP"] = {
   type: "enum",

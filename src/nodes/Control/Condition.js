@@ -9,7 +9,7 @@ function Condition() {
   this.size[0] = 130;
 }
 
-Condition.title = "Điều kiện";
+Condition.title = "Condition";
 
 Condition.desc = "So sánh các giá trị bằng hoặc không bằng";
 

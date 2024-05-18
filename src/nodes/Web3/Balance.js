@@ -12,7 +12,7 @@ function Balance() {
   this.size[0] = 210;
 }
 
-Balance.title = "Tiền dư";
+Balance.title = "Balance";
 
 Balance.prototype.onAdded = async function () {
   this.connectWeb3();

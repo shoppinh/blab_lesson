@@ -11,17 +11,17 @@ import { FileCopy } from "@material-ui/icons";
 
 function Address() {
   this.addInput("", 0);
-  this.properties = { blockieSize: 50, placeholder: "", title: "Địa chỉ" };
+  this.properties = { blockieSize: 50, placeholder: "", title: "Action" };
   this.size = [340, 80];
 }
 
-Address.title = "Địa chỉ";
+Address.title = "Action";
 
 Address.prototype.getTitle = function () {
   if (this.flags.collapsed && this.value) {
     return this.value;
   }
-  return "Địa chỉ";
+  return "Action";
 };
 
 Address.prototype.onExecute = function () {

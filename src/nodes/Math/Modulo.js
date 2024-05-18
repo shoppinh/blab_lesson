@@ -10,7 +10,7 @@ function Modulo() {
 
 Modulo.values = ["+", "-", "*", "/", "%", "^", "max", "min"];
 
-Modulo.title = "Chia dư";
+Modulo.title = "Modulo";
 Modulo.desc = "Easy math operators";
 Modulo["@OP"] = {
   type: "enum",

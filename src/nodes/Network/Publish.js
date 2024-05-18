@@ -16,7 +16,7 @@ function Publish() {
   this.loadedNetwork = this.properties.network;
 }
 
-Publish.title = "Công bố";
+Publish.title = "Publish";
 
 Publish.prototype.onExecute = async function () {
   let channel = this.getInputData(0);

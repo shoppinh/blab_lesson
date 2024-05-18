@@ -11,8 +11,8 @@ function Download() {
   });
 }
 
-Download.title = "Tải về";
-Download.desc = "Tải về dữ liệu";
+Download.title = "Download";
+Download.desc = "Download";
 
 Download.prototype.downloadAsFile = function () {
   if (this.value == null) return;

@@ -14,7 +14,7 @@ function Upload() {
   };
 }
 
-Upload.title = "Tải lên";
+Upload.title = "Upload";
 
 Upload.prototype.onDrawBackground = function (ctx) {
   if (this.flags.collapsed) {

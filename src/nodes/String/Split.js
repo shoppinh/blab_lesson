@@ -4,7 +4,7 @@ function Split() {
   this.properties = { delimiter: "\n" };
 }
 
-Split.title = "Tách chuỗi";
+Split.title = "Split";
 
 Split.prototype.onExecute = function () {
   if (

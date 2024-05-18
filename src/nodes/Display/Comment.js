@@ -5,14 +5,14 @@ import { TextareaAutosize } from "@material-ui/core";
 function Comment() {
   this.properties = {
     fontSize: 18,
-    placeholder: "// bình luận...",
-    title: "Bình luận",
+    placeholder: "// Comment...",
+    title: "Comment",
     value: null,
   };
   this.size = [500, 0];
 }
 
-Comment.title = "Bình luận";
+Comment.title = "Comment";
 Comment.title_color = "#222";
 //Comment.bgcolor ="#000"
 

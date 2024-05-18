@@ -19,7 +19,7 @@ function Contract() {
   this.size = [320, 240];
 }
 
-Contract.title = "Hợp đồng";
+Contract.title = "Contract";
 Contract.prototype.getTitle = function () {
   return this.properties.title;
 };

@@ -10,7 +10,7 @@ function Multiply() {
 
 Multiply.values = ["+", "-", "*", "/", "%", "^", "max", "min"];
 
-Multiply.title = "Nhân";
+Multiply.title = "Multiply";
 Multiply.desc = "*";
 Multiply["@OP"] = {
   type: "enum",

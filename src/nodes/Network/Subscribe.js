@@ -20,7 +20,7 @@ function Subscribe() {
   this.loadedNetwork = this.properties.network;
 }
 
-Subscribe.title = "Đăng ký";
+Subscribe.title = "Subscribe";
 
 Subscribe.prototype.subscribe = function () {
   console.log("SUB IS SUBSCRIBING TO ", this.properties.channel);

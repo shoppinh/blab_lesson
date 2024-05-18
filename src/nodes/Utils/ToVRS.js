@@ -7,7 +7,7 @@ function ToVRS() {
   this.size[0] = 160;
 }
 
-ToVRS.title = "Ra VRS";
+ToVRS.title = "To VRS";
 
 ToVRS.prototype.onExecute = function () {
   let sig = this.getInputData(0);
