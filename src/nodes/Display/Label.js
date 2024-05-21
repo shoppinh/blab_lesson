@@ -16,6 +16,8 @@ function Label() {
   this.size = [300, 0];
 }
 
+//Title.bgcolor ="#000"
+
 Label.title = "Nhãn";
 Label.title_color = "#222";
 
@@ -34,6 +36,7 @@ Label.prototype.handle = function (e) {
   this.properties.value = e.target.value;
   this.setOutputData(0, this.properties.value);
   this.onDrawBackground();
+  if (this.properties.value) global.title = this.properties.value;
 };
 
 /*
@@ -74,7 +77,7 @@ Label.prototype.onDrawBackground = function (ctx) {
             label="Name"
             placeholder={this.properties.placeholder}
             value={this.properties.value}
-            onChange={Text.prototype.handle.bind(this)}
+            onChange={Label.prototype.handle.bind(this)}
             margin="normal"
             variant="outlined"
           />
