@@ -8,7 +8,7 @@ function KeyPair() {
   this.addOutput("address", "string");
 }
 
-KeyPair.title = "KeyPair";
+KeyPair.title = "Key Pair";
 KeyPair.description = "Cặp khóa công khai/ riêng tư";
 
 KeyPair.prototype.onAction = function () {
