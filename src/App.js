@@ -732,8 +732,10 @@ function App() {
           borderRadius: "8px 8px 8px 8px",
           padding: 6,
           textAlign: "center",
-          color: "#FFFFFF",
+          color: "#333333",
           backgroundColor: "#" + global.customNodes[n].color,
+          textTransform: "uppercase",
+          fontWeight: "bold",
         };
         if (n < 6) {
           positionStyle.left = 0;
@@ -855,7 +857,7 @@ function App() {
               }}
             >
               {width > 800
-                ? global.customNodes[n].displayName
+                ? global.customNodes[n].displayName.toUpperCase()
                 : global.customNodes[n].icon}
 
               {items}
@@ -938,6 +940,8 @@ function App() {
                   backgroundColor: "#" + global.customNodes[n].color,
                   opacity: 0.6,
                   letterSpacing: "normal",
+                  textTransform: "uppercase",
+                  fontWeight: "bold",
                 }}
               >
                 {width > 800
@@ -1618,12 +1622,18 @@ function App() {
         </div>
       </Drawer>
 
-      <Drawer variant="persistent" anchor="left" open={showMenu}>
+      <Drawer
+        variant="persistent"
+        anchor="left"
+        open={showMenu}
+        PaperProps={{ style: { background: "none" } }}
+      >
         <div
           style={{
-            height: height,
-            width: width / 4,
-            backgroundColor: "#eeeeee",
+            // height: "60%",
+            width: "180px",
+            backgroundColor: "#333333",
+            paddingBottom: "20px",
           }}
         >
           <Grid container>
