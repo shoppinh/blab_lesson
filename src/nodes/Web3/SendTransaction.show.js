@@ -10,6 +10,7 @@ function SendTransaction() {
   this.addOutput("hash", "string");
   this.addOutput("receipt", "object");
   this.properties = { address: "", provider: defaultProvider };
+  this.size = [200, 60];
 }
 
 SendTransaction.title = "Gửi giao dịch";
